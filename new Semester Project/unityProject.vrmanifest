@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.rollomaticteachingsetup.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\nicol\\OneDrive - ETH Zurich\\Documents\\ETH\\22.23\\A_Semester Project\\Unity Project\\new Semester Project\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Rollomatic Teaching Setup [Testing]"
+        }
+      }
+    }
+  ]
+}

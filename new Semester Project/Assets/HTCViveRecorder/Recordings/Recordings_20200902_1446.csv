@@ -1,0 +1,7 @@
+TimeSinceStartup,Lhand_xPos,Lhand_yPos,Lhand_zPos,Lhand_wQuat,Lhand_xQuat,Lhand_yQuat,Lhand_zQuat,Rhand_xPos,Rhand_yPos,Rhand_zPos,Rhand_wQuat,Rhand_xQuat,Rhand_yQuat,Rhand_zQuat,HMD_xPos,HMD_yPos,HMD_zPos,HMD_wQuat,HMD_xQuat,HMD_yQuat,HMD_zQuatFocusedObject,LeftBlink,RightBlink,RayOrigin_x,RayOrigin_y,RayOrigin_z,RayDirection_x,RayDirection_y,RayDirection_z,ConvergenceDistance
+0,-0.25,1,-2.4,1,0,0,0,0.25,1,-2.4,1,0,0,0,0,0,-2.4,1,0,0,0,inactive,inactive,inactive,inactive,inactive,inactive,inactive,inactive,inactive,inactive
+0.4721774,-0.25,1,-2.4,1,0,0,0,0.25,1,-2.4,1,0,0,0,0,0,-2.4,1,0,0,0,None,False,False,0,0,-2.4,0,0,1,0
+0.9729428,-0.25,1,-2.4,1,0,0,0,0.25,1,-2.4,1,0,0,0,0,0,-2.4,1,0,0,0,None,False,False,0,0,-2.4,0,0,1,0
+1.474847,-0.25,1,-2.4,1,0,0,0,0.25,1,-2.4,1,0,0,0,0,0,-2.4,1,0,0,0,None,False,False,0,0,-2.4,0,0,1,0
+1.976716,-0.25,1,-2.4,1,0,0,0,0.25,1,-2.4,1,0,0,0,0,0,-2.4,1,0,0,0,None,False,False,0,0,-2.4,0,0,1,0
+2.478992,-0.25,1,-2.4,1,0,0,0,0.25,1,-2.4,1,0,0,0,0,0,-2.4,1,0,0,0,None,False,False,0,0,-2.4,0,0,1,0
