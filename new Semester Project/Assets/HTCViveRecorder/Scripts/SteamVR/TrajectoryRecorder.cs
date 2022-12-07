@@ -21,8 +21,8 @@ public class TrajectoryRecorder : IRecorder
         static string content = "Lhand_xPos,Lhand_yPos,Lhand_zPos,Lhand_wQuat,Lhand_xQuat,Lhand_yQuat,Lhand_zQuat,Lhandxrot,Lhandyrot,Lhandzrot," +
                                 "Rhand_xPos,Rhand_yPos,Rhand_zPos,Rhand_wQuat,Rhand_xQuat,Rhand_yQuat,Rhand_zQuat,Rhandxrot,Rhandyrot,Rhandzrot," +
                                 "HMD_xPos,HMD_yPos,HMD_zPos,HMD_wQuat,HMD_xQuat,HMD_yQuat,HMD_zQuat,HMDxrot,HMDyrot,HMDzrot," +
-                                "lshoulder_xPos,lshoulder_yPos,lshoulder_zPos,lshoulder_wQuat,lshoulder_xQuat,lshoulder_yQuat,lshoulder_zQuat,lshoulder_xrot,lshoulder_yrot,lshoulder_zrot," +
-                                "rshoulder_xPos,rshoulder_yPos,rshoulder_zPos,rshoulder_wQuat,rshoulder_xQuat,rshoulder_yQuat,rshoulder_zQuat,rshoulder_xrot,rshoulder_yrot,rshoulder_zrot";
+                                "vrtracker_xPos,vrtracker_yPos,vrtracker_zPos,vrtracker_wQuat,vrtracker_xQuat,vrtracker_yQuat,vrtracker_zQuat,vrtracker_xrot,vrtracker_yrot,vrtracker_zrot," +
+                                "rtracker_xPos,rtracker_yPos,rtracker_zPos,rtracker_wQuat,rtracker_xQuat,rtracker_yQuat,rtracker_zQuat,rtracker_xrot,rtracker_yrot,rtracker_zrot";
 
         public bool isActive;
 
@@ -72,7 +72,9 @@ public class TrajectoryRecorder : IRecorder
                 m_HMDtransfrom = Player.instance.hmdTransform;
                 m_lHandTransform = Player.instance.leftHand.transform;
                 m_rHandTransform = Player.instance.rightHand.transform;
+                //leftShoulder = tracker 2 = rtracker = LHR-20099559
                 m_lshouldertransform = Player.instance.leftShoulder.transform;
+                //rightShoulder = tracker 1 = vrtracker = LHR-C89590BE
                 m_rshouldertransform = Player.instance.rightShoulder.transform;
                 //m_lshouldertransform = LeftShoulder.transform;
                 //m_rshouldertransform = RightShoulder.transform;
@@ -118,6 +120,7 @@ public class TrajectoryRecorder : IRecorder
 
             //Combine individual strings into one string
             string currentTransformAsString = xCoord + "," + yCoord + "," + zCoord + "," + wQuat + "," + xQuat + "," + yQuat + "," + zQuat + "," + xrot + "," + yrot + "," + zrot ;
+            //string currentTransformAsString = xCoord + "," + yCoord + "," + zCoord + "," + xrot + "," + yrot + "," + zrot;
 
             //Return all components of the current transform as one string (separated by commas)
             return currentTransformAsString;

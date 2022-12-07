@@ -13,7 +13,7 @@ public class WaitingRoomGUIEventHandler : MonoBehaviour
     // Recording parameters
     public bool isRecordingOn = false;
     public string filePath = "C:";
-    public float samplingFrequency = 1;
+    public float samplingFrequency = 50;
     public string selectedScene = " ";
     public string fileName = " ";
 

@@ -2963,9 +2963,8 @@ MonoBehaviour:
   - {fileID: 788018347}
   - {fileID: 788231221}
   - {fileID: 788130973}
-  trackers:
-  - {fileID: 277688422}
-  - {fileID: 1843933992}
+  vrtracker: {fileID: 277688420}
+  rtracker: {fileID: 1843933990}
   headCollider: {fileID: 781714183}
   rigSteamVR: {fileID: 777469295}
   rig2DFallback: {fileID: 777459739}

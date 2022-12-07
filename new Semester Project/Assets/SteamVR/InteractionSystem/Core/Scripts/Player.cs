@@ -7,6 +7,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
+using Valve.VR;
 
 namespace Valve.VR.InteractionSystem
 {
@@ -25,8 +28,11 @@ namespace Valve.VR.InteractionSystem
 		[Tooltip( "List of possible Hands, including no-SteamVR fallback Hands." )]
 		public Hand[] hands;
 
-		[Tooltip("List of possible Trackers.")]
-		public SteamVR_TrackedObject[] trackers;
+		[Tooltip("VR Tracker")]
+		public GameObject vrtracker;
+
+		[Tooltip("R Tracker")]
+		public GameObject rtracker;
 
 		[Tooltip( "Reference to the physics collider that follows the player's HMD position." )]
 		public Collider headCollider;
@@ -159,6 +165,39 @@ namespace Valve.VR.InteractionSystem
 			}
 		}
 
+		//-------------------------------------------------
+		// Set up the trackers
+		//-------------------------------------------------
+				void SetDeviceIndex()
+		{
+			for (int i = 0; i < SteamVR.connected.Length; ++i)
+			{
+				ETrackedPropertyError error = new ETrackedPropertyError();
+				StringBuilder sb = new StringBuilder();
+				OpenVR.System.GetStringTrackedDeviceProperty((uint)i, ETrackedDeviceProperty.Prop_SerialNumber_String, sb, OpenVR.k_unMaxPropertyStringSize, ref error);
+				var SerialNumber = sb.ToString();
+
+				OpenVR.System.GetStringTrackedDeviceProperty((uint)i, ETrackedDeviceProperty.Prop_ModelNumber_String, sb, OpenVR.k_unMaxPropertyStringSize, ref error);
+				var ModelNumber = sb.ToString();
+				if (SerialNumber.Length > 0 || ModelNumber.Length > 0)
+				{
+					Debug.Log("Device " + i.ToString() + " = " + SerialNumber + " | " + ModelNumber);
+
+
+					if (string.Equals("LHR-C89590BE", SerialNumber))
+					{
+						vrtracker.GetComponent<SteamVR_TrackedObject>().SetDeviceIndex(i);
+					}
+
+					else if (string.Equals("LHR-20099559", SerialNumber))
+					{
+						rtracker.GetComponent<SteamVR_TrackedObject>().SetDeviceIndex(i);
+					}
+
+
+				}
+			}
+		}
 
 		////-------------------------------------------------
 		//// Get the Tracker transform. Prone to errors
@@ -180,23 +219,23 @@ namespace Valve.VR.InteractionSystem
 		//}
 
 		////-------------------------------------------------
-		//public SteamVR_TrackedObject leftShoulder
-		//{
-		//	get
-		//	{
-		//		return trackers[3];
-		//	}
-		//}
+		public GameObject leftShoulder
+		{
+			get
+			{
+				return vrtracker;
+			}
+		}
 
 
-		////-------------------------------------------------
-		//public SteamVR_TrackedObject rightShoulder
-		//{
-		//	get
-		//	{
-		//		return trackers[4];
-		//	}
-		//}
+		//-------------------------------------------------
+		public GameObject rightShoulder
+		{
+			get
+			{
+				return rtracker;
+			}
+		}
 
 
 		public float scale
@@ -305,6 +344,8 @@ namespace Valve.VR.InteractionSystem
 
             while (SteamVR.initializedState == SteamVR.InitializedStates.None || SteamVR.initializedState == SteamVR.InitializedStates.Initializing)
                 yield return null;
+
+			SetDeviceIndex();
 
 			if ( SteamVR.instance != null )
 			{
