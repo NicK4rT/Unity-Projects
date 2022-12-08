@@ -14,4 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VR Use Explanation.unity
     guid: 7081308450572fa4f87d526756195850
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 8d2d6c56301c91545b514a781aade540,
+      type: 2}

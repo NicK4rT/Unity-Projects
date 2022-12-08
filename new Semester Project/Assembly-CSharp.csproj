@@ -787,11 +787,17 @@
  <Reference Include="Boo.Lang">
  <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.XR.Management">
+ <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Monetization">
  <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Subsystem.Registration">
+ <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
@@ -817,6 +823,12 @@
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+ <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.XR.Management.Editor">
+ <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
@@ -826,11 +838,20 @@
  <Reference Include="Unity.2D.Tilemap.Editor">
  <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.SpatialTracking">
+ <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
  <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+ <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/nicoltri/Documents/GitHub/Unity-Projects/new Semester Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
