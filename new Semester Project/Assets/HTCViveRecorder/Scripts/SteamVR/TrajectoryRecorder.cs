@@ -22,7 +22,7 @@ public class TrajectoryRecorder : IRecorder
                                 "Rhand_xPos,Rhand_yPos,Rhand_zPos,Rhand_wQuat,Rhand_xQuat,Rhand_yQuat,Rhand_zQuat,Rhandxrot,Rhandyrot,Rhandzrot," +
                                 "HMD_xPos,HMD_yPos,HMD_zPos,HMD_wQuat,HMD_xQuat,HMD_yQuat,HMD_zQuat,HMDxrot,HMDyrot,HMDzrot," +
                                 "vrtracker_xPos,vrtracker_yPos,vrtracker_zPos,vrtracker_wQuat,vrtracker_xQuat,vrtracker_yQuat,vrtracker_zQuat,vrtracker_xrot,vrtracker_yrot,vrtracker_zrot," +
-                                "rtracker_xPos,rtracker_yPos,rtracker_zPos,rtracker_wQuat,rtracker_xQuat,rtracker_yQuat,rtracker_zQuat,rtracker_xrot,rtracker_yrot,rtracker_zrot";
+                                "rtracker_xPos,rtracker_yPos,rtracker_zPos,rtracker_wQuat,rtracker_xQuat,rtracker_yQuat,rtracker_zQuat,rtracker_xrot,rtracker_yrot,rtracker_zrot,";
 
         public bool isActive;
 
