@@ -1,9 +1,0 @@
-https://forum.htc.com/topic/7785-htc-vive-tracker-switches-orientation/
-
-https://developer.tobii.com/xr/develop/unity/getting-started/vive-pro-eye/
-
-https://developer.tobii.com/xr/develop/unity/getting-started/vive-pro-eye/#step-4-set-up-vr-support
-
-https://forum.htc.com/topic/7720-getting-screen-position-of-the-gaze-in-unity/?ct=1670854897
-
-https://issuetracker.unity3d.com/issues/xr-sdk-cameraworldtoscreenpoint-returns-offset-coordinates
