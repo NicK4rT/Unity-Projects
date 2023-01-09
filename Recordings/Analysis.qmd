@@ -770,7 +770,7 @@ while (!is.na(dataVR$Time[c1])) {
   #dataVR$timestep_post[c1-1] <- (T_post-T_current);
   
   if(c1 > 3){
-    dataVR$V2[c1-2] <- ((dataVR$V2[c1-2]-dataVR$V2[c1-3])/(dataVR$Time[c1-2]-dataVR$Time[c1-3])+(dataVR$V2[c1-1]-dataVR$V2[c1-2])/(dataLVR$Time[c1-1]-dataVR$Time[c1-2]))/2;
+    dataVR$V2[c1-2] <- ((dataVR$V2[c1-2]-dataVR$V2[c1-3])/(dataVR$Time[c1-2]-dataVR$Time[c1-3])+(dataVR$V2[c1-1]-dataVR$V2[c1-2])/(dataVR$Time[c1-1]-dataVR$Time[c1-2]))/2;
   }
 
   if(is.nan(preangle)){
@@ -1546,7 +1546,7 @@ while (!is.na(dataVR$Time[c1])) {
   #dataVR$timestep_post[c1-1] <- (T_post-T_current);
   
   if(c1 > 3){
-    dataVR$V2[c1-2] <- ((dataVR$V2[c1-2]-dataVR$V2[c1-3])/(dataVR$Time[c1-2]-dataVR$Time[c1-3])+(dataVR$V2[c1-1]-dataVR$V2[c1-2])/(dataLVR$Time[c1-1]-dataVR$Time[c1-2]))/2;
+    dataVR$V2[c1-2] <- ((dataVR$V2[c1-2]-dataVR$V2[c1-3])/(dataVR$Time[c1-2]-dataVR$Time[c1-3])+(dataVR$V2[c1-1]-dataVR$V2[c1-2])/(dataVR$Time[c1-1]-dataVR$Time[c1-2]))/2;
   }
 
   if(is.nan(preangle)){
