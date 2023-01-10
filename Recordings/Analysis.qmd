@@ -29,6 +29,8 @@ nameVR1 <- apply(nameVR1,1,paste0,collapse = "");
 
 while (i < 10) {
 
+  setwd("/cloud/project/Recordings/Sorting");
+  
 dataRB <- read.csv(file = nameRB1[i]);
 dataLR <- read.csv(file = nameLR1[i]);
 dataVR <- read.csv(file = nameVR1[i]);
@@ -246,7 +248,7 @@ while(!is.na(dataRB$Time[c1])) {
   dataRB$Pty[c1] <- P_it[2];
   dataRB$Ptz[c1] <- P_it[3];
   
-  dataRB$pitch[c1] <- atan(sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3])/sqrt(P_it[2]*P_it[2]));
+  dataRB$pitch[c1] <- atan(sqrt(P_it[2]*P_it[2])/sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3]));
   dataRB$roll[c1] <- atan(sqrt(P_it[1]*P_it[1])/sqrt(P_it[3]*P_it[3]));
   
   if(P_it[3] < 0){
@@ -470,7 +472,7 @@ while (!is.na(dataLR$Time[c1])) {
   dataLR$Pty[c1] <- P_it[2];
   dataLR$Ptz[c1] <- P_it[3];
   
-  dataLR$pitch[c1] <- atan(sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3])/sqrt(P_it[2]*P_it[2]));
+  dataLR$pitch[c1] <- atan(sqrt(P_it[2]*P_it[2])/sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3]));
   dataLR$roll[c1] <- atan(sqrt(P_it[1]*P_it[1])/sqrt(P_it[3]*P_it[3]));
   
   if(P_it[3] < 0){
@@ -690,7 +692,7 @@ while (!is.na(dataVR$Time[c1])) {
   dataVR$Pty[c1] <- P_it[2];
   dataVR$Ptz[c1] <- P_it[3];
   
-  dataVR$pitch[c1] <- atan(sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3])/sqrt(P_it[2]*P_it[2]));
+  dataVR$pitch[c1] <- atan(sqrt(P_it[2]*P_it[2])/sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3]));
   dataVR$roll[c1] <- atan(sqrt(P_it[1]*P_it[1])/sqrt(P_it[3]*P_it[3]));
   
   if(P_it[3] < 0){
@@ -801,7 +803,7 @@ i <- i + 1;
 };
 
 
-#i <- 1;
+#i <- 10;
 
 nameRB2 <- expand.grid('US',1:31,'RB.csv');
 nameRB2 <- apply(nameRB2,1,paste0,collapse = "");
@@ -812,11 +814,30 @@ nameVR2 <- apply(nameVR2,1,paste0,collapse = "");
 
 
 while (i < 26) {
+  
+  setwd("/cloud/project/Recordings/Sorting");
 
 dataRB <- read.csv(file = nameRB2[i]);
 dataLR <- read.csv(file = nameLR2[i]);
 dataVR <- read.csv(file = nameVR2[i]);
 
+dataRB <- dataRB %>%
+  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement)
+dataLR <- dataLR %>%
+  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement)
+dataVR <- dataVR %>%
+  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement,FocusedObject,RayOrigin_x,RayOrigin_y,RayOrigin_z,RayDirection_x,RayDirection_y,RayDirection_z)
+
+dataRB[dataRB == ""] <- NA;
+dataLR[dataLR == ""] <- NA;
+dataVR[dataVR == ""] <- NA;
+
+dataRB <- dataRB %>%
+  drop_na(Phase)
+dataLR <- dataLR %>%
+  drop_na(Phase)
+dataVR <- dataVR %>%
+  drop_na(Phase)
 
 dataRB[dataRB == ""] <- NA;
 dataLR[dataLR == ""] <- NA;
@@ -1023,7 +1044,7 @@ while (!is.na(dataRB$Time[c1])) {
   dataRB$Pty[c1] <- P_it[2];
   dataRB$Ptz[c1] <- P_it[3];
 
-  dataRB$pitch[c1] <- atan(sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3])/sqrt(P_it[2]*P_it[2]));
+  dataRB$pitch[c1] <- atan(sqrt(P_it[2]*P_it[2])/sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3]));
   dataRB$roll[c1] <- atan(sqrt(P_it[1]*P_it[1])/sqrt(P_it[3]*P_it[3]));
 
   if(P_it[3] < 0){
@@ -1246,7 +1267,7 @@ while (!is.na(dataLR$Time[c1])) {
   dataLR$Pty[c1] <- P_it[2];
   dataLR$Ptz[c1] <- P_it[3];
 
-  dataLR$pitch[c1] <- atan(sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3])/sqrt(P_it[2]*P_it[2]));
+  dataLR$pitch[c1] <- atan(sqrt(P_it[2]*P_it[2])/sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3]));
   dataLR$roll[c1] <- atan(sqrt(P_it[1]*P_it[1])/sqrt(P_it[3]*P_it[3]));
 
   if(P_it[3] < 0){
@@ -1466,7 +1487,7 @@ while (!is.na(dataVR$Time[c1])) {
   dataVR$Pty[c1] <- P_it[2];
   dataVR$Ptz[c1] <- P_it[3];
 
-  dataVR$pitch[c1] <- atan(sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3])/sqrt(P_it[2]*P_it[2]));
+  dataVR$pitch[c1] <- atan(sqrt(P_it[2]*P_it[2])/sqrt(P_it[1]*P_it[1]+P_it[3]*P_it[3]));
   dataVR$roll[c1] <- atan(sqrt(P_it[1]*P_it[1])/sqrt(P_it[3]*P_it[3]));
 
   if(P_it[3] < 0){
@@ -1642,6 +1663,44 @@ setwd("/cloud/project/Recordings");
 
 #myfiles  %>%
 #select(TimeSinceStartup)
+
+```
+
+```{r}
+#data export
+
+i <- 1
+
+setwd("/cloud/project/Recordings/Clean");
+
+nameRB1 <- expand.grid('US',1:9,'RB.csv');
+nameRB1 <- apply(nameRB1,1,paste0,collapse = "");
+nameLR1 <- expand.grid('US',1:9,'LR.csv');
+nameLR1 <- apply(nameLR1,1,paste0,collapse = "");
+nameVR1 <- expand.grid('US',1:9,'VR.csv');
+nameVR1 <- apply(nameVR1,1,paste0,collapse = "");
+nameRB2 <- expand.grid('US',1:31,'RB.csv');
+nameRB2 <- apply(nameRB2,1,paste0,collapse = "");
+nameLR2 <- expand.grid('US',1:31,'LR.csv');
+nameLR2 <- apply(nameLR2,1,paste0,collapse = "");
+nameVR2 <- expand.grid('US',1:31,'VR.csv');
+nameVR2 <- apply(nameVR2,1,paste0,collapse = "");
+
+while (i < 10) {
+  write.csv(nameRB1[i], nameRB1[i], row.names=TRUE);
+  write.csv(nameLR1[i], nameLR1[i], row.names=TRUE);
+  write.csv(nameVR1[i], nameVR1[i], row.names=TRUE);
+  i <- i+1;
+}
+
+while (i < 26) {
+  write.csv(nameRB2[i], nameRB2[i], row.names=TRUE);
+  write.csv(nameLR2[i], nameLR2[i], row.names=TRUE);
+  write.csv(nameVR2[i], nameVR2[i], row.names=TRUE);
+  i <- i+1;
+}
+
+rm(nameRB1,nameRB2,nameLR1,nameLR2,nameVR1,nameVR2,i);
 
 ```
 
