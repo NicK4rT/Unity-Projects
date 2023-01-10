@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.rollomaticteachingsetup.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\nicoltri\\Documents\\GitHub\\Unity-Projects\\new Semester Project - TobiiTest\\actions.json",
+      "action_manifest_path": "C:\\Users\\nicoltri\\Documents\\GitHub\\Unity-Projects\\Semester Project\\actions.json",
       "strings": {
         "en_us": {
           "name": "Rollomatic Teaching Setup [Testing]"
