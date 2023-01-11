@@ -218,7 +218,7 @@ transfermatrix <- matrix(0,nrow=3,ncol=3);
 transfermatrix[1,1] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[1,3] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[2,2] <- 1;
-transfermatrix[3,1] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
+transfermatrix[3,1] <- -Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[3,3] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 
   P_ct <- c(Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]),0,Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]));
@@ -452,7 +452,7 @@ transfermatrix <- matrix(0,nrow=3,ncol=3);
 transfermatrix[1,1] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[1,3] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[2,2] <- 1;
-transfermatrix[3,1] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
+transfermatrix[3,1] <- -Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[3,3] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 
 
@@ -684,7 +684,7 @@ transfermatrix <- matrix(0,nrow=3,ncol=3);
 transfermatrix[1,1] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[1,3] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[2,2] <- 1;
-transfermatrix[3,1] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
+transfermatrix[3,1] <- -Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[3,3] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 
 
@@ -1053,7 +1053,7 @@ transfermatrix <- matrix(0,nrow=3,ncol=3);
 transfermatrix[1,1] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[1,3] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[2,2] <- 1;
-transfermatrix[3,1] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
+transfermatrix[3,1] <- -Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[3,3] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 
   P_ct <- c(Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]),0,Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]));
@@ -1286,7 +1286,7 @@ transfermatrix <- matrix(0,nrow=3,ncol=3);
 transfermatrix[1,1] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[1,3] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[2,2] <- 1;
-transfermatrix[3,1] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
+transfermatrix[3,1] <- -Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[3,3] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 
   P_ct <- c(Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]),0,Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]));
@@ -1518,7 +1518,7 @@ transfermatrix <- matrix(0,nrow=3,ncol=3);
 transfermatrix[1,1] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[1,3] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[2,2] <- 1;
-transfermatrix[3,1] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
+transfermatrix[3,1] <- -Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 transfermatrix[3,3] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
 
   P_ct <- c(Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]),0,Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]));
@@ -1891,7 +1891,9 @@ data$xrot[c1] <- (data$xrot[c1]-180);
 data$yrot[c1] <- (data$yrot[c1]-180);
 data$zrot[c1] <- (data$zrot[c1]-180);
 
+
 Q <- c(dataRB$wquat[c1],dataRB$xquat[c1],dataRB$yquat[c1],dataRB$zquat[c1])
+
 
 rot_Matrix <- Q2DCM(Q);
 
@@ -1904,6 +1906,592 @@ ynt <- rot_Matrix*yn;
 znt <- rot_Matrix*zn;
 
 }
+
+```
+
+```{r}
+
+#dataTEST <- read.csv(file = "TrackerTest_20230110_1631.csv");
+setwd("/cloud/project/Recordings/Sorting");
+dataTEST <- read.csv(file = "US1RB.csv");
+
+# dataTEST <- dataTEST %>%
+#   rename("Time" = "TimeSinceStartup",
+#          "wquat" = "vrtracker_wQuat",
+#          "xquat" = "vrtracker_xQuat",
+#          "yquat" = "vrtracker_yQuat",
+#          "zquat" = "vrtracker_zQuat",
+#          "xrot" = "vrtracker_xrot",
+#          "yrot" = "vrtracker_yrot",
+#          "zrot" = "vrtracker_zrot")
+dataTEST <- dataTEST %>%
+  select(Time,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO)
+dataTEST[dataTEST == ""] <- NA;
+dataTEST <- dataTEST %>%
+  drop_na(Phase)
+
+dataTEST[,'pitch'] <- NA;
+dataTEST[,'yaw'] <- NA;
+dataTEST[,'pitch2'] <- NA;
+dataTEST[,'yaw2'] <- NA;
+
+dataTEST[,'xnx'] <- NA;
+dataTEST[,'xny'] <- NA;
+dataTEST[,'xnz'] <- NA;
+dataTEST[,'ynx'] <- NA;
+dataTEST[,'yny'] <- NA;
+dataTEST[,'ynz'] <- NA;
+dataTEST[,'znx'] <- NA;
+dataTEST[,'zny'] <- NA;
+dataTEST[,'znz'] <- NA;
+dataTEST[,'xnxt'] <- NA;
+dataTEST[,'xnyt'] <- NA;
+dataTEST[,'xnzt'] <- NA;
+dataTEST[,'ynxt'] <- NA;
+dataTEST[,'ynyt'] <- NA;
+dataTEST[,'ynzt'] <- NA;
+dataTEST[,'znxt'] <- NA;
+dataTEST[,'znyt'] <- NA;
+dataTEST[,'znzt'] <- NA;
+
+
+c0 <- 1;
+calw <- 0;
+calx <- 0;
+caly <- 0;
+calz <- 0;
+
+C <- c(c(0,0,0),c(0,0,0),c(0,0,0));
+
+while (dataTEST$Phase[c0] == "Calibration") {
+  calw <- dataTEST$wquat[c0]# + calw;
+  calx <- dataTEST$xquat[c0]# + calx;
+  caly <- dataTEST$yquat[c0]# + caly;
+  calz <- dataTEST$zquat[c0]# + calz;
+  c0 <- c0+1;
+
+q0 <- calw#/(c0-1);
+q1 <- calx#/(c0-1);
+q2 <- caly#/(c0-1);
+q3 <- calz#/(c0-1);
+
+# q0 <- calw#/(c0-1);
+# q1 <- -calx#/(c0-1);
+# q2 <- -calz#/(c0-1);
+# q3 <- -caly#/(c0-1);
+
+# First row of the rotation matrix
+r00 <- 2 * (q0 * q0 + q1 * q1) - 1;
+r01 <- 2 * (q1 * q2 - q0 * q3);
+r02 <- 2 * (q1 * q3 + q0 * q2);
+
+# Second row of the rotation matrix
+r10 <- 2 * (q1 * q2 + q0 * q3);
+r11 <- 2 * (q0 * q0 + q2 * q2) - 1;
+r12 <- 2 * (q2 * q3 - q0 * q1);
+
+# Third row of the rotation matrix
+r20 <- 2 * (q1 * q3 - q0 * q2);
+r21 <- 2 * (q2 * q3 + q0 * q1);
+r22 <- 2 * (q0 * q0 + q3 * q3) - 1;
+
+# 3x3 rotation matrix
+C <- C + c(c(r00, r01, r02),c(r10, r11, r12),c(r20, r21, r22));
+}
+C <- C/(c0-1);
+calquat <- matrix(C,nrow=3,ncol=3);
+# print(c0);
+# print("calquat");
+# print(calquat);
+calquatinv <- inv(calquat);
+
+  X_n <- c(1,0,0);
+  Y_n <- c(0,1,0);
+  Z_n <- c(0,0,1);
+
+  Px <- c(calquat[1,1]*X_n[1]+calquat[1,2]*X_n[2]+calquat[1,3]*X_n[3],calquat[2,1]*X_n[1]+calquat[2,2]*X_n[2]+calquat[2,3]*X_n[3],calquat[3,1]*X_n[1]+calquat[3,2]*X_n[2]+calquat[3,3]*X_n[3]);
+  Py <- c(calquat[1,1]*Y_n[1]+calquat[1,2]*Y_n[2]+calquat[1,3]*Y_n[3],calquat[2,1]*Y_n[1]+calquat[2,2]*Y_n[2]+calquat[2,3]*Y_n[3],calquat[3,1]*Y_n[1]+calquat[3,2]*Y_n[2]+calquat[3,3]*Y_n[3]);
+  Pz <- c(calquat[1,1]*Z_n[1]+calquat[1,2]*Z_n[2]+calquat[1,3]*Z_n[3],calquat[2,1]*Z_n[1]+calquat[2,2]*Z_n[2]+calquat[2,3]*Z_n[3],calquat[3,1]*Z_n[1]+calquat[3,2]*Z_n[2]+calquat[3,3]*Z_n[3]);
+
+transfermatrix <- matrix(0,nrow=3,ncol=3);
+# transfermatrix[1,1] <- 1;
+# transfermatrix[3,3] <- 1;
+transfermatrix[1,1] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
+transfermatrix[1,3] <- Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
+transfermatrix[2,2] <- 1;
+transfermatrix[3,1] <- -Py[1]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
+transfermatrix[3,3] <- Py[3]/sqrt(Py[1]*Py[1]+Py[3]*Py[3]);
+
+
+
+c1 <- 1
+
+while (c1 < nrow(dataTEST)+1) {
+
+dataTEST$xrot[c1] <- (dataTEST$xrot[c1]-180);
+dataTEST$yrot[c1] <- (dataTEST$yrot[c1]-180);
+dataTEST$zrot[c1] <- (dataTEST$zrot[c1]-180);
+
+
+
+# R - R
+
+#Q <- c(dataTEST$wquat[c1],dataTEST$xquat[c1],dataTEST$yquat[c1],dataTEST$zquat[c1])
+
+# L - R
+
+Q <- c(dataTEST$wquat[c1],-dataTEST$xquat[c1],-dataTEST$zquat[c1],-dataTEST$yquat[c1])
+
+
+
+
+rot_Matrix <- Q2DCM(Q);
+
+
+
+
+xn <- c(1,0,0)
+yn <- c(0,1,0)
+zn <- c(0,0,1)
+# 
+xn <- Q2EA(Q,"xyz")/pi*180
+yn <- Q2EA(Q,"xzy")/pi*180
+zn <- Q2EA(Q,"yxz")/pi*180
+# 
+# xn <- c(rot_Matrix[1,1]*xn[1]+rot_Matrix[1,2]*xn[2]+rot_Matrix[1,3]*xn[3],rot_Matrix[2,1]*xn[1]+rot_Matrix[2,2]*xn[2]+rot_Matrix[2,3]*xn[3],rot_Matrix[3,1]*xn[1]+rot_Matrix[3,2]*xn[2]+rot_Matrix[3,3]*xn[3]);
+# yn <- c(rot_Matrix[1,1]*yn[1]+rot_Matrix[1,2]*yn[2]+rot_Matrix[1,3]*yn[3],rot_Matrix[2,1]*yn[1]+rot_Matrix[2,2]*yn[2]+rot_Matrix[2,3]*yn[3],rot_Matrix[3,1]*yn[1]+rot_Matrix[3,2]*yn[2]+rot_Matrix[3,3]*yn[3]);
+# zn <- c(rot_Matrix[1,1]*zn[1]+rot_Matrix[1,2]*zn[2]+rot_Matrix[1,3]*zn[3],rot_Matrix[2,1]*zn[1]+rot_Matrix[2,2]*zn[2]+rot_Matrix[2,3]*zn[3],rot_Matrix[3,1]*zn[1]+rot_Matrix[3,2]*zn[2]+rot_Matrix[3,3]*zn[3]);
+# 
+dataTEST$xnx[c1] <- round(xn[1],3);
+dataTEST$xny[c1] <- round(xn[2],3);
+dataTEST$xnz[c1] <- round(xn[3],3);
+dataTEST$ynx[c1] <- round(yn[1],3);
+dataTEST$yny[c1] <- round(yn[2],3);
+dataTEST$ynz[c1] <- round(yn[3],3);
+dataTEST$znx[c1] <- round(zn[1],3);
+dataTEST$zny[c1] <- round(zn[2],3);
+dataTEST$znz[c1] <- round(zn[3],3);
+
+
+  # q0 <- dataTEST$wquat[c1];
+  # q1 <- dataTEST$xquat[c1];
+  # q2 <- dataTEST$yquat[c1];
+  # q3 <- dataTEST$zquat[c1];
+
+q0 <- dataTEST$wquat[c1];
+q1 <- -dataTEST$xquat[c1];
+q2 <- -dataTEST$zquat[c1];
+q3 <- -dataTEST$yquat[c1];
+
+  # First row of the rotation matrix
+  r00 <- 2 * (q0 * q0 + q1 * q1) - 1;
+  r01 <- 2 * (q1 * q2 - q0 * q3);
+  r02 <- 2 * (q1 * q3 + q0 * q2);
+
+  # Second row of the rotation matrix
+  r10 <- 2 * (q1 * q2 + q0 * q3);
+  r11 <- 2 * (q0 * q0 + q2 * q2) - 1;
+  r12 <- 2 * (q2 * q3 - q0 * q1);
+
+  # Third row of the rotation matrix
+  r20 <- 2 * (q1 * q3 - q0 * q2);
+  r21 <- 2 * (q2 * q3 + q0 * q1);
+  r22 <- 2 * (q0 * q0 + q3 * q3) - 1;
+
+  # 3x3 rotation matrix
+  C <- c(c(r00, r01, r02),c(r10, r11, r12),c(r20, r21, r22));
+  rot_Matrix = matrix(C,nrow=3,ncol=3);
+
+
+
+  q0 <- dataTEST$wquat[c1];
+  q1 <- dataTEST$xquat[c1];
+  q2 <- dataTEST$yquat[c1];
+  q3 <- dataTEST$zquat[c1];
+
+
+  # First row of the rotation matrix
+  r00 <- 2 * (q0 * q0 + q1 * q1) - 1;
+  r01 <- 2 * (q1 * q2 - q0 * q3);
+  r02 <- 2 * (q1 * q3 + q0 * q2);
+
+  # Second row of the rotation matrix
+  r10 <- 2 * (q1 * q2 + q0 * q3);
+  r11 <- 2 * (q0 * q0 + q2 * q2) - 1;
+  r12 <- 2 * (q2 * q3 - q0 * q1);
+
+  # Third row of the rotation matrix
+  r20 <- 2 * (q1 * q3 - q0 * q2);
+  r21 <- 2 * (q2 * q3 + q0 * q1);
+  r22 <- 2 * (q0 * q0 + q3 * q3) - 1;
+
+  # 3x3 rotation matrix
+  C <- c(c(r00, r01, r02),c(r10, r11, r12),c(r20, r21, r22));
+  rot_Matrix = matrix(C,nrow=3,ncol=3);
+
+
+
+
+
+# rotation.w <- dataTEST$wquat[c1];
+# rotation.x <- dataTEST$xquat[c1];
+# rotation.y <- dataTEST$yquat[c1];
+# rotation.z <- dataTEST$zquat[c1];
+
+
+xn <- c(1,0,0)
+yn <- c(0,1,0)
+zn <- c(0,0,1)
+
+# xn <- c(rot_Matrix[1,1]*xn[1]+rot_Matrix[1,2]*xn[2]+rot_Matrix[1,3]*xn[3],rot_Matrix[2,1]*xn[1]+rot_Matrix[2,2]*xn[2]+rot_Matrix[2,3]*xn[3],rot_Matrix[3,1]*xn[1]+rot_Matrix[3,2]*xn[2]+rot_Matrix[3,3]*xn[3]);
+# yn <- c(rot_Matrix[1,1]*yn[1]+rot_Matrix[1,2]*yn[2]+rot_Matrix[1,3]*yn[3],rot_Matrix[2,1]*yn[1]+rot_Matrix[2,2]*yn[2]+rot_Matrix[2,3]*yn[3],rot_Matrix[3,1]*yn[1]+rot_Matrix[3,2]*yn[2]+rot_Matrix[3,3]*yn[3]);
+# zn <- c(rot_Matrix[1,1]*zn[1]+rot_Matrix[1,2]*zn[2]+rot_Matrix[1,3]*zn[3],rot_Matrix[2,1]*zn[1]+rot_Matrix[2,2]*zn[2]+rot_Matrix[2,3]*zn[3],rot_Matrix[3,1]*zn[1]+rot_Matrix[3,2]*zn[2]+rot_Matrix[3,3]*zn[3]);
+
+# vector3x <- zn[1];
+# vector3y <- zn[2];
+# vector3z <- zn[3];
+# 
+#   vector3x <- ((1.0 - (rotation.y * rotation.y + rotation.z * rotation.z)) * vector3x + (rotation.x * rotation.y - rotation.w * rotation.z) * vector3y + (rotation.x * rotation.z + rotation.w * rotation.y) * vector3z);
+# 
+#   vector3y <- ((rotation.x * rotation.y + rotation.w * rotation.z) * vector3x + (1.0 - (rotation.x * rotation.x + rotation.z * rotation.z)) * vector3y + (rotation.y * rotation.z - rotation.w * rotation.x) * vector3z);
+# 
+#   vector3z <- ((rotation.x * rotation.z - rotation.w * rotation.y) * vector3x + (rotation.y * rotation.z + rotation.w * rotation.x) * vector3y + (1.0 - (rotation.x * rotation.x + rotation.y * rotation.y)) * vector3z);
+# 
+# dataTEST$xnxt[c1] <- round(vector3x,3);
+# dataTEST$xnyt[c1] <- round(vector3y,3);
+# dataTEST$xnzt[c1] <- round(vector3z,3);
+# 
+# vector3x <- yn[1];
+# vector3y <- yn[2];
+# vector3z <- yn[3];
+# 
+#   vector3x <- ((1.0 - (rotation.y * rotation.y + rotation.z * rotation.z)) * vector3x + (rotation.x * rotation.y - rotation.w * rotation.z) * vector3y + (rotation.x * rotation.z + rotation.w * rotation.y) * vector3z);
+# 
+#   vector3y <- ((rotation.x * rotation.y + rotation.w * rotation.z) * vector3x + (1.0 - (rotation.x * rotation.x + rotation.z * rotation.z)) * vector3y + (rotation.y * rotation.z - rotation.w * rotation.x) * vector3z);
+# 
+#   vector3z <- ((rotation.x * rotation.z - rotation.w * rotation.y) * vector3x + (rotation.y * rotation.z + rotation.w * rotation.x) * vector3y + (1.0 - (rotation.x * rotation.x + rotation.y * rotation.y)) * vector3z);
+# 
+# dataTEST$ynxt[c1] <- round(vector3x,3);
+# dataTEST$ynyt[c1] <- round(vector3y,3);
+# dataTEST$ynzt[c1] <- round(vector3z,3);
+# 
+# vector3x <- zn[1];
+# vector3y <- zn[2];
+# vector3z <- zn[3];
+# 
+#   vector3x <- ((1.0 - (rotation.y * rotation.y + rotation.z * rotation.z)) * vector3x + (rotation.x * rotation.y - rotation.w * rotation.z) * vector3y + (rotation.x * rotation.z + rotation.w * rotation.y) * vector3z);
+# 
+#   vector3y <- ((rotation.x * rotation.y + rotation.w * rotation.z) * vector3x + (1.0 - (rotation.x * rotation.x + rotation.z * rotation.z)) * vector3y + (rotation.y * rotation.z - rotation.w * rotation.x) * vector3z);
+# 
+#   vector3z <- ((rotation.x * rotation.z - rotation.w * rotation.y) * vector3x + (rotation.y * rotation.z + rotation.w * rotation.x) * vector3y + (1.0 - (rotation.x * rotation.x + rotation.y * rotation.y)) * vector3z);
+# 
+# dataTEST$znxt[c1] <- round(vector3x,3);
+# dataTEST$znyt[c1] <- round(vector3y,3);
+# dataTEST$znzt[c1] <- round(vector3z,3);
+
+
+xn <- c(1,0,0)
+yn <- c(0,1,0)
+zn <- c(0,0,1)
+
+#R to R
+
+# w <- dataTEST$wquat[c1];
+# x <- dataTEST$xquat[c1];
+# y <- dataTEST$yquat[c1];
+# z <- dataTEST$zquat[c1];
+
+#L to R
+
+w <- dataTEST$wquat[c1];
+x <- -dataTEST$xquat[c1];
+y <- -dataTEST$zquat[c1];
+z <- -dataTEST$yquat[c1];
+
+
+# xn <- c(w^2+x^2-y^2-z^2,2*(x*y+w*z),2*(x*z+w*y));
+# yn <- c(2*(x*y-w*z),w^2-x^2+y^2-z^2,2*(w*x+y*z));
+# zn <- c(2*(x*z+w*y),2*(y*z-w*x),w^2-x^2-y^2+z^2);
+
+
+xn <- c(1-2*(y^2+z^2),2*(x*y+w*z),2*(x*z+w*y));
+yn <- c(2*(x*y-w*z),1-2*(x^2+z^2),2*(w*x+y*z));
+zn <- c(2*(x*z+w*y),2*(y*z-w*x),1-2*x^2+2*y^2);
+
+xn <- Q2EA(Q,"yzx")/pi*180
+yn <- Q2EA(Q,"zxy")/pi*180
+zn <- Q2EA(Q,"zyx")/pi*180
+
+dataTEST$xnxt[c1] <- round(xn[1],3);
+dataTEST$xnyt[c1] <- round(xn[2],3);
+dataTEST$xnzt[c1] <- round(xn[3],3);
+dataTEST$ynxt[c1] <- round(yn[1],3);
+dataTEST$ynyt[c1] <- round(yn[2],3);
+dataTEST$ynzt[c1] <- round(yn[3],3);
+dataTEST$znxt[c1] <- round(zn[1],3);
+dataTEST$znyt[c1] <- round(zn[2],3);
+dataTEST$znzt[c1] <- round(zn[3],3);
+
+
+c1 <- c1 + 1;
+
+}
+
+```
+
+```{r}
+
+
+
+setwd("/cloud/project/Recordings/Sorting");
+dataTEST <- read.csv(file = "US1RB.csv");
+
+dataTEST <- dataTEST %>%
+  select(Time,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO)
+dataTEST[dataTEST == ""] <- NA;
+dataTEST <- dataTEST %>%
+  drop_na(Phase)
+
+dataTEST[,'pitch'] <- NA;
+dataTEST[,'yaw'] <- NA;
+dataTEST[,'pitch2'] <- NA;
+dataTEST[,'yaw2'] <- NA;
+
+
+#This seems to somewhat work
+
+
+c0 <- 1;
+calw <- 0;
+calx <- 0;
+caly <- 0;
+calz <- 0;
+
+C <- c(c(0,0,0),c(0,0,0),c(0,0,0));
+
+while (dataTEST$Phase[c0] == "Calibration") {
+  calw <- dataTEST$wquat[c0]# + calw;
+  calx <- dataTEST$xquat[c0]# + calx;
+  caly <- dataTEST$yquat[c0]# + caly;
+  calz <- dataTEST$zquat[c0]# + calz;
+  c0 <- c0+1;
+
+# q0 <- calw#/(c0-1);
+# q1 <- calx#/(c0-1);
+# q2 <- caly#/(c0-1);
+# q3 <- calz#/(c0-1);
+
+q0 <- calw#/(c0-1);
+q1 <- -calx#/(c0-1);
+q2 <- -calz#/(c0-1);
+q3 <- -caly#/(c0-1);
+
+# First row of the rotation matrix
+r00 <- 2 * (q0 * q0 + q1 * q1) - 1;
+r01 <- 2 * (q1 * q2 - q0 * q3);
+r02 <- 2 * (q1 * q3 + q0 * q2);
+
+# Second row of the rotation matrix
+r10 <- 2 * (q1 * q2 + q0 * q3);
+r11 <- 2 * (q0 * q0 + q2 * q2) - 1;
+r12 <- 2 * (q2 * q3 - q0 * q1);
+
+# Third row of the rotation matrix
+r20 <- 2 * (q1 * q3 - q0 * q2);
+r21 <- 2 * (q2 * q3 + q0 * q1);
+r22 <- 2 * (q0 * q0 + q3 * q3) - 1;
+
+# 3x3 rotation matrix
+C <- C + c(c(r00, r01, r02),c(r10, r11, r12),c(r20, r21, r22));
+}
+C <- C/(c0-1);
+calquat <- matrix(C,nrow=3,ncol=3);
+# print(c0);
+# print("calquat");
+# print(calquat);
+calquatinv <- inv(calquat);
+
+  X_n <- c(1,0,0);
+  Y_n <- c(0,1,0);
+  Z_n <- c(0,0,1);
+
+  Px <- c(calquat[1,1]*X_n[1]+calquat[1,2]*X_n[2]+calquat[1,3]*X_n[3],calquat[2,1]*X_n[1]+calquat[2,2]*X_n[2]+calquat[2,3]*X_n[3],calquat[3,1]*X_n[1]+calquat[3,2]*X_n[2]+calquat[3,3]*X_n[3]);
+  Py <- c(calquat[1,1]*Y_n[1]+calquat[1,2]*Y_n[2]+calquat[1,3]*Y_n[3],calquat[2,1]*Y_n[1]+calquat[2,2]*Y_n[2]+calquat[2,3]*Y_n[3],calquat[3,1]*Y_n[1]+calquat[3,2]*Y_n[2]+calquat[3,3]*Y_n[3]);
+  Pz <- c(calquat[1,1]*Z_n[1]+calquat[1,2]*Z_n[2]+calquat[1,3]*Z_n[3],calquat[2,1]*Z_n[1]+calquat[2,2]*Z_n[2]+calquat[2,3]*Z_n[3],calquat[3,1]*Z_n[1]+calquat[3,2]*Z_n[2]+calquat[3,3]*Z_n[3]);
+
+
+ N <- c((Y_n[2]*Px[3]) - (Y_n[3]*Px[2]), (Y_n[3]*Px[1]) - (Y_n[1]*Px[3]), (Y_n[1]*Px[2]) - (Y_n[2]*Px[1]))
+ #N <- c(0,0,1)
+
+  Pn <- c(calquatinv[1,1]*N[1]+calquatinv[1,2]*N[2]+calquatinv[1,3]*N[3],calquatinv[2,1]*N[1]+calquatinv[2,2]*N[2]+calquatinv[2,3]*N[3],calquatinv[3,1]*N[1]+calquatinv[3,2]*N[2]+calquatinv[3,3]*N[3]);
+
+  
+basismatrix <- matrix(c(c((Y_n[2]*N[3]) - (Y_n[3]*N[2]), (Y_n[3]*N[1]) - (Y_n[1]*N[3]), (Y_n[1]*N[2]) - (Y_n[2]*N[1])),c(0,1,0),c(N[1],N[2],N[3])),nrow=3,ncol=3);
+
+#basismatrix <- t(basismatrix)
+
+c1 <- 1
+
+while (c1 < nrow(dataTEST)+1) {
+
+
+  # q0 <- dataTEST$wquat[c1];
+  # q1 <- dataTEST$xquat[c1];
+  # q2 <- dataTEST$yquat[c1];
+  # q3 <- dataTEST$zquat[c1];
+
+q0 <- dataTEST$wquat[c1];
+q1 <- -dataTEST$xquat[c1];
+q2 <- -dataTEST$zquat[c1];
+q3 <- -dataTEST$yquat[c1];
+
+
+  # First row of the rotation matrix
+  r00 <- 2 * (q0 * q0 + q1 * q1) - 1;
+  r01 <- 2 * (q1 * q2 - q0 * q3);
+  r02 <- 2 * (q1 * q3 + q0 * q2);
+
+  # Second row of the rotation matrix
+  r10 <- 2 * (q1 * q2 + q0 * q3);
+  r11 <- 2 * (q0 * q0 + q2 * q2) - 1;
+  r12 <- 2 * (q2 * q3 - q0 * q1);
+
+  # Third row of the rotation matrix
+  r20 <- 2 * (q1 * q3 - q0 * q2);
+  r21 <- 2 * (q2 * q3 + q0 * q1);
+  r22 <- 2 * (q0 * q0 + q3 * q3) - 1;
+
+  # 3x3 rotation matrix
+  C <- c(c(r00, r01, r02),c(r10, r11, r12),c(r20, r21, r22));
+  rot_Matrix = matrix(C,nrow=3,ncol=3);
+
+  Pnt <- c(rot_Matrix[1,1]*Pn[1]+rot_Matrix[1,2]*Pn[2]+rot_Matrix[1,3]*Pn[3],rot_Matrix[2,1]*Pn[1]+rot_Matrix[2,2]*Pn[2]+rot_Matrix[2,3]*Pn[3],rot_Matrix[3,1]*Pn[1]+rot_Matrix[3,2]*Pn[2]+rot_Matrix[3,3]*Pn[3]);
+  
+  yaw <- -(acos((Pnt[1]*N[1]+0+Pnt[3]*N[3])/(sqrt(Pnt[1]*Pnt[1]+Pnt[3]*Pnt[3])*sqrt(N[1]*N[1]+N[3]*N[3]))))/pi*180;
+  pitch <- (acos((Pnt[1]*Pnt[1]+Pnt[3]*Pnt[3])/(sqrt(Pnt[1]*Pnt[1]+Pnt[2]*Pnt[2]+Pnt[3]*Pnt[3])*sqrt(Pnt[1]*Pnt[1]+Pnt[3]*Pnt[3]))))/pi*180;
+  #pitch2 <- (atan(Pnt[2]/sqrt(Pnt[1]^2+Pnt[3]^2)))/pi*180;
+  
+  if(Pnt[2] < 0){
+    pitch <- -pitch
+  }
+  if(Pnt[1] < N[1]){
+    yaw <- -yaw
+  }
+  
+  dataTEST$pitch[c1] = round(pitch,3)
+  dataTEST$yaw[c1] = round(yaw,3)
+  
+  #dataTEST$pitch2[c1] = round(pitch2,3)
+  
+c1 <- c1 + 1;
+
+}
+  
+  xrot <- 0
+  yrot <- 0
+  zrot <- 0
+  
+  R <- matrix(0,nrow=3,ncol=3)
+  
+  c0 <- 1
+  
+#this does work as well
+  
+while (dataTEST$Phase[c0] == "Calibration") {
+  xrot <- dataTEST$xrot[c0]/180*pi-pi + xrot;
+  yrot <- dataTEST$yrot[c0]/180*pi-pi + yrot;
+  zrot <- dataTEST$zrot[c0]/180*pi-pi + zrot;
+  c0 <- c0+1;
+}
+  a <- xrot/(c0-1)
+  b <- yrot/(c0-1)
+  c <- zrot/(c0-1)
+
+  
+  # a <- 0
+  # b <- 0
+  # c <- 0
+  
+  Rx <- matrix(c(c(1,0,0),c(0,cos(a),-sin(a)),c(0,sin(a),cos(a))),nrow=3,ncol=3)
+    
+  Ry <- matrix(c(c(cos(b),0,sin(b)),c(0,1,0),c(-sin(b),0,cos(b))),nrow=3,ncol=3)
+    
+  Rz <- matrix(c(c(cos(c),-sin(c),0),c(sin(c),cos(c),0),c(0,0,1)),nrow=3,ncol=3)
+  
+  R <- Ry%*%Rx%*%Rz# + R;
+  
+#}
+  
+  R <- R/(c0-1)
+  
+  #Rinv <- inv(R)
+
+  X_n <- c(1,0,0);
+  Y_n <- c(0,1,0);
+  Z_n <- c(0,0,1);
+
+  Px <- c(R[1,1]*X_n[1]+R[1,2]*X_n[2]+R[1,3]*X_n[3],R[2,1]*X_n[1]+R[2,2]*X_n[2]+R[2,3]*X_n[3],R[3,1]*X_n[1]+R[3,2]*X_n[2]+R[3,3]*X_n[3]);
+  Py <- c(R[1,1]*Y_n[1]+R[1,2]*Y_n[2]+R[1,3]*Y_n[3],R[2,1]*Y_n[1]+R[2,2]*Y_n[2]+R[2,3]*Y_n[3],R[3,1]*Y_n[1]+R[3,2]*Y_n[2]+R[3,3]*Y_n[3]);
+  Pz <- c(R[1,1]*Z_n[1]+R[1,2]*Z_n[2]+R[1,3]*Z_n[3],R[2,1]*Z_n[1]+R[2,2]*Z_n[2]+R[2,3]*Z_n[3],R[3,1]*Z_n[1]+R[3,2]*Z_n[2]+R[3,3]*Z_n[3]);
+
+
+ N <- c((Y_n[2]*Px[3]) - (Y_n[3]*Px[2]), (Y_n[3]*Px[1]) - (Y_n[1]*Px[3]), (Y_n[1]*Px[2]) - (Y_n[2]*Px[1]))
+ #N <- c(0,0,1)
+
+  Pn <- c(Rinv[1,1]*N[1]+Rinv[1,2]*N[2]+Rinv[1,3]*N[3],Rinv[2,1]*N[1]+Rinv[2,2]*N[2]+Rinv[2,3]*N[3],Rinv[3,1]*N[1]+Rinv[3,2]*N[2]+Rinv[3,3]*N[3]);
+  
+c1 <- 1
+
+while (c1 < nrow(dataTEST)+1) {
+  
+  
+  xrot <- dataTEST$xrot[c1]/180*pi# + xrot;
+  yrot <- dataTEST$yrot[c1]/180*pi# + yrot;
+  zrot <- dataTEST$zrot[c1]/180*pi# + zrot;
+
+  a <- xrot-pi#/(c0-1)
+  b <- yrot-pi#/(c0-1)
+  c <- zrot-pi#/(c0-1)
+  
+  
+  Rx <- matrix(c(c(1,0,0),c(0,cos(a),-sin(a)),c(0,sin(a),cos(a))),nrow=3,ncol=3)
+    
+  Ry <- matrix(c(c(cos(b),0,sin(b)),c(0,1,0),c(-sin(b),0,cos(b))),nrow=3,ncol=3)
+    
+  Rz <- matrix(c(c(cos(c),-sin(c),0),c(sin(c),cos(c),0),c(0,0,1)),nrow=3,ncol=3)
+  
+  R <- Ry%*%Rx%*%Rz;
+  
+  #R <- matrix(c(c()))
+  
+  EA <- c(a,b,c)
+  
+  #R2 <- EA2DCM(EA,"yxz")
+ 
+  rot_Matrix = R;
+
+Pnt <- c(rot_Matrix[1,1]*Pn[1]+rot_Matrix[1,2]*Pn[2]+rot_Matrix[1,3]*Pn[3],rot_Matrix[2,1]*Pn[1]+rot_Matrix[2,2]*Pn[2]+rot_Matrix[2,3]*Pn[3],rot_Matrix[3,1]*Pn[1]+rot_Matrix[3,2]*Pn[2]+rot_Matrix[3,3]*Pn[3]);
+  
+  yaw <- (acos((Pnt[1]*N[1]+0+Pnt[3]*N[3])/(sqrt(Pnt[1]*Pnt[1]+Pnt[3]*Pnt[3])*sqrt(N[1]*N[1]+N[3]*N[3]))))/pi*180;
+  pitch <- (acos((Pnt[1]*Pnt[1]+Pnt[3]*Pnt[3])/(sqrt(Pnt[1]*Pnt[1]+Pnt[2]*Pnt[2]+Pnt[3]*Pnt[3])*sqrt(Pnt[1]*Pnt[1]+Pnt[3]*Pnt[3]))))/pi*180;
+  #pitch2 <- (atan(Pnt[2]/sqrt(Pnt[1]^2+Pnt[3]^2)))/pi*180;
+  
+  if(Pnt[2] < 0){
+    pitch <- -pitch
+  }
+  
+  if(Pnt[1] < 0){
+    yaw <- -yaw
+  }
+  
+  dataTEST$pitch2[c1] = round(pitch,3)
+  dataTEST$yaw2[c1] = round(yaw,3)
+  
+  
+c1 <- c1 + 1;
+   
+}
+  
 
 ```
 
