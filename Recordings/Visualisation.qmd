@@ -1,0 +1,496 @@
+
+```{r}
+
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(matlib)
+library(tidyr)
+library(Directional)
+library(RSpincalc)
+library(orientlib )
+
+```
+
+
+```{r}
+i <- 1;
+setwd("/cloud/project/Recordings/Clean");
+
+nameRB1 <- expand.grid('US',1:9,'RB.csv');
+nameRB1 <- apply(nameRB1,1,paste0,collapse = "");
+nameLR1 <- expand.grid('US',1:9,'LR.csv');
+nameLR1 <- apply(nameLR1,1,paste0,collapse = "");
+nameVR1 <- expand.grid('US',1:9,'VR.csv');
+nameVR1 <- apply(nameVR1,1,paste0,collapse = "");
+
+
+while (i < 10) {
+  
+  # if(i == 3) 
+  #   {i <- 4}
+
+  setwd("/cloud/project/Recordings/Clean");
+  
+dataRB <- read.csv(file = nameRB1[i]);
+dataLR <- read.csv(file = nameLR1[i]);
+dataVR <- read.csv(file = nameVR1[i]);
+
+dataRB <- dataRB %>%
+  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
+
+dataLR <- dataLR %>%
+  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
+
+dataVR <- dataVR %>%
+  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a,FocusedObject,RayDirection_x,RayDirection_y,RayDirection_z);
+
+# dataRB <- dataRB %>%
+#   drop_na(Phase)
+# dataLR <- dataLR %>%
+#   drop_na(Phase)
+# dataVR <- dataVR %>%
+#   drop_na(Phase)
+
+#RB
+
+  dataRB1 <- dataRB %>%
+    filter(Phase == 1,);
+
+  a <- min(which(dataRB1$GFO == "B5"))
+  b <- min(which(dataRB1$Movement == 4))-1
+  
+  dataRB1 <- dataRB1[rownames(dataRB1) %in% a:b, ]
+  
+  
+  dataRB2 <- dataRB %>%
+    filter(Phase == 2,);
+
+  a <- min(which(dataRB2$Movement == 7))+1
+  b <- max(which(dataRB2$GFO == "B5"))
+  
+  dataRB2 <- dataRB2[rownames(dataRB2) %in% a:b, ]
+  
+  
+  dataRB3 <- dataRB %>%
+    filter(Phase == 3,);
+
+  a <- min(which(dataRB3$GFO == "B5"))
+  b <- min(which(dataRB3$Movement == 4))-1
+  
+  dataRB3 <- dataRB3[rownames(dataRB3) %in% a:b, ]
+  
+  dataRB4 <- dataRB %>%
+    filter(Phase == 4,);
+  
+  dataRB <- rbind(dataRB1, dataRB2, dataRB3, dataRB4)
+  rm(dataRB1,dataRB2,dataRB3,dataRB4,a,b)
+
+  
+#LR
+
+#is odd?
+if(!(i %% 2 == 0)){
+  dataLR1 <- dataLR %>%
+    filter(Phase == 1,);
+
+  a <- max(which(dataLR1$Movement == 4))+1
+  b <- min(which(dataLR1$Movement == 8))-1
+  
+  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
+  
+  
+  dataLR2 <- dataLR %>%
+    filter(Phase == 2,);
+
+  a <- min(which(dataLR2$GFO == "B5"))
+  b <- min(which(dataLR2$Movement == 4))-1
+  
+  dataLR2 <- dataLR2[rownames(dataLR2) %in% a:b, ]
+  
+  
+  dataLR3 <- dataLR %>%
+    filter(Phase == 3,);
+
+  a <- min(which(dataLR3$GFO == "B5"))
+  b <- min(which(dataLR3$Movement == 4))-1
+  
+  dataLR3 <- dataLR3[rownames(dataLR3) %in% a:b, ]
+  
+  
+  dataLR4 <- dataLR %>%
+    filter(Phase == 4,);
+  
+  dataLR <- rbind(dataLR1, dataLR2, dataLR3, dataLR4)
+  rm(dataLR1,dataLR2,dataLR3,dataLR4,a,b)
+}
+
+#is even?
+if(i %% 2 == 0){
+  dataLR1 <- dataLR %>%
+    filter(Phase == 1,);
+
+  a <- min(which(dataLR1$GFO == "B5"))
+  b <- min(which(dataLR1$Movement == 4))-1
+  
+  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
+  
+  
+  dataLR2 <- dataLR %>%
+    filter(Phase == 2,);
+
+  a <- min(which(dataLR2$GFO == "B5"))
+  b <- min(which(dataLR2$Movement == 4))-1
+  
+  dataLR2 <- dataLR2[rownames(dataLR2) %in% a:b, ]
+  
+  
+  dataLR3 <- dataLR %>%
+    filter(Phase == 3,);
+
+  a <- min(which(dataLR3$Movement == 7))+1
+  b <- max(which(dataLR3$GFO == "B5"))
+  
+  dataLR3 <- dataLR3[rownames(dataLR3) %in% a:b, ]
+  
+  dataLR4 <- dataLR %>%
+    filter(Phase == 4,);
+  
+  dataLR <- rbind(dataLR1, dataLR2, dataLR3, dataLR4)
+  rm(dataLR1,dataLR2,dataLR3,dataLR4,a,b)
+}
+  
+  
+#VR
+  
+#is even?
+if(i %% 2 == 0){
+  dataVR1 <- dataVR %>%
+    filter(Phase == 1,);
+
+  a <- max(which(dataVR1$Movement == 4))+1
+  b <- min(which(dataVR1$Movement == 8))-1
+  
+  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
+  
+  
+  dataVR2 <- dataVR %>%
+    filter(Phase == 2,);
+
+  a <- min(which(dataVR2$GFO == "B5"))
+  b <- min(which(dataVR2$Movement == 4))-1
+  
+  dataVR2 <- dataVR2[rownames(dataVR2) %in% a:b, ]
+  
+  
+  dataVR3 <- dataVR %>%
+    filter(Phase == 3,);
+
+  a <- min(which(dataVR3$GFO == "B5"))
+  b <- min(which(dataVR3$Movement == 4))-1
+  
+  dataVR3 <- dataVR3[rownames(dataVR3) %in% a:b, ]
+  
+  dataVR4 <- dataVR %>%
+    filter(Phase == 4,);
+  
+  dataVR <- rbind(dataVR1, dataVR2, dataVR3, dataVR4)
+  rm(dataVR1,dataVR2,dataVR3,dataVR4,a,b)
+}
+
+#is odd?
+if(!(i %% 2 == 0)){
+  dataVR1 <- dataVR %>%
+    filter(Phase == 1,);
+
+  a <- min(which(dataVR1$GFO == "B5"))
+  b <- min(which(dataVR1$Movement == 4))-1
+  
+  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
+  
+  
+  dataVR2 <- dataVR %>%
+    filter(Phase == 2,);
+
+  a <- min(which(dataVR2$GFO == "B5"))
+  b <- min(which(dataVR2$Movement == 4))-1
+  
+  dataVR2 <- dataVR2[rownames(dataVR2) %in% a:b, ]
+  
+  
+  dataVR3 <- dataVR %>%
+    filter(Phase == 3,);
+
+  a <- min(which(dataVR3$Movement == 7))+1
+  b <- max(which(dataVR3$GFO == "B5"))
+  
+  dataVR3 <- dataVR3[rownames(dataVR3) %in% a:b, ]
+  
+  dataVR4 <- dataVR %>%
+    filter(Phase == 4,);
+  
+  dataVR <- rbind(dataVR1, dataVR2, dataVR3, dataVR4)
+  rm(dataVR1,dataVR2,dataVR3,dataVR4,a,b)
+}
+  
+setwd("/cloud/project/Recordings/Visualisation");
+
+assign(nameRB1[i], dataRB);
+assign(nameLR1[i], dataLR);
+assign(nameVR1[i], dataVR);
+
+write.csv(dataRB, nameRB1[i], row.names=TRUE);
+write.csv(dataLR, nameLR1[i], row.names=TRUE);
+write.csv(dataVR, nameVR1[i], row.names=TRUE);
+
+setwd("/cloud/project/Recordings/Clean");
+
+print(i)
+i <- i + 1
+
+}
+
+rm(nameRB1,nameLR1,nameVR1,i,dataRB,dataLR,dataVR)
+
+```
+
+```{r}
+i <- 10;
+setwd("/cloud/project/Recordings/Clean");
+
+nameRB2 <- expand.grid('US',1:31,'RB.csv');
+nameRB2 <- apply(nameRB2,1,paste0,collapse = "");
+nameLR2 <- expand.grid('US',1:31,'LR.csv');
+nameLR2 <- apply(nameLR2,1,paste0,collapse = "");
+nameVR2 <- expand.grid('US',1:31,'VR.csv');
+nameVR2 <- apply(nameVR2,1,paste0,collapse = "");
+
+
+while (i < 26) {
+
+    # if(i == 10 || i == 12 || i == 14 || i == 20) 
+    # {i <- i + 1}
+  
+  setwd("/cloud/project/Recordings/Clean");
+  
+dataRB <- read.csv(file = nameRB2[i]);
+dataLR <- read.csv(file = nameLR2[i]);
+dataVR <- read.csv(file = nameVR2[i]);
+
+dataRB <- dataRB %>%
+  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
+
+dataLR <- dataLR %>%
+  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
+
+dataVR <- dataVR %>%
+  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a,FocusedObject,RayDirection_x,RayDirection_y,RayDirection_z);
+
+# dataRB <- dataRB %>%
+#   drop_na(Phase)
+# dataLR <- dataLR %>%
+#   drop_na(Phase)
+# dataVR <- dataVR %>%
+#   drop_na(Phase)
+
+#RB
+
+  dataRB1 <- dataRB %>%
+    filter(Phase == 1,);
+
+  a <- min(which(dataRB1$GFO == "B5"))
+  b <- min(which(dataRB1$Movement == 4))-1
+  
+  dataRB1 <- dataRB1[rownames(dataRB1) %in% a:b, ]
+  
+  
+  dataRB2 <- dataRB %>%
+    filter(Phase == 2,);
+
+  a <- min(which(dataRB2$Movement == 7))+1
+  b <- max(which(dataRB2$GFO == "B5"))
+  
+  dataRB2 <- dataRB2[rownames(dataRB2) %in% a:b, ]
+  
+  
+  dataRB3 <- dataRB %>%
+    filter(Phase == 3,);
+
+  a <- min(which(dataRB3$GFO == "B5"))
+  b <- min(which(dataRB3$Movement == 4))-1
+  
+  dataRB3 <- dataRB3[rownames(dataRB3) %in% a:b, ]
+  
+  dataRB4 <- dataRB %>%
+    filter(Phase == 4,);
+  
+  dataRB <- rbind(dataRB1, dataRB2, dataRB3, dataRB4)
+  rm(dataRB1,dataRB2,dataRB3,dataRB4,a,b)
+
+  
+#LR
+
+#is odd?
+if(!(i %% 2 == 0)){
+  dataLR1 <- dataLR %>%
+    filter(Phase == 1,);
+
+  a <- max(which(dataLR1$Movement == 4))+1
+  b <- min(which(dataLR1$Movement == 8))-1
+  
+  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
+  
+  
+  dataLR2 <- dataLR %>%
+    filter(Phase == 2,);
+
+  a <- min(which(dataLR2$GFO == "B5"))
+  b <- min(which(dataLR2$Movement == 4))-1
+  
+  dataLR2 <- dataLR2[rownames(dataLR2) %in% a:b, ]
+  
+  
+  dataLR3 <- dataLR %>%
+    filter(Phase == 3,);
+
+  a <- min(which(dataLR3$GFO == "B5"))
+  b <- min(which(dataLR3$Movement == 4))-1
+  
+  dataLR3 <- dataLR3[rownames(dataLR3) %in% a:b, ]
+  
+  
+  dataLR4 <- dataLR %>%
+    filter(Phase == 4,);
+  
+  dataLR <- rbind(dataLR1, dataLR2, dataLR3, dataLR4)
+  rm(dataLR1,dataLR2,dataLR3,dataLR4,a,b)
+}
+
+#is even?
+if(i %% 2 == 0){
+  dataLR1 <- dataLR %>%
+    filter(Phase == 1,);
+
+  a <- min(which(dataLR1$GFO == "B5"))
+  b <- min(which(dataLR1$Movement == 4))-1
+  
+  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
+  
+  
+  dataLR2 <- dataLR %>%
+    filter(Phase == 2,);
+
+  a <- min(which(dataLR2$GFO == "B5"))
+  b <- min(which(dataLR2$Movement == 4))-1
+  
+  dataLR2 <- dataLR2[rownames(dataLR2) %in% a:b, ]
+  
+  
+  dataLR3 <- dataLR %>%
+    filter(Phase == 3,);
+
+  a <- min(which(dataLR3$Movement == 7))+1
+  b <- max(which(dataLR3$GFO == "B5"))
+  
+  dataLR3 <- dataLR3[rownames(dataLR3) %in% a:b, ]
+  
+  dataLR4 <- dataLR %>%
+    filter(Phase == 4,);
+  
+  dataLR <- rbind(dataLR1, dataLR2, dataLR3, dataLR4)
+  rm(dataLR1,dataLR2,dataLR3,dataLR4,a,b)
+}
+  
+  
+#VR
+  
+#is even?
+if(i %% 2 == 0){
+  dataVR1 <- dataVR %>%
+    filter(Phase == 1,);
+
+  a <- max(which(dataVR1$Movement == 4))+1
+  b <- min(which(dataVR1$Movement == 8))-1
+  
+  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
+  
+  
+  dataVR2 <- dataVR %>%
+    filter(Phase == 2,);
+
+  a <- min(which(dataVR2$GFO == "B5"))
+  b <- min(which(dataVR2$Movement == 4))-1
+  
+  dataVR2 <- dataVR2[rownames(dataVR2) %in% a:b, ]
+  
+  
+  dataVR3 <- dataVR %>%
+    filter(Phase == 3,);
+
+  a <- min(which(dataVR3$GFO == "B5"))
+  b <- min(which(dataVR3$Movement == 4))-1
+  
+  dataVR3 <- dataVR3[rownames(dataVR3) %in% a:b, ]
+  
+  dataVR4 <- dataVR %>%
+    filter(Phase == 4,);
+  
+  dataVR <- rbind(dataVR1, dataVR2, dataVR3, dataVR4)
+  rm(dataVR1,dataVR2,dataVR3,dataVR4,a,b)
+}
+
+#is odd?
+if(!(i %% 2 == 0)){
+  dataVR1 <- dataVR %>%
+    filter(Phase == 1,);
+
+  a <- min(which(dataVR1$GFO == "B5"))
+  b <- min(which(dataVR1$Movement == 4))-1
+  
+  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
+  
+  
+  dataVR2 <- dataVR %>%
+    filter(Phase == 2,);
+
+  a <- min(which(dataVR2$GFO == "B5"))
+  b <- min(which(dataVR2$Movement == 4))-1
+  
+  dataVR2 <- dataVR2[rownames(dataVR2) %in% a:b, ]
+  
+  
+  dataVR3 <- dataVR %>%
+    filter(Phase == 3,);
+
+  a <- min(which(dataVR3$Movement == 7))+1
+  b <- max(which(dataVR3$GFO == "B5"))
+  
+  dataVR3 <- dataVR3[rownames(dataVR3) %in% a:b, ]
+  
+  dataVR4 <- dataVR %>%
+    filter(Phase == 4,);
+  
+  dataVR <- rbind(dataVR1, dataVR2, dataVR3, dataVR4)
+  rm(dataVR1,dataVR2,dataVR3,dataVR4,a,b)
+}
+  
+setwd("/cloud/project/Recordings/Visualisation");
+
+assign(nameRB2[i], dataRB);
+assign(nameLR2[i], dataLR);
+assign(nameVR2[i], dataVR);
+
+write.csv(dataRB, nameRB2[i], row.names=TRUE);
+write.csv(dataLR, nameLR2[i], row.names=TRUE);
+write.csv(dataVR, nameVR2[i], row.names=TRUE);
+
+setwd("/cloud/project/Recordings/Clean");
+
+print(i)
+i <- i + 1
+
+}
+
+rm(nameRB2,nameLR2,nameVR2,i,dataRB,dataLR,dataVR)
+
+```
