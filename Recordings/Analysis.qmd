@@ -33,11 +33,20 @@ dataLR <- read.csv(file = nameLR1[i]);
 dataVR <- read.csv(file = nameVR1[i]);
 
 dataRB <- dataRB %>%
-  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement)
+  rename_at(17, ~'xrotcsv') %>%
+  rename_at(18, ~'yrotcsv') %>%
+  rename_at(19, ~'zrotcsv') %>%
+  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv)
 dataLR <- dataLR %>%
-  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement)
+  rename_at(17, ~'xrotcsv') %>%
+  rename_at(18, ~'yrotcsv') %>%
+  rename_at(19, ~'zrotcsv') %>%
+  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv)
 dataVR <- dataVR %>%
-  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement,FocusedObject,RayOrigin_x,RayOrigin_y,RayOrigin_z,RayDirection_x,RayDirection_y,RayDirection_z)
+  rename_at(17, ~'xrotcsv') %>%
+  rename_at(18, ~'yrotcsv') %>%
+  rename_at(19, ~'zrotcsv') %>%
+  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,FocusedObject,RayOrigin_x,RayOrigin_y,RayOrigin_z,RayDirection_x,RayDirection_y,RayDirection_z)
 
 dataRB[dataRB == ""] <- NA;
 dataLR[dataLR == ""] <- NA;
@@ -1412,11 +1421,20 @@ dataLR <- read.csv(file = nameLR2[i]);
 dataVR <- read.csv(file = nameVR2[i]);
 
 dataRB <- dataRB %>%
-  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement)
+  rename_at(17, ~'xrotcsv') %>%
+  rename_at(18, ~'yrotcsv') %>%
+  rename_at(19, ~'zrotcsv') %>%
+  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv)
 dataLR <- dataLR %>%
-  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement)
+  rename_at(17, ~'xrotcsv') %>%
+  rename_at(18, ~'yrotcsv') %>%
+  rename_at(19, ~'zrotcsv') %>%
+  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv)
 dataVR <- dataVR %>%
-  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement,FocusedObject,RayOrigin_x,RayOrigin_y,RayOrigin_z,RayDirection_x,RayDirection_y,RayDirection_z)
+  rename_at(17, ~'xrotcsv') %>%
+  rename_at(18, ~'yrotcsv') %>%
+  rename_at(19, ~'zrotcsv') %>%
+  select(Time,X,Y,Z,wquat,xquat,yquat,zquat,xrot,yrot,zrot,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,FocusedObject,RayOrigin_x,RayOrigin_y,RayOrigin_z,RayDirection_x,RayDirection_y,RayDirection_z)
 
 dataRB[dataRB == ""] <- NA;
 dataLR[dataLR == ""] <- NA;
