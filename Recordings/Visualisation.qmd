@@ -27,7 +27,7 @@ nameVR1 <- apply(nameVR1,1,paste0,collapse = "");
 
 while (i < 10) {
   
-  # if(i == 3) 
+  # if(i == 3)
   #   {i <- 4}
 
   setwd("/cloud/project/Recordings/Clean");
@@ -235,6 +235,154 @@ if(!(i %% 2 == 0)){
   
 setwd("/cloud/project/Recordings/Visualisation");
 
+#V calc
+
+#RB
+
+n <- 2
+
+while (n < nrow(dataRB)-1) {
+  
+  prepitch <- dataRB$pitch[n-1]+180
+  cpitch <- dataRB$pitch[n]+180
+  postpitch <- dataRB$pitch[n+1]+180
+  preyaw <- dataRB$yaw[n-1]+180
+  cyaw <- dataRB$yaw[n]+180
+  postyaw <- dataRB$yaw[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataRB$Time[n]-dataRB$Time[n-1]))^2+((cyaw-preyaw)/(dataRB$Time[n]-dataRB$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataRB$Time[n+1]-dataRB$Time[n]))^2+((postyaw-cyaw)/(dataRB$Time[n+1]-dataRB$Time[n]))^2))
+  dataRB$V[n] <- (Vpre + Vpost)/2
+
+  prepitch <- dataRB$pitch2[n-1]+180
+  cpitch <- dataRB$pitch2[n]+180
+  postpitch <- dataRB$pitch2[n+1]+180
+  preyaw <- dataRB$yaw2[n-1]+180
+  cyaw <- dataRB$yaw2[n]+180
+  postyaw <- dataRB$yaw2[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataRB$Time[n]-dataRB$Time[n-1]))^2+((cyaw-preyaw)/(dataRB$Time[n]-dataRB$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataRB$Time[n+1]-dataRB$Time[n]))^2+((postyaw-cyaw)/(dataRB$Time[n+1]-dataRB$Time[n]))^2))
+  dataRB$V2[n] <- (Vpre + Vpost)/2
+  
+    n <- n + 1
+    rm(Vpre,Vpost,prepitch,postpitch,cpitch,cyaw,postyaw,preyaw)
+}
+
+n <- 3
+
+while (n < nrow(dataRB)-2) {
+  
+  Vapre <- (dataRB$V[n]-dataRB$V[n-1])/(dataRB$Time[n]-dataRB$Time[n-1])
+  Vapost <- (dataRB$V[n+1]-dataRB$V[n])/(dataRB$Time[n+1]-dataRB$Time[n])
+  dataRB$Va[n] <- (Vapre + Vapost)/2
+  
+  Vapre <- (dataRB$V2[n]-dataRB$V2[n-1])/(dataRB$Time[n]-dataRB$Time[n-1])
+  Vapost <- (dataRB$V2[n+1]-dataRB$V2[n])/(dataRB$Time[n+1]-dataRB$Time[n])
+  dataRB$V2a[n] <- (Vapre + Vapost)/2
+  
+    n <- n + 1
+    rm(Vapre,Vapost)
+}
+
+#LR
+
+n <- 2
+
+while (n < nrow(dataLR)-1) {
+  
+  prepitch <- dataLR$pitch[n-1]+180
+  cpitch <- dataLR$pitch[n]+180
+  postpitch <- dataLR$pitch[n+1]+180
+  preyaw <- dataLR$yaw[n-1]+180
+  cyaw <- dataLR$yaw[n]+180
+  postyaw <- dataLR$yaw[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataLR$Time[n]-dataLR$Time[n-1]))^2+((cyaw-preyaw)/(dataLR$Time[n]-dataLR$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataLR$Time[n+1]-dataLR$Time[n]))^2+((postyaw-cyaw)/(dataLR$Time[n+1]-dataLR$Time[n]))^2))
+  dataLR$V[n] <- (Vpre + Vpost)/2
+
+  prepitch <- dataLR$pitch2[n-1]+180
+  cpitch <- dataLR$pitch2[n]+180
+  postpitch <- dataLR$pitch2[n+1]+180
+  preyaw <- dataLR$yaw2[n-1]+180
+  cyaw <- dataLR$yaw2[n]+180
+  postyaw <- dataLR$yaw2[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataLR$Time[n]-dataLR$Time[n-1]))^2+((cyaw-preyaw)/(dataLR$Time[n]-dataLR$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataLR$Time[n+1]-dataLR$Time[n]))^2+((postyaw-cyaw)/(dataLR$Time[n+1]-dataLR$Time[n]))^2))
+  dataLR$V2[n] <- (Vpre + Vpost)/2
+  
+    n <- n + 1
+    rm(Vpre,Vpost,prepitch,postpitch,cpitch,cyaw,postyaw,preyaw)
+}
+
+n <- 3
+
+while (n < nrow(dataLR)-2) {
+  
+  Vapre <- (dataLR$V[n]-dataLR$V[n-1])/(dataLR$Time[n]-dataLR$Time[n-1])
+  Vapost <- (dataLR$V[n+1]-dataLR$V[n])/(dataLR$Time[n+1]-dataLR$Time[n])
+  dataLR$Va[n] <- (Vapre + Vapost)/2
+  
+  Vapre <- (dataLR$V2[n]-dataLR$V2[n-1])/(dataLR$Time[n]-dataLR$Time[n-1])
+  Vapost <- (dataLR$V2[n+1]-dataLR$V2[n])/(dataLR$Time[n+1]-dataLR$Time[n])
+  dataLR$V2a[n] <- (Vapre + Vapost)/2
+  
+    n <- n + 1
+    rm(Vapre,Vapost)
+}
+
+#VR
+
+n <- 2
+
+while (n < nrow(dataVR)-1) {
+  
+  prepitch <- dataVR$pitch[n-1]+180
+  cpitch <- dataVR$pitch[n]+180
+  postpitch <- dataVR$pitch[n+1]+180
+  preyaw <- dataVR$yaw[n-1]+180
+  cyaw <- dataVR$yaw[n]+180
+  postyaw <- dataVR$yaw[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataVR$Time[n]-dataVR$Time[n-1]))^2+((cyaw-preyaw)/(dataVR$Time[n]-dataVR$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataVR$Time[n+1]-dataVR$Time[n]))^2+((postyaw-cyaw)/(dataVR$Time[n+1]-dataVR$Time[n]))^2))
+  dataVR$V[n] <- (Vpre + Vpost)/2
+
+  prepitch <- dataVR$pitch2[n-1]+180
+  cpitch <- dataVR$pitch2[n]+180
+  postpitch <- dataVR$pitch2[n+1]+180
+  preyaw <- dataVR$yaw2[n-1]+180
+  cyaw <- dataVR$yaw2[n]+180
+  postyaw <- dataVR$yaw2[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataVR$Time[n]-dataVR$Time[n-1]))^2+((cyaw-preyaw)/(dataVR$Time[n]-dataVR$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataVR$Time[n+1]-dataVR$Time[n]))^2+((postyaw-cyaw)/(dataVR$Time[n+1]-dataVR$Time[n]))^2))
+  dataVR$V2[n] <- (Vpre + Vpost)/2
+  
+    n <- n + 1
+    rm(Vpre,Vpost,prepitch,postpitch,cpitch,cyaw,postyaw,preyaw)
+}
+
+n <- 3
+
+while (n < nrow(dataVR)-2) {
+  
+  Vapre <- (dataVR$V[n]-dataVR$V[n-1])/(dataVR$Time[n]-dataVR$Time[n-1])
+  Vapost <- (dataVR$V[n+1]-dataVR$V[n])/(dataVR$Time[n+1]-dataVR$Time[n])
+  dataVR$Va[n] <- (Vapre + Vapost)/2
+  
+  Vapre <- (dataVR$V2[n]-dataVR$V2[n-1])/(dataVR$Time[n]-dataVR$Time[n-1])
+  Vapost <- (dataVR$V2[n+1]-dataVR$V2[n])/(dataVR$Time[n+1]-dataVR$Time[n])
+  dataVR$V2a[n] <- (Vapre + Vapost)/2
+  
+    n <- n + 1
+    rm(Vapre,Vapost)
+}
+
+
+
 assign(nameRB1[i], dataRB);
 assign(nameLR1[i], dataLR);
 assign(nameVR1[i], dataVR);
@@ -268,7 +416,7 @@ nameVR2 <- apply(nameVR2,1,paste0,collapse = "");
 
 while (i < 26) {
 
-    # if(i == 10 || i == 12 || i == 14 || i == 20) 
+    # if(i == 10 || i == 12 || i == 14 || i == 20)
     # {i <- i + 1}
   
   setwd("/cloud/project/Recordings/Clean");
@@ -476,6 +624,157 @@ if(!(i %% 2 == 0)){
   
 setwd("/cloud/project/Recordings/Visualisation");
 
+
+
+#V calc
+
+#RB
+
+n <- 2
+
+while (n < nrow(dataRB)-1) {
+  
+  prepitch <- dataRB$pitch[n-1]+180
+  cpitch <- dataRB$pitch[n]+180
+  postpitch <- dataRB$pitch[n+1]+180
+  preyaw <- dataRB$yaw[n-1]+180
+  cyaw <- dataRB$yaw[n]+180
+  postyaw <- dataRB$yaw[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataRB$Time[n]-dataRB$Time[n-1]))^2+((cyaw-preyaw)/(dataRB$Time[n]-dataRB$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataRB$Time[n+1]-dataRB$Time[n]))^2+((postyaw-cyaw)/(dataRB$Time[n+1]-dataRB$Time[n]))^2))
+  dataRB$V[n] <- (Vpre + Vpost)/2
+
+  prepitch <- dataRB$pitch2[n-1]+180
+  cpitch <- dataRB$pitch2[n]+180
+  postpitch <- dataRB$pitch2[n+1]+180
+  preyaw <- dataRB$yaw2[n-1]+180
+  cyaw <- dataRB$yaw2[n]+180
+  postyaw <- dataRB$yaw2[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataRB$Time[n]-dataRB$Time[n-1]))^2+((cyaw-preyaw)/(dataRB$Time[n]-dataRB$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataRB$Time[n+1]-dataRB$Time[n]))^2+((postyaw-cyaw)/(dataRB$Time[n+1]-dataRB$Time[n]))^2))
+  dataRB$V2[n] <- (Vpre + Vpost)/2
+  
+    n <- n + 1
+    rm(Vpre,Vpost,prepitch,postpitch,cpitch,cyaw,postyaw,preyaw)
+}
+
+n <- 3
+
+while (n < nrow(dataRB)-2) {
+  
+  Vapre <- (dataRB$V[n]-dataRB$V[n-1])/(dataRB$Time[n]-dataRB$Time[n-1])
+  Vapost <- (dataRB$V[n+1]-dataRB$V[n])/(dataRB$Time[n+1]-dataRB$Time[n])
+  dataRB$Va[n] <- (Vapre + Vapost)/2
+  
+  Vapre <- (dataRB$V2[n]-dataRB$V2[n-1])/(dataRB$Time[n]-dataRB$Time[n-1])
+  Vapost <- (dataRB$V2[n+1]-dataRB$V2[n])/(dataRB$Time[n+1]-dataRB$Time[n])
+  dataRB$V2a[n] <- (Vapre + Vapost)/2
+  
+    n <- n + 1
+    rm(Vapre,Vapost)
+}
+
+#LR
+
+n <- 2
+
+while (n < nrow(dataLR)-1) {
+  
+  prepitch <- dataLR$pitch[n-1]+180
+  cpitch <- dataLR$pitch[n]+180
+  postpitch <- dataLR$pitch[n+1]+180
+  preyaw <- dataLR$yaw[n-1]+180
+  cyaw <- dataLR$yaw[n]+180
+  postyaw <- dataLR$yaw[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataLR$Time[n]-dataLR$Time[n-1]))^2+((cyaw-preyaw)/(dataLR$Time[n]-dataLR$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataLR$Time[n+1]-dataLR$Time[n]))^2+((postyaw-cyaw)/(dataLR$Time[n+1]-dataLR$Time[n]))^2))
+  dataLR$V[n] <- (Vpre + Vpost)/2
+
+  prepitch <- dataLR$pitch2[n-1]+180
+  cpitch <- dataLR$pitch2[n]+180
+  postpitch <- dataLR$pitch2[n+1]+180
+  preyaw <- dataLR$yaw2[n-1]+180
+  cyaw <- dataLR$yaw2[n]+180
+  postyaw <- dataLR$yaw2[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataLR$Time[n]-dataLR$Time[n-1]))^2+((cyaw-preyaw)/(dataLR$Time[n]-dataLR$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataLR$Time[n+1]-dataLR$Time[n]))^2+((postyaw-cyaw)/(dataLR$Time[n+1]-dataLR$Time[n]))^2))
+  dataLR$V2[n] <- (Vpre + Vpost)/2
+  
+    n <- n + 1
+    rm(Vpre,Vpost,prepitch,postpitch,cpitch,cyaw,postyaw,preyaw)
+}
+
+n <- 3
+
+while (n < nrow(dataLR)-2) {
+  
+  Vapre <- (dataLR$V[n]-dataLR$V[n-1])/(dataLR$Time[n]-dataLR$Time[n-1])
+  Vapost <- (dataLR$V[n+1]-dataLR$V[n])/(dataLR$Time[n+1]-dataLR$Time[n])
+  dataLR$Va[n] <- (Vapre + Vapost)/2
+  
+  Vapre <- (dataLR$V2[n]-dataLR$V2[n-1])/(dataLR$Time[n]-dataLR$Time[n-1])
+  Vapost <- (dataLR$V2[n+1]-dataLR$V2[n])/(dataLR$Time[n+1]-dataLR$Time[n])
+  dataLR$V2a[n] <- (Vapre + Vapost)/2
+  
+    n <- n + 1
+    rm(Vapre,Vapost)
+}
+
+#VR
+
+n <- 2
+
+while (n < nrow(dataVR)-1) {
+  
+  prepitch <- dataVR$pitch[n-1]+180
+  cpitch <- dataVR$pitch[n]+180
+  postpitch <- dataVR$pitch[n+1]+180
+  preyaw <- dataVR$yaw[n-1]+180
+  cyaw <- dataVR$yaw[n]+180
+  postyaw <- dataVR$yaw[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataVR$Time[n]-dataVR$Time[n-1]))^2+((cyaw-preyaw)/(dataVR$Time[n]-dataVR$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataVR$Time[n+1]-dataVR$Time[n]))^2+((postyaw-cyaw)/(dataVR$Time[n+1]-dataVR$Time[n]))^2))
+  dataVR$V[n] <- (Vpre + Vpost)/2
+
+  prepitch <- dataVR$pitch2[n-1]+180
+  cpitch <- dataVR$pitch2[n]+180
+  postpitch <- dataVR$pitch2[n+1]+180
+  preyaw <- dataVR$yaw2[n-1]+180
+  cyaw <- dataVR$yaw2[n]+180
+  postyaw <- dataVR$yaw2[n+1]+180
+  
+  Vpre <- (sqrt(((cpitch-prepitch)/(dataVR$Time[n]-dataVR$Time[n-1]))^2+((cyaw-preyaw)/(dataVR$Time[n]-dataVR$Time[n-1]))^2))
+  Vpost <- (sqrt(((postyaw-cyaw)/(dataVR$Time[n+1]-dataVR$Time[n]))^2+((postyaw-cyaw)/(dataVR$Time[n+1]-dataVR$Time[n]))^2))
+  dataVR$V2[n] <- (Vpre + Vpost)/2
+  
+    n <- n + 1
+    rm(Vpre,Vpost,prepitch,postpitch,cpitch,cyaw,postyaw,preyaw)
+}
+
+n <- 3
+
+while (n < nrow(dataVR)-2) {
+  
+  Vapre <- (dataVR$V[n]-dataVR$V[n-1])/(dataVR$Time[n]-dataVR$Time[n-1])
+  Vapost <- (dataVR$V[n+1]-dataVR$V[n])/(dataVR$Time[n+1]-dataVR$Time[n])
+  dataVR$Va[n] <- (Vapre + Vapost)/2
+  
+  Vapre <- (dataVR$V2[n]-dataVR$V2[n-1])/(dataVR$Time[n]-dataVR$Time[n-1])
+  Vapost <- (dataVR$V2[n+1]-dataVR$V2[n])/(dataVR$Time[n+1]-dataVR$Time[n])
+  dataVR$V2a[n] <- (Vapre + Vapost)/2
+  
+    n <- n + 1
+    rm(Vapre,Vapost)
+}
+
+
+
+
 assign(nameRB2[i], dataRB);
 assign(nameLR2[i], dataLR);
 assign(nameVR2[i], dataVR);
@@ -494,3 +793,180 @@ i <- i + 1
 rm(nameRB2,nameLR2,nameVR2,i,dataRB,dataLR,dataVR)
 
 ```
+
+
+
+```{r}
+#Time to Target
+
+i <- 1;
+setwd("/cloud/project/Recordings/Visualisation");
+
+nameRB1 <- expand.grid('US',1:9,'RB.csv');
+nameRB1 <- apply(nameRB1,1,paste0,collapse = "");
+nameLR1 <- expand.grid('US',1:9,'LR.csv');
+nameLR1 <- apply(nameLR1,1,paste0,collapse = "");
+nameVR1 <- expand.grid('US',1:9,'VR.csv');
+nameVR1 <- apply(nameVR1,1,paste0,collapse = "");
+
+nameRB1_TTT <- expand.grid('US',1:9,'RB_TTT.csv');
+nameRB1_TTT <- apply(nameRB1_TTT,1,paste0,collapse = "");
+nameLR1_TTT <- expand.grid('US',1:9,'LR_TTT.csv');
+nameLR1_TTT <- apply(nameLR1_TTT,1,paste0,collapse = "");
+nameVR1_TTT <- expand.grid('US',1:9,'VR_TTT.csv');
+nameVR1_TTT <- apply(nameVR1_TTT,1,paste0,collapse = "");
+
+nameRB2 <- expand.grid('US',1:31,'RB.csv');
+nameRB2 <- apply(nameRB2,1,paste0,collapse = "");
+nameLR2 <- expand.grid('US',1:31,'LR.csv');
+nameLR2 <- apply(nameLR2,1,paste0,collapse = "");
+nameVR2 <- expand.grid('US',1:31,'VR.csv');
+nameVR2 <- apply(nameVR2,1,paste0,collapse = "");
+
+nameRB2_TTT <- expand.grid('US',1:31,'RB_TTT.csv');
+nameRB2_TTT <- apply(nameRB2_TTT,1,paste0,collapse = "");
+nameLR2_TTT <- expand.grid('US',1:31,'LR_TTT.csv');
+nameLR2_TTT <- apply(nameLR2_TTT,1,paste0,collapse = "");
+nameVR2_TTT <- expand.grid('US',1:31,'VR_TTT.csv');
+nameVR2_TTT <- apply(nameVR2_TTT,1,paste0,collapse = "");
+
+  RBorder <- t(matrix(c(c(1,2,3,NA,NA),c(8,9,10,NA,NA),c(1,2,3,NA,NA),c(1,2,3,4,5),c(NA,NA,NA,NA,NA)), nrow = 5, ncol = 5))
+  oddLRorder <- t(matrix(c(c(5,6,7,NA,NA),c(1,2,3,NA,NA),c(1,2,3,NA,NA),c(1,2,3,4,5),c(NA,NA,NA,NA,NA)), nrow = 5, ncol = 5))
+  evenLRorder <- t(matrix(c(c(1,2,3,NA,NA),c(1,2,3,NA,NA),c(8,9,10,NA,NA),c(1,2,3,4,5),c(NA,NA,NA,NA,NA)), nrow = 5, ncol = 5))
+  oddVRorder <- t(matrix(c(c(1,2,3,NA,NA),c(1,2,3,NA,NA),c(8,9,10,NA,NA),c(1,2,3,4,5),c(NA,NA,NA,NA,NA)), nrow = 5, ncol = 5))
+  evenVRorder <- t(matrix(c(c(5,6,7,NA,NA),c(1,2,3,NA,NA),c(1,2,3,NA,NA),c(1,2,3,4,5),c(NA,NA,NA,NA,NA)), nrow = 5, ncol = 5))
+  
+  
+
+while (i < 26) {
+  
+  if( i == 3 || i == 10 || i == 12 || i == 14 || i == 20){
+    i <- i + 1
+  }
+ 
+  if(i < 10){
+      setwd("/cloud/project/Recordings/Visualisation");
+  
+dataRB <- read.csv(file = nameRB1[i]);
+dataLR <- read.csv(file = nameLR1[i]);
+dataVR <- read.csv(file = nameVR1[i]);
+  }
+  
+  if(i > 9){
+      setwd("/cloud/project/Recordings/Visualisation");
+  
+dataRB <- read.csv(file = nameRB2[i]);
+dataLR <- read.csv(file = nameLR2[i]);
+dataVR <- read.csv(file = nameVR2[i]);
+  }
+  
+  dataRB_TTT <- matrix(0, nrow = 4, ncol = 5)
+  dataLR_TTT <- matrix(0, nrow = 4, ncol = 5)
+  dataVR_TTT <- matrix(0, nrow = 4, ncol = 5)
+  
+  #is odd?
+if(!(i %% 2 == 0)){
+  
+  ia <- 1
+  while (ia < 5) {
+    ic <- 1
+    while (!is.na(RBorder[ic]) && ic<6) {
+      
+  dataRB_TTT[ia,ic] <- dataRB$Time[max(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))] - dataRB$Time[min(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))]
+  dataLR_TTT[ia,ic] <- dataLR$Time[max(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))] - dataLR$Time[min(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))]
+  dataVR_TTT[ia,ic] <- dataVR$Time[max(which(dataVR$Movement == oddVRorder[ia,ic],dataVR$Phase == ia))] - dataVR$Time[min(which(dataVR$Movement == oddVRorder[ia,ic],dataVR$Phase == ia))]
+  
+  ic <- ic + 1
+  }
+  ia <- ia + 1
+  }
+}
+  
+  #is even?
+if(i %% 2 == 0){
+  
+  ia <- 1
+  while (ia < 5) {
+    ic <- 1
+    while (!is.na(RBorder[ic]) && ic<6) {
+      
+  dataRB_TTT[ia,ic] <- dataRB$Time[max(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))] - dataRB$Time[min(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))]
+  dataLR_TTT[ia,ic] <- dataLR$Time[max(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))] - dataLR$Time[min(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))]
+  dataVR_TTT[ia,ic] <- dataVR$Time[max(which(dataVR$Movement == oddVRorder[ia,ic],dataVR$Phase == ia))] - dataVR$Time[min(which(dataVR$Movement == oddVRorder[ia,ic],dataVR$Phase == ia))]
+  
+  ic <- ic + 1
+  }
+  ia <- ia + 1
+  }
+}
+
+  if(i < 10){
+      setwd("/cloud/project/Recordings/Visualisation");
+  
+      #is odd?
+if(!(i %% 2 == 0)){
+  
+  ia <- 1
+  while (ia < 5) {
+    ic <- 1
+    while (!is.na(RBorder[ic]) && ic<6) {
+      
+  dataRB_TTT[ia,ic] <- dataRB$Time[max(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))] - dataRB$Time[min(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))]
+  dataLR_TTT[ia,ic] <- dataLR$Time[max(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))] - dataLR$Time[min(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))]
+  dataVR_TTT[ia,ic] <- dataVR$Time[max(which(dataVR$Movement == oddVRorder[ia,ic],dataVR$Phase == ia))] - dataVR$Time[min(which(dataVR$Movement == oddVRorder[ia,ic],dataVR$Phase == ia))]
+  
+  ic <- ic + 1
+  }
+  ia <- ia + 1
+  }
+}
+  
+  #is even?
+if(i %% 2 == 0){
+  
+  ia <- 1
+  while (ia < 5) {
+    ic <- 1
+    while (!is.na(RBorder[ic]) && ic<6) {
+      
+  dataRB_TTT[ia,ic] <- dataRB$Time[max(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))] - dataRB$Time[min(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))]
+  dataLR_TTT[ia,ic] <- dataLR$Time[max(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))] - dataLR$Time[min(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))]
+  dataVR_TTT[ia,ic] <- dataVR$Time[max(which(dataVR$Movement == oddVRorder[ia,ic],dataVR$Phase == ia))] - dataVR$Time[min(which(dataVR$Movement == oddVRorder[ia,ic],dataVR$Phase == ia))]
+  
+  ic <- ic + 1
+  }
+  ia <- ia + 1
+  }
+}
+    
+assign(nameRB1[i], dataRB);
+assign(nameLR1[i], dataLR);
+assign(nameVR1[i], dataVR);
+    
+assign(nameRB1_TTT[i], dataRB_TTT);
+assign(nameLR1_TTT[i], dataLR_TTT);
+assign(nameVR1_TTT[i], dataVR_TTT);
+  }
+  
+  if(i > 9){
+      setwd("/cloud/project/Recordings/Visualisation");
+  
+assign(nameRB2[i], dataRB);
+assign(nameLR2[i], dataLR);
+assign(nameVR2[i], dataVR);
+    
+assign(nameRB2_TTT[i], dataRB_TTT);
+assign(nameLR2_TTT[i], dataLR_TTT);
+assign(nameVR2_TTT[i], dataVR_TTT);
+  }
+  
+
+
+i <- i + 1
+  
+}
+
+rm()
+
+```
+
