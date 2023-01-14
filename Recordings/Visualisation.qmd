@@ -43,7 +43,7 @@ dataLR <- dataLR %>%
   select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
 
 dataVR <- dataVR %>%
-  select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a,FocusedObject,RayDirection_x,RayDirection_y,RayDirection_z);
+  select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a,FocusedObject,RayDirection_x,RayDirection_y,RayDirection_z,eyepitch,eyeyaw);
 
 # dataRB <- dataRB %>%
 #   drop_na(Phase)
@@ -432,7 +432,7 @@ dataLR <- dataLR %>%
   select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
 
 dataVR <- dataVR %>%
-  select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a,FocusedObject,RayDirection_x,RayDirection_y,RayDirection_z);
+  select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a,FocusedObject,RayDirection_x,RayDirection_y,RayDirection_z,eyepitch,eyeyaw);
 
 # dataRB <- dataRB %>%
 #   drop_na(Phase)
@@ -966,7 +966,7 @@ i <- i + 1
   
 }
 
-rm(i,ia,ic,n,dataLR,dataRB,dataVR,dataLR_TTT,dataVR_TTT,dataRB_TTT)
+rm(i,ia,ic,n,dataLR,dataRB,dataVR,dataLR_TTT,dataVR_TTT,dataRB_TTT,nameLR1_TTT,nameLR2_TTT,nameRB1_TTT,nameRB2_TTT,nameVR1_TTT,nameVR2_TTT)
 
 ```
 ```{r}
@@ -1028,15 +1028,14 @@ setwd("/cloud/project/Recordings/Visualisation");
   
 data <- read.csv(file = name[i]);
 
-
-if(i %% 3 == 0){
+if(i > 62){
   
   data <- data %>%
   select(Time,Phase,GFO,Movement,pitch2,yaw2,V2,V2a,eyepitch,eyeyaw);
   
 }
 
-if(!(i %% 3 == 0)){
+if(!(i < 63)){
   
   data <- data %>%
   select(Time,Phase,GFO,Movement,pitch2,yaw2,V2,V2a);
