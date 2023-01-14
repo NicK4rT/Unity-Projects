@@ -37,13 +37,13 @@ dataLR <- read.csv(file = nameLR1[i]);
 dataVR <- read.csv(file = nameVR1[i]);
 
 dataRB <- dataRB %>%
-  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
+  select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
 
 dataLR <- dataLR %>%
-  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
+  select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
 
 dataVR <- dataVR %>%
-  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a,FocusedObject,RayDirection_x,RayDirection_y,RayDirection_z);
+  select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a,FocusedObject,RayDirection_x,RayDirection_y,RayDirection_z);
 
 # dataRB <- dataRB %>%
 #   drop_na(Phase)
@@ -414,7 +414,7 @@ nameVR2 <- expand.grid('US',1:31,'VR.csv');
 nameVR2 <- apply(nameVR2,1,paste0,collapse = "");
 
 
-while (i < 26) {
+while (i < 32) {
 
     # if(i == 10 || i == 12 || i == 14 || i == 20)
     # {i <- i + 1}
@@ -426,13 +426,13 @@ dataLR <- read.csv(file = nameLR2[i]);
 dataVR <- read.csv(file = nameVR2[i]);
 
 dataRB <- dataRB %>%
-  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
+  select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
 
 dataLR <- dataLR %>%
-  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
+  select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a);
 
 dataVR <- dataVR %>%
-  select(Time,Phase,GFO,Movement,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a,FocusedObject,RayDirection_x,RayDirection_y,RayDirection_z);
+  select(Time,Phase,GFO,Movement,xrotcsv,yrotcsv,zrotcsv,Px,Py,Pz,pitch,yaw,V,Va,P2x,P2y,P2z,pitch2,yaw2,V2,V2a,FocusedObject,RayDirection_x,RayDirection_y,RayDirection_z);
 
 # dataRB <- dataRB %>%
 #   drop_na(Phase)
@@ -838,11 +838,11 @@ nameVR2_TTT <- apply(nameVR2_TTT,1,paste0,collapse = "");
   
   
 
-while (i < 26) {
+while (i < 32) {
   
-  if( i == 3 || i == 10 || i == 12 || i == 14 || i == 20){
-    i <- i + 1
-  }
+  # if( i == 3 || i == 10 || i == 12 || i == 14 || i == 20){
+  #   i <- i + 1
+  # }
  
   if(i < 10){
       setwd("/cloud/project/Recordings/Visualisation");
@@ -870,7 +870,7 @@ if(!(i %% 2 == 0)){
   ia <- 1
   while (ia < 5) {
     ic <- 1
-    while (!is.na(RBorder[ic]) && ic<6) {
+    while (!is.na(RBorder[ic])) {
       
   dataRB_TTT[ia,ic] <- dataRB$Time[max(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))] - dataRB$Time[min(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))]
   dataLR_TTT[ia,ic] <- dataLR$Time[max(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))] - dataLR$Time[min(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))]
@@ -888,7 +888,7 @@ if(i %% 2 == 0){
   ia <- 1
   while (ia < 5) {
     ic <- 1
-    while (!is.na(RBorder[ic]) && ic<6) {
+    while (!is.na(RBorder[ic])) {
       
   dataRB_TTT[ia,ic] <- dataRB$Time[max(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))] - dataRB$Time[min(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))]
   dataLR_TTT[ia,ic] <- dataLR$Time[max(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))] - dataLR$Time[min(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))]
@@ -909,7 +909,7 @@ if(!(i %% 2 == 0)){
   ia <- 1
   while (ia < 5) {
     ic <- 1
-    while (!is.na(RBorder[ic]) && ic<6) {
+    while (!is.na(RBorder[ic])) {
       
   dataRB_TTT[ia,ic] <- dataRB$Time[max(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))] - dataRB$Time[min(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))]
   dataLR_TTT[ia,ic] <- dataLR$Time[max(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))] - dataLR$Time[min(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))]
@@ -927,7 +927,7 @@ if(i %% 2 == 0){
   ia <- 1
   while (ia < 5) {
     ic <- 1
-    while (!is.na(RBorder[ic]) && ic<6) {
+    while (!is.na(RBorder[ic])) {
       
   dataRB_TTT[ia,ic] <- dataRB$Time[max(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))] - dataRB$Time[min(which(dataRB$Movement == RBorder[ia,ic],dataRB$Phase == ia))]
   dataLR_TTT[ia,ic] <- dataLR$Time[max(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))] - dataLR$Time[min(which(dataLR$Movement == oddLRorder[ia,ic],dataLR$Phase == ia))]
@@ -966,7 +966,90 @@ i <- i + 1
   
 }
 
-rm()
+rm(i,ia,ic,n,dataLR,dataRB,dataVR,dataLR_TTT,dataVR_TTT,dataRB_TTT)
 
+```
+```{r}
+
+# #Get Eye gaze pitch
+# 
+# i <- 1;
+# 
+# setwd("/cloud/project/Recordings/Visualisation");
+# 
+# nameVR1 <- expand.grid('US',1:9,'VR.csv');
+# nameVR1 <- apply(nameVR1,1,paste0,collapse = "");
+# 
+# nameVR2 <- expand.grid('US',10:31,'VR.csv');
+# nameVR2 <- apply(nameVR2,1,paste0,collapse = "");
+# 
+# nameVR <- c(nameVR1,nameVR2)
+# 
+# while (i < 32){
+#   
+#   
+#   
+# }
+
+```
+
+
+
+```{r}
+
+i <- 1;
+setwd("/cloud/project/Recordings/Visualisation");
+
+nameRB1 <- expand.grid('US',1:9,'RB.csv');
+nameRB1 <- apply(nameRB1,1,paste0,collapse = "");
+nameLR1 <- expand.grid('US',1:9,'LR.csv');
+nameLR1 <- apply(nameLR1,1,paste0,collapse = "");
+nameVR1 <- expand.grid('US',1:9,'VR.csv');
+nameVR1 <- apply(nameVR1,1,paste0,collapse = "");
+
+nameRB2 <- expand.grid('US',10:31,'RB.csv');
+nameRB2 <- apply(nameRB2,1,paste0,collapse = "");
+nameLR2 <- expand.grid('US',10:31,'LR.csv');
+nameLR2 <- apply(nameLR2,1,paste0,collapse = "");
+nameVR2 <- expand.grid('US',10:31,'VR.csv');
+nameVR2 <- apply(nameVR2,1,paste0,collapse = "");
+
+nameRB <- c(nameRB1,nameRB2)
+nameLR <- c(nameLR1,nameLR2)
+nameVR <- c(nameVR1,nameVR2)
+
+name <- c(nameRB,nameLR,nameVR)
+
+i <- 1
+
+while (i < 31*3+1) {
+  
+setwd("/cloud/project/Recordings/Visualisation");
+  
+data <- read.csv(file = name[i]);
+
+
+if(i %% 3 == 0){
+  
+  data <- data %>%
+  select(Time,Phase,GFO,Movement,pitch2,yaw2,V2,V2a,eyepitch,eyeyaw);
+  
+}
+
+if(!(i %% 3 == 0)){
+  
+  data <- data %>%
+  select(Time,Phase,GFO,Movement,pitch2,yaw2,V2,V2a);
+  
+}
+
+assign(name[i], data);
+write.csv(data, name[i], row.names=TRUE);
+  
+i <- i + 1
+
+}
+
+rm(data,i,name,nameRB,nameLR,nameVR,nameRB1,nameLR1,nameVR1,nameRB2,nameLR2,nameVR2)
 ```
 

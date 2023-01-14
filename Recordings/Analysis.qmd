@@ -189,6 +189,10 @@ dataLR[,'V2a'] <- NA
 
 dataVR[,'V2a'] <- NA
 
+dataVR[,'eyepitch'] <- NA
+
+dataVR[,'eyeyaw'] <- NA
+
 
 #Start RB
 
@@ -1302,7 +1306,17 @@ Pnt <- c(rot_Matrix[1,1]*Pn[1]+rot_Matrix[1,2]*Pn[2]+rot_Matrix[1,3]*Pn[3],rot_M
   dataVR$P2y[c1] = round(Pnt[2],7)
   dataVR$P2z[c1] = round(Pnt[3],7)
   
+  suppressWarnings(Eye <- as.numeric(c(dataVR$RayDirection_x[c1],dataVR$RayDirection_y[c1],dataVR$RayDirection_z[c1])))
   
+  if(!is.na(prod(Eye))){
+  
+  eyeyaw <- (acos((Eye[1]*N[1]+0+Eye[3]*N[3])/(sqrt(Eye[1]*Eye[1]+Eye[3]*Eye[3])*sqrt(N[1]*N[1]+N[3]*N[3]))))/pi*180;
+  eyepitch <- (acos((Eye[1]*Eye[1]+Eye[3]*Eye[3])/(sqrt(Eye[1]*Eye[1]+Eye[2]*Eye[2]+Eye[3]*Eye[3])*sqrt(Eye[1]*Eye[1]+Eye[3]*Eye[3]))))/pi*180;
+  
+  dataVR$eyepitch[c1] = round(eyepitch,7)
+  dataVR$eyeyaw[c1] = round(eyeyaw,7)
+  }
+    
   if(c1 > 2){
 
   P_pre <- c(dataVR$P2x[c1-2],dataVR$P2y[c1-2],dataVR$P2z[c1-2]);
@@ -1374,7 +1388,7 @@ c1 <- c1 + 1;
    
 }
 
-  rm(c0,c1,yaw,pitch,Pnt,Pn,N,R,Rz,Ry,Rx,rot_Matrix,a,b,c,X_n,Y_n,Z_n,xrot,yrot,zrot,Px,Py,Pz,q0,q1,q2,q3,basismatrix1,basismatrix2,Rinv,calquat,calquatinv,C,r00,r01,r02,r10,r11,r12,r20,r21,r22,calw,calx,caly,calz,P_current,P_post,P_pre,postangle,preangle,T_current,T_pre,T_post,V)
+  rm(c0,c1,yaw,pitch,Pnt,Pn,N,R,Rz,Ry,Rx,rot_Matrix,a,b,c,X_n,Y_n,Z_n,xrot,yrot,zrot,Px,Py,Pz,q0,q1,q2,q3,basismatrix1,basismatrix2,Rinv,calquat,calquatinv,C,r00,r01,r02,r10,r11,r12,r20,r21,r22,calw,calx,caly,calz,P_current,P_post,P_pre,postangle,preangle,T_current,T_pre,T_post,V,Eye,eyepitch,eyeyaw)
   
   #END VR
   
@@ -1412,7 +1426,7 @@ nameVR2 <- expand.grid('US',1:31,'VR.csv');
 nameVR2 <- apply(nameVR2,1,paste0,collapse = "");
 
 
-while (i < 26) {
+while (i < 32) {
 
   setwd("/cloud/project/Recordings/Sorting");
   
@@ -1577,6 +1591,10 @@ dataLR[,'V2a'] <- NA
 
 dataVR[,'V2a'] <- NA
 
+dataVR[,'eyepitch'] <- NA
+
+dataVR[,'eyeyaw'] <- NA
+
 
 #Start RB
 
@@ -2690,6 +2708,18 @@ Pnt <- c(rot_Matrix[1,1]*Pn[1]+rot_Matrix[1,2]*Pn[2]+rot_Matrix[1,3]*Pn[3],rot_M
   dataVR$P2y[c1] = round(Pnt[2],7)
   dataVR$P2z[c1] = round(Pnt[3],7)
   
+  suppressWarnings(Eye <- as.numeric(c(dataVR$RayDirection_x[c1],dataVR$RayDirection_y[c1],dataVR$RayDirection_z[c1])))
+  
+if(!is.na(prod(Eye))){
+  
+  eyeyaw <- (acos((Eye[1]*N[1]+0+Eye[3]*N[3])/(sqrt(Eye[1]*Eye[1]+Eye[3]*Eye[3])*sqrt(N[1]*N[1]+N[3]*N[3]))))/pi*180;
+  eyepitch <- (acos((Eye[1]*Eye[1]+Eye[3]*Eye[3])/(sqrt(Eye[1]*Eye[1]+Eye[2]*Eye[2]+Eye[3]*Eye[3])*sqrt(Eye[1]*Eye[1]+Eye[3]*Eye[3]))))/pi*180;
+  
+  dataVR$eyepitch[c1] = round(eyepitch,7)
+  dataVR$eyeyaw[c1] = round(eyeyaw,7)
+  
+}
+  
   
   if(c1 > 2){
 
@@ -2762,7 +2792,7 @@ c1 <- c1 + 1;
    
 }
 
-  rm(c0,c1,yaw,pitch,Pnt,Pn,N,R,Rz,Ry,Rx,rot_Matrix,a,b,c,X_n,Y_n,Z_n,xrot,yrot,zrot,Px,Py,Pz,q0,q1,q2,q3,basismatrix1,basismatrix2,Rinv,calquat,calquatinv,C,r00,r01,r02,r10,r11,r12,r20,r21,r22,calw,calx,caly,calz,P_current,P_post,P_pre,postangle,preangle,T_current,T_pre,T_post,V)
+  rm(c0,c1,yaw,pitch,Pnt,Pn,N,R,Rz,Ry,Rx,rot_Matrix,a,b,c,X_n,Y_n,Z_n,xrot,yrot,zrot,Px,Py,Pz,q0,q1,q2,q3,basismatrix1,basismatrix2,Rinv,calquat,calquatinv,C,r00,r01,r02,r10,r11,r12,r20,r21,r22,calw,calx,caly,calz,P_current,P_post,P_pre,postangle,preangle,T_current,T_pre,T_post,V,Eye,eyepitch,eyeyaw)
   
   #END VR
 
@@ -2817,7 +2847,7 @@ setwd("/cloud/project/Recordings");
 #   i <- i+1;
 # }
 # 
-# while (i < 26) {
+# while (i < 32) {
 #   write.csv(nameRB2[i], nameRB2[i], row.names=TRUE);
 #   write.csv(nameLR2[i], nameLR2[i], row.names=TRUE);
 #   write.csv(nameVR2[i], nameVR2[i], row.names=TRUE);
