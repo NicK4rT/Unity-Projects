@@ -9,6 +9,22 @@ library(tidyr)
 library(Directional)
 library(RSpincalc)
 library(orientlib )
+library(gapminder)
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(sf)
+library(rnaturalearth)
+library(gt)
+library("tidyr")
+#library(ggtree)
+library(scatterpie)
+library(ggimage)
+library(png)
+library(paletteer)
+library(grid)
+library(ggnewscale)
+
 
 ```
 
@@ -1052,3 +1068,128 @@ i <- i + 1
 rm(data,i,name,nameRB,nameLR,nameVR,nameRB1,nameLR1,nameVR1,nameRB2,nameLR2,nameVR2)
 ```
 
+
+
+```{r}
+
+i <- 1;
+setwd("/cloud/project/Recordings/Visualisation");
+
+nameRB1 <- expand.grid('US',1:9,'RB.csv');
+nameRB1 <- apply(nameRB1,1,paste0,collapse = "");
+nameLR1 <- expand.grid('US',1:9,'LR.csv');
+nameLR1 <- apply(nameLR1,1,paste0,collapse = "");
+nameVR1 <- expand.grid('US',1:9,'VR.csv');
+nameVR1 <- apply(nameVR1,1,paste0,collapse = "");
+
+nameRB2 <- expand.grid('US',10:31,'RB.csv');
+nameRB2 <- apply(nameRB2,1,paste0,collapse = "");
+nameLR2 <- expand.grid('US',10:31,'LR.csv');
+nameLR2 <- apply(nameLR2,1,paste0,collapse = "");
+nameVR2 <- expand.grid('US',10:31,'VR.csv');
+nameVR2 <- apply(nameVR2,1,paste0,collapse = "");
+
+nameRB <- c(nameRB1,nameRB2)
+nameLR <- c(nameLR1,nameLR2)
+nameVR <- c(nameVR1,nameVR2)
+
+name <- c(nameRB,nameLR,nameVR)
+
+i <- 1
+n <- 0
+
+while (i < 31*3+1) {
+  
+setwd("/cloud/project/Recordings/Clean");
+  
+data <- read.csv(file = name[i]);
+
+n <- nrow(data) + n
+
+i <- i + 1
+
+}
+
+print(n)
+
+print(n*ncol(data))
+
+rm(i,n,data,name,nameRB,nameLR,nameVR,nameRB1,nameLR1,nameVR1,nameRB2,nameLR2,nameVR2)
+
+```
+
+
+
+```{r}
+setwd("/cloud/project/Recordings/Sorting");
+
+RB.LR.VR <- read.csv(file = "RB-LR-VR.csv");
+RB.VR.LR <- read.csv(file = "RB-VR-LR.csv");
+
+t1 <- RB.LR.VR %>%
+  select(Age,Gender, Profession,What.degree.are.you.pursuing.,Field.of.study.)
+t2 <- RB.VR.LR %>%
+  select(Age,Gender, Profession,What.degree.are.you.pursuing.,Field.of.study.)
+
+data <- rbind(t1,t2)
+
+ggplot(data, aes(x = "",y = Age)) +
+  geom_boxplot() +
+  scale_y_continuous(breaks = c(19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34)) +
+    scale_color_hue() +
+  theme(axis.line = element_blank(),
+  plot.title = element_text(hjust=0.5)) +
+  labs(fill="Test Subject Age",
+     x=NULL,
+     y=NULL,
+     title="Age Distribution of Test Subjects")  +
+  theme_minimal()
+
+ggplot(data, aes(Gender,, fill = factor(Gender))) +
+  geom_bar() +
+  scale_color_hue() +
+  #scale_y_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20)) +
+  scale_y_continuous(breaks = c(13,18)) +
+  theme(axis.line = element_blank(),
+        axis.grid = element_blank(),
+  plot.title = element_text(hjust=0.5)) +
+  labs(fill="Test Subject Gender",
+     x=NULL,
+     y=NULL,
+     title="Gender Identification of Test Subjects")  +
+  theme_minimal()
+
+n = count(data,Profession)
+
+ggplot(n, aes(x = "", y = n, fill = factor(Profession))) +
+geom_bar(position = position_stack(reverse = TRUE),width = 1, stat = "identity") +
+    scale_color_hue() +
+scale_y_continuous(breaks = c(.5,15.5,30.5),labels = c("1","29","1")) +
+theme(axis.line = element_blank(),
+  plot.title = element_text(hjust=0.5)) +
+  labs(fill="Profession",
+     x=NULL,
+     y=NULL,
+     title="Profession of the Test Subjects") + 
+  coord_polar(theta = "y", start=0) +
+  theme_minimal()
+
+
+i = count(data,What.degree.are.you.pursuing.)
+
+ggplot(i, aes(x = "", y = n, fill = factor(What.degree.are.you.pursuing.))) +
+geom_bar(position = position_stack(reverse = TRUE),width = 1, stat = "identity") +
+scale_y_continuous(breaks = c(4.5,19,30),labels = c("9","20","2")) +
+theme(axis.line = element_blank(),
+  plot.title = element_text(hjust=0.5)) +
+  labs(fill="Degree Type",
+     x=NULL,
+     y=NULL,
+     title="Academic Degree Achieved or Pursued by Test Subjects") + 
+  coord_polar(theta = "y", start=0) +
+  theme_minimal()
+
+
+rm(RB.LR.VR,RB.VR.LR)
+
+```
