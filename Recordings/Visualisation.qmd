@@ -24,6 +24,9 @@ library(png)
 library(paletteer)
 library(grid)
 library(ggnewscale)
+library(ggthemes)
+library(colorspace)
+library(reshape2)
 
 
 ```
@@ -1131,48 +1134,87 @@ t1 <- RB.LR.VR %>%
 t2 <- RB.VR.LR %>%
   select(Age,Gender, Profession,What.degree.are.you.pursuing.,Field.of.study.)
 
+t1[,"Order"] <- "RB -> LR -> VR"
+  
+t2[,"Order"] <- "RB -> VR -> LR"
+
 data <- rbind(t1,t2)
 
 ggplot(data, aes(x = "",y = Age)) +
   geom_boxplot() +
   scale_y_continuous(breaks = c(19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34)) +
-    scale_color_hue() +
-  theme(axis.line = element_blank(),
-  plot.title = element_text(hjust=0.5)) +
   labs(fill="Test Subject Age",
      x=NULL,
      y=NULL,
-     title="Age Distribution of Test Subjects")  +
-  theme_minimal()
+     title="Age Distribution")  +
+  theme_economist()+ theme(legend.position = "none",
+  plot.title = element_text(vjust=1.5))     
+
+data3 <- data
+data4 <- data
+
+data3[,"rank"] <- "1"
+data4[,"rank"] <- "2"
+
+ggplot(data3, aes(x = rank,y = Age)) +
+  geom_boxplot() +
+  geom_jitter(aes(color = What.degree.are.you.pursuing., shape = Gender), data = data4, width = 0.25, size = 2.5) +
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(breaks = c(18,20,22,24,26,28,30,32,34)) +
+  scale_x_discrete(labels = c("Boxplot","Jitterplot")) +
+  labs(color="Degree Type:",
+       shape = "Gender:",
+       fill="Degree Type:",
+     x="",
+     y="Age",
+     title="Age Distribution")  +
+  theme_economist()+ theme(
+  plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))     
 
 ggplot(data, aes(Gender,, fill = factor(Gender))) +
   geom_bar() +
-  scale_color_hue() +
+  #scale_fill_discrete_sequential(palette = "Viridis", nmax = 6, order = c(4,3)) +
+  scale_fill_discrete_qualitative(palette = "Harmonic", nmax = 5, order = c(1, 2)) +
   #scale_y_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20)) +
-  scale_y_continuous(breaks = c(13,18)) +
-  theme(axis.line = element_blank(),
-        axis.grid = element_blank(),
-  plot.title = element_text(hjust=0.5)) +
-  labs(fill="Test Subject Gender",
+  scale_y_continuous(breaks = c(0,13,18)) +
+  labs(color="Degree Type:",
+       shape = "Gender:",
+       fill="Task Condition Order",
      x=NULL,
      y=NULL,
-     title="Gender Identification of Test Subjects")  +
-  theme_minimal()
+     title="Gender")  +
+  theme_economist()+ theme(legend.position = "none",
+  plot.title = element_text(vjust=1.5))     
+
+ggplot(data, aes(Order, fill = factor(Order))) +
+  geom_bar() +
+  scale_fill_discrete_qualitative(palette = "Harmonic", nmax = 5, order = c(3, 4)) +
+  #scale_fill_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20)) +
+  scale_y_continuous(breaks = c(0,15,16)) +
+  labs(fill="Task Condition Order",
+     x=NULL,
+     y=NULL,
+     title="Task Condition Order")  +
+  theme_economist()+ theme(legend.position = "none",
+  plot.title = element_text(vjust=1.5))     
 
 n = count(data,Profession)
 
+n[n == 'Marketing Manager'] <- 'Employed'
+n[n == 'Unemployed'] <- 'Student'
+
 ggplot(n, aes(x = "", y = n, fill = factor(Profession))) +
 geom_bar(position = position_stack(reverse = TRUE),width = 1, stat = "identity") +
-    scale_color_hue() +
-scale_y_continuous(breaks = c(.5,15.5,30.5),labels = c("1","29","1")) +
-theme(axis.line = element_blank(),
-  plot.title = element_text(hjust=0.5)) +
-  labs(fill="Profession",
+#scale_fill_discrete_sequential(palette = "Viridis") +
+scale_fill_discrete_qualitative(palette = "Harmonic", nmax = 7, order = c(6,7)) +
+scale_y_continuous(breaks = c(.5,16),labels = c("1","30")) +
+  labs(fill=NULL,
      x=NULL,
      y=NULL,
-     title="Profession of the Test Subjects") + 
+     title="Employment") + 
   coord_polar(theta = "y", start=0) +
-  theme_minimal()
+  theme_economist() + theme(plot.title = element_text(vjust=1.5))
 
 
 i = count(data,What.degree.are.you.pursuing.)
@@ -1180,16 +1222,515 @@ i = count(data,What.degree.are.you.pursuing.)
 ggplot(i, aes(x = "", y = n, fill = factor(What.degree.are.you.pursuing.))) +
 geom_bar(position = position_stack(reverse = TRUE),width = 1, stat = "identity") +
 scale_y_continuous(breaks = c(4.5,19,30),labels = c("9","20","2")) +
-theme(axis.line = element_blank(),
-  plot.title = element_text(hjust=0.5)) +
   labs(fill="Degree Type",
      x=NULL,
      y=NULL,
-     title="Academic Degree Achieved or Pursued by Test Subjects") + 
+     title="Academic Degree") + 
   coord_polar(theta = "y", start=0) +
-  theme_minimal()
+  scale_fill_discrete_sequential(palette = "Viridis") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5))
 
 
-rm(RB.LR.VR,RB.VR.LR)
+# ggplot(data, aes(x = Order, y = Age, color = What.degree.are.you.pursuing., shape = Gender)) + geom_jitter(width = 0.1) +
+#   scale_color_discrete_sequential(palette = "Viridis") +
+#   scale_y_continuous(breaks = c(20,22,24,26,28,30,32,34)) +
+#   labs(color="Degree Type",
+#      x="Task Condition Order",
+#      y="Age",
+#      title="User Study Participants") +
+#   theme_economist()
+
+data2 <- data %>%
+  select(Age)
+data2[,"Order"] <- "RB -> NOP"
+
+ggplot(data, aes(x = Order, y = Age)) + 
+  geom_boxplot(aes(x = Order, y = Age), data = data2) +
+  geom_boxplot() +
+  scale_color_discrete_sequential(palette = "Viridis", rev = TRUE) +
+  scale_y_continuous(breaks = c(20,22,24,26,28,30,32,34)) +
+  scale_x_discrete(labels = c("RB -> LR -> VR", "", "RB -> VR -> LR")) +
+  labs(color="Degree Type",
+     x="Task Condition Order",
+     y="Age",
+     title="User Study Participants Statistics") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+ggplot(data, aes(x = Order, y = Age, color = What.degree.are.you.pursuing., shape = Gender)) + 
+  #geom_boxplot(aes(x = Order, y=Age, color = NULL, shape = ""), data = data2) +
+  geom_jitter(width = 0.25, size = 2.5) +
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(breaks = c(20,22,24,26,28,30,32,34)) +
+  scale_x_discrete(labels = c("RB -> LR -> VR", "RB -> VR -> LR")) +
+  labs(color="Degree Type:",
+       shape = "Gender:",
+     x="Task Condition Order",
+     y="Age",
+     title="User Study Participants Statistics") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+
+
+rm(RB.LR.VR,RB.VR.LR,data,data2,data3,data4,i,n,t1,t2)
+
+```
+
+
+```{r}
+
+
+plotnames <- expand.grid(1:1000,'.png');
+plotnames <- apply(plotnames,1,paste0,collapse = "");
+plotnumber <- 1
+
+
+
+
+
+
+setwd("/cloud/project/Recordings/Sorting");
+
+RB.LR.VR <- read.csv(file = "RB-LR-VR.csv");
+RB.VR.LR <- read.csv(file = "RB-VR-LR.csv");
+
+
+
+# RB.LR.VR[,"Order"] <- "RB -> LR -> VR"
+#   
+# RB.VR.LR[,"Order"] <- "RB -> VR -> LR"
+
+
+#RB.LR.VR
+
+# namepre <- c(colnames(RB.LR.VR)[12:27],"Order","Phase",colnames(RB.LR.VR)[28:36],colnames(RB.LR.VR)[105:115]);
+# 
+# nameRB <- c(colnames(RB.LR.VR)[28:36],colnames(RB.LR.VR)[12:27],"Order","Phase",colnames(RB.LR.VR)[105:115]);
+# 
+# nameLR <- c(colnames(RB.LR.VR)[28:36],colnames(RB.LR.VR)[12:27],"Order","Phase",colnames(RB.LR.VR)[105:115]);
+# 
+# nameVR <- c(colnames(RB.LR.VR)[28:36],colnames(RB.LR.VR)[12:27],colnames(RB.LR.VR)[105:115],"Order","Phase");
+
+
+namepre <- c(colnames(RB.LR.VR)[12:27],"Order","Phase");
+
+nameRB <- c(colnames(RB.LR.VR)[28:36],colnames(RB.LR.VR)[12:27],"Order","Phase");
+
+nameLR <- c(colnames(RB.LR.VR)[28:36],colnames(RB.LR.VR)[12:27],"Order","Phase");
+
+nameVR <- c(colnames(RB.LR.VR)[28:36],colnames(RB.LR.VR)[12:27],colnames(RB.LR.VR)[105:115],"Order","Phase");
+
+#name.RB.LR.VR <-  c(namepre,nameRB,nameLR,nameVR,"Order")
+
+#names(RB.LR.VR)[12:115] <- name.RB.LR.VR
+
+
+#RB.VR.LR
+
+#name.RB.VR.LR <-  c(namepre,nameRB,nameVR,nameLR,"Order")
+
+#names(RB.VR.LR)[12:115] <- name.RB.VR.LR
+
+
+# 
+# c1 <- c(1:116)
+# 
+# c1[1:11] <- "Admin"
+# c1[12:27] <- "Pre"
+# c1[28:52] <- "RB"
+# c1[54:78] <- "LR"
+# c1[80:115] <- "VR"
+# c1[116] <- "RB.LR.VR"
+# 
+# 
+# c2 <- c(1:116)
+# 
+# c2[1:11] <- "Admin"
+# c2[12:27] <- "Pre"
+# c2[28:52] <- "RB"
+# c2[54:89] <- "VR"
+# c2[91:115] <- "LR"
+# c2[116] <- "RB.LR.VR"
+
+
+#RB.LR.VR.colnames <- c(1:11,53,79)
+# 
+#RB.VR.LR.colnames <- c(1:11,53,90)
+# 
+# 
+# RB.LR.VR <- melt(RB.LR.VR,
+#                   id.vars = c(12:27,28:52,54:115))
+
+
+# RB.LR.VR <- RB.LR.VR %>%
+#   select(-RB.LR.VR.colnames)
+# 
+# RB.VR.LR <- RB.VR.LR %>%
+#   select(-RB.VR.LR.colnames)
+
+
+#RB.LR.VR
+
+
+RB.LR.VR.pre <- RB.LR.VR %>%
+  select(c(12:27))
+RB.LR.VR.pre[,"Order"] <- "RB -> LR -> VR"
+RB.LR.VR.pre[,"Phase"] <- "aPre"
+names(RB.LR.VR.pre) <-  c(namepre)
+RB.LR.VR.pre[,c(colnames(RB.LR.VR[28:36]),colnames(RB.LR.VR[105:115]))] <- NA
+
+
+RB.LR.VR.RB <- RB.LR.VR %>%
+  select(c(28:52))
+RB.LR.VR.RB[,"Order"] <- "RB -> LR -> VR"
+RB.LR.VR.RB[,"Phase"] <- "bRB"
+names(RB.LR.VR.RB) <- c(nameRB)
+RB.LR.VR.RB[,colnames(RB.LR.VR[105:115])] <- NA
+
+
+RB.LR.VR.LR <- RB.LR.VR %>%
+  select(c(54:78))
+RB.LR.VR.LR[,"Order"] <- "RB -> LR -> VR"
+RB.LR.VR.LR[,"Phase"] <- "cLR"
+names(RB.LR.VR.LR) <- c(nameLR)
+RB.LR.VR.LR[,colnames(RB.LR.VR[105:115])] <- NA
+
+
+RB.LR.VR.VR <- RB.LR.VR %>%
+  select(c(80:115))
+RB.LR.VR.VR[,"Order"] <- "RB -> LR -> VR"
+RB.LR.VR.VR[,"Phase"] <- "dVR"
+names(RB.LR.VR.VR) <- c(nameVR)
+
+
+
+#RB.VR.LR
+
+
+RB.VR.LR.pre <- RB.VR.LR %>%
+  select(c(12:27))
+RB.VR.LR.pre[,"Order"] <- "RB -> VR -> LR"
+RB.VR.LR.pre[,"Phase"] <- "aPre"
+names(RB.VR.LR.pre) <-  c(namepre)
+RB.VR.LR.pre[,c(colnames(RB.LR.VR[28:36]),colnames(RB.LR.VR[105:115]))] <- NA
+
+
+RB.VR.LR.RB <- RB.VR.LR %>%
+  select(c(28:52))
+RB.VR.LR.RB[,"Order"] <- "RB -> VR -> LR"
+RB.VR.LR.RB[,"Phase"] <- "bRB"
+names(RB.VR.LR.RB) <- c(nameRB)
+RB.VR.LR.RB[,colnames(RB.LR.VR[105:115])] <- NA
+
+
+RB.VR.LR.LR <- RB.VR.LR %>%
+  select(c(91:115))
+RB.VR.LR.LR[,"Order"] <- "RB -> VR -> LR"
+RB.VR.LR.LR[,"Phase"] <- "cLR"
+names(RB.VR.LR.LR) <- c(nameLR)
+RB.VR.LR.LR[,colnames(RB.LR.VR[105:115])] <- NA
+
+
+RB.VR.LR.VR <- RB.VR.LR %>%
+  select(c(54:89))
+RB.VR.LR.VR[,"Order"] <- "RB -> VR -> LR"
+RB.VR.LR.VR[,"Phase"] <- "dVR"
+names(RB.VR.LR.VR) <- c(nameVR)
+
+
+#print(colnames(RB.VR.LR))
+
+
+
+#data <- rbind(RB.LR.VR.pre, RB.LR.VR.RB)
+data <- rbind(RB.LR.VR.pre, RB.LR.VR.RB, RB.LR.VR.LR, RB.LR.VR.VR, RB.VR.LR.pre, RB.VR.LR.RB, RB.VR.LR.LR, RB.VR.LR.VR)
+
+
+#RB.LR.VR <- sum(RB.LR.VR[1:15])/nrow(RB.LR.VR)
+
+#RB.VR.LR <- sum(RB.VR.LR[1:16])/nrow(RB.LR.VR)
+
+
+
+#RB.LR.VR <- rbind(RB.LR.VR,c1)
+
+#RB.VR.LR <- rbind(RB.VR.LR,c2)
+
+
+
+
+
+
+#print(colnames(RB.LR.VR))
+
+# RB.LR.VR %>%
+# 
+# 
+# RB.VR.LR %>%
+
+
+#data <- rbind(RB.LR.VR,RB.VR.LR)
+
+# print(colnames(data[i]))
+#   names(data) <- c(1:38)
+#   print(colnames(data[i]))
+
+Questions <- c("General discomfort","Fatigue","Headache","Eyestrain","Difficulty Focusing","Increased Salivation","Sweating","Nausea","Difficulty Concentrating","Fullness of Head","Blurred Vision","Dizziness (Eyes Open)","Dizziness (Eyes Closed)","Vertigo","Stomach Awareness","Burping","How mentally fatiguing was the task?","How physically fatiguing was the task?"," How hurried or rushed did you feel during the task?","How insecure, discouraged, irritated, stressed and annoyed were you?"," How complex was the task?","How stressed did you feel while performing the task?"," How distracting was the task environment?","How uncomfortable/irritating were the visual and auditory aspects of the task?","How difficult was the task?","While using the VR equipment, I was able to block out most other distractions.","While using the VR equipment, I was absorbed in what I was doing.","While using the VR equipment, I was immersed in the task I was performing.","While using the VR equipment, I got very easily distracted by events unrelated to the task.","While using the VR equipment, my attention did not get diverted very easily.","Sense of being in the training room, on the following scale, where 7 represents your normal experience of being in a place. I had a sense of being in the training room:","To what extent were there times during the experience when the training room was reality for you?","When you think back, do you think of the training room more as images that you saw, or more as a place that you visited?","During the time of the experience, which was strongest, the sense of being in the training room, or being somewhere else? ","Consider your memory of being in the training room: How similar in terms of the structure of memory is this to the structure of memory of other places that you have been today? (Structure of memory: things like the extent to which you have a visual memory of the training room, whether that memory is in color, the extent to which the memory seems vivid or realistic, its size, location in your imagination,  the extent to which it is panoramic in your imagination, and other structural elements.) Do you think of the training room as a place in a way similar to other places that I have been to today?","During the experience, did you often think to yourself that you were actually present in the test chamber?")
+
+i <- 1
+while (i < 17) {
+  
+data1 <- data %>%
+  select(i,Order,Phase)
+
+names(data1) <- c("Numbers","Order","Phase")
+
+
+ggplot(data1, aes(x = Phase, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.1,height = 0.1) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2)) +
+  scale_y_continuous(limits = c(0, 3),breaks = c(0,1,2,3), labels = c("None","","","Severe")) +
+  scale_x_discrete(breaks = c("aPre","bRB","cLR","dVR"), labels = c("pre","RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="",
+     title=Questions[i])
+  
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+  
+  i <- i + 1
+}
+
+
+i <- 19
+
+while (i < 28) {
+  
+data1 <- data %>%
+  select(i,Order,Phase)
+
+names(data1) <- c("Numbers","Order","Phase")
+
+
+ggplot(data1, aes(x = Phase, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.1,height = 0.1) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2)) +
+  scale_y_continuous(limits = c(0, 10),breaks = c(0,1,2,3,4,5,6,7,8,9,10), labels = c("Very low","","","","","","","","","","Very high")) +
+  scale_x_discrete(breaks = c("bRB","cLR","dVR"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="",
+     title=Questions[i])
+  
+  
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+  
+  i <- i + 1
+}
+
+
+
+
+
+data1 <- data %>%
+  select(28,Order,Phase)
+data1[,"rank"] <- "1"
+data2 <- data %>%
+  select(29,Order,Phase)
+data2[,"rank"] <- "2"
+data3 <- data %>%
+  select(30,Order,Phase)  
+data3[,"rank"] <- "3"
+data4 <- data %>%
+  select(31,Order,Phase)
+data4[,"rank"] <- "4"
+data5 <- data %>%
+  select(32,Order,Phase)
+data5[,"rank"] <- "5"
+
+names(data1) <- c("Numbers","Order","Phase","rank")
+names(data2) <- c("Numbers","Order","Phase","rank")
+names(data3) <- c("Numbers","Order","Phase","rank")
+names(data4) <- c("Numbers","Order","Phase","rank")
+names(data5) <- c("Numbers","Order","Phase","rank")
+
+cdata <- rbind(data1,data2,data3,data4,data5)
+
+ggplot(cdata, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="VR Cognition Absorption") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata1 <- cdata  %>%
+  filter(Order == "RB -> LR -> VR")
+
+ggplot(cdata1, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="VR Cognition Absorption (RB -> LR -> VR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+
+cdata2 <- cdata  %>%
+  filter(Order == "RB -> VR -> LR")
+
+ggplot(cdata2, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="VR Cognition Absorption (RB -> VR -> LR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+
+#VR Presence Qs
+
+
+
+
+
+data1 <- data %>%
+  select(33,Order,Phase)
+data1[,"rank"] <- "1"
+data2 <- data %>%
+  select(34,Order,Phase)
+data2[,"rank"] <- "2"
+data3 <- data %>%
+  select(35,Order,Phase)  
+data3[,"rank"] <- "3"
+data4 <- data %>%
+  select(36,Order,Phase)
+data4[,"rank"] <- "4"
+data5 <- data %>%
+  select(37,Order,Phase)
+data5[,"rank"] <- "5"
+data6 <- data %>%
+  select(38,Order,Phase)
+data6[,"rank"] <- "6"
+
+names(data1) <- c("Numbers","Order","Phase","rank")
+names(data2) <- c("Numbers","Order","Phase","rank")
+names(data3) <- c("Numbers","Order","Phase","rank")
+names(data4) <- c("Numbers","Order","Phase","rank")
+names(data5) <- c("Numbers","Order","Phase","rank")
+names(data6) <- c("Numbers","Order","Phase","rank")
+
+cdata <- rbind(data1,data2,data3,data4,data5,data6)
+
+ggplot(cdata, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="VR Presence") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+
+
+
+cdata1 <- cdata  %>%
+  filter(Order == "RB -> LR -> VR")
+
+ggplot(cdata1, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="VR Presence (RB -> LR -> VR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+
+
+
+cdata2 <- cdata  %>%
+  filter(Order == "RB -> LR -> VR")
+
+ggplot(cdata2, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="VR Presence (RB -> VR -> LR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+
+rm(namepre,nameLR,nameRB,nameVR,RB.LR.VR,RB.VR.LR,cdata,cdata1,cdata2,data,data1,data2,data3,data4,data5,data6,RB.LR.VR.LR,RB.LR.VR.pre,RB.LR.VR.RB,RB.LR.VR.VR,RB.VR.LR.LR,RB.VR.LR.pre,RB.VR.LR.RB,RB.VR.LR.VR,i)
+
+```
+
+```{r}
+
+setwd("/cloud/project/Recordings/Sorting");
+
+
+
+#rm(namepre,nameLR,nameRB,nameVR,RB.LR.VR,RB.VR.LR)
 
 ```
