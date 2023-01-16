@@ -2594,6 +2594,81 @@ B5.A5C5.angle %>%
 
 
 
+
+Angle <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+Time <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+V <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+
+Angle[,"dRB.LR"] <- B5.B6.angle$V1[1:31] - B5.B6.angle$V1[32:62]
+Angle[,"dRB.VR"] <- B5.B6.angle$V1[1:31] - B5.B6.angle$V1[63:93]
+Angle[,"dLR.VR"] <- B5.B6.angle$V1[32:62] - B5.B6.angle$V1[63:93]
+Time[,"dRB.LR"] <- B5.B6.time$V1[1:31] - B5.B6.time$V1[32:62]
+Time[,"dRB.VR"] <- B5.B6.time$V1[1:31] - B5.B6.time$V1[63:93]
+Time[,"dLR.VR"] <- B5.B6.time$V1[32:62] - B5.B6.time$V1[63:93]
+V[,"dRB.LR"] <- B5.B6.V$V1[1:31] - B5.B6.V$V1[32:62]
+V[,"dRB.VR"] <- B5.B6.V$V1[1:31] - B5.B6.V$V1[63:93]
+V[,"dLR.VR"] <- B5.B6.V$V1[32:62] - B5.B6.V$V1[63:93]
+
+
+Angle  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+
+Time  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+
+V  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+
+Angle[,"dRB.LR"] <- B5.B79.angle$V1[1:31] - B5.B79.angle$V1[32:62]
+Angle[,"dRB.VR"] <- B5.B79.angle$V1[1:31] - B5.B79.angle$V1[63:93]
+Angle[,"dLR.VR"] <- B5.B79.angle$V1[32:62] - B5.B79.angle$V1[63:93]
+Time[,"dRB.LR"] <- B5.B79.time$V1[1:31] - B5.B79.time$V1[32:62]
+Time[,"dRB.VR"] <- B5.B79.time$V1[1:31] - B5.B79.time$V1[63:93]
+Time[,"dLR.VR"] <- B5.B79.time$V1[32:62] - B5.B79.time$V1[63:93]
+V[,"dRB.LR"] <- B5.B79.V$V1[1:31] - B5.B79.V$V1[32:62]
+V[,"dRB.VR"] <- B5.B79.V$V1[1:31] - B5.B79.V$V1[63:93]
+V[,"dLR.VR"] <- B5.B79.V$V1[32:62] - B5.B79.V$V1[63:93]
+
+
+Angle  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+
+Time  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+
+V  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+
+Angle[,"dRB.LR"] <- B5.A5C5.angle$V1[1:31] - B5.A5C5.angle$V1[32:62]
+Angle[,"dRB.VR"] <- B5.A5C5.angle$V1[1:31] - B5.A5C5.angle$V1[63:93]
+Angle[,"dLR.VR"] <- B5.A5C5.angle$V1[32:62] - B5.A5C5.angle$V1[63:93]
+Time[,"dRB.LR"] <- B5.A5C5.time$V1[1:31] - B5.A5C5.time$V1[32:62]
+Time[,"dRB.VR"] <- B5.A5C5.time$V1[1:31] - B5.A5C5.time$V1[63:93]
+Time[,"dLR.VR"] <- B5.A5C5.time$V1[32:62] - B5.A5C5.time$V1[63:93]
+V[,"dRB.LR"] <- B5.A5C5.V$V1[1:31] - B5.A5C5.V$V1[32:62]
+V[,"dRB.VR"] <- B5.A5C5.V$V1[1:31] - B5.A5C5.V$V1[63:93]
+V[,"dLR.VR"] <- B5.A5C5.V$V1[32:62] - B5.A5C5.V$V1[63:93]
+
+
+Angle  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+
+Time  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+
+V  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+
+
 ```
 
 ```{r}
@@ -2608,7 +2683,7 @@ plotnumber3 <- 300
 ggplot(B5.B6.RB10, aes(x = yaw2, y = pitch2, color = "blue")) +
   geom_line() +
   geom_line(data = B5.B6.LR10, aes(x = yaw2, y = pitch2, color = "green")) +
-  geom_line(data = B5.B6.VR10, aes(x = -yaw2, y = pitch2, color = "red")) +
+  geom_line(data = B5.B6.VR10, aes(x = yaw2, y = pitch2, color = "red")) +
     labs(x="Yaw [deg]",
        y="Pitch [deg]",
      title="Movement B5 -> B6",
@@ -2638,24 +2713,37 @@ plotnumber2 <- plotnumber3 + 1
   
 
 
-ggplot(B5.B79.RB10, aes(x = -yaw2, y = pitch2, color = "blue")) +
+setwd("/cloud/project/Recordings/Clean");
+
+dataplot1 <- read.csv("US10RB.csv")
+dataplot2 <- read.csv("US10LR.csv")
+dataplot3 <- read.csv("US10VR.csv")
+
+dataplot1 <- dataplot1 %>%
+  filter(Phase == 1)
+dataplot2 <- dataplot2 %>%
+  filter(Phase == 1)
+dataplot3 <- dataplot3 %>%
+  filter(Phase == 1)
+
+
+ggplot(dataplot3, aes(x = yaw2, y = pitch2))+#, color = "blue")) +
   geom_path() +
-  geom_path(data = B5.B79.LR10, aes(x = yaw2, y = pitch2, color = "green")) +
-  geom_path(data = B5.B79.VR10, aes(x = yaw2, y = -pitch2, color = "red")) +
-  geom_line(data = as.data.frame(matrix(c(0,30,0,-15.6),nrow=2,ncol=2)),aes(x = V1, y = V2), color = "black") +
+  #geom_path(data = dataplot2, aes(x = yaw2, y = pitch2, color = "green")) +
+  #geom_path(data = dataplot3, aes(x = -yaw2, y = -pitch2, color = "red")) +
+  #geom_line(data = as.data.frame(matrix(c(0,30,0,-15.6),nrow=2,ncol=2)),aes(x = V1, y = V2), color = "black") +
     labs(x="Yaw [deg]",
        y="Pitch [deg]",
-     title="Movement B5 -> B6",
+     title="Movement B5 -> B6 -> B9 -> B8 -> B5",
      color = "Task Condition:") +
  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1)) +
   scale_x_continuous(limits = c(-45,45)) +
   scale_y_continuous(limits = c(-45,45)) +
   scale_colour_manual(labels = c("RB", "LR", "VR","Direct Path"), values = c("blue", "green", "red","black"))
-
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
 ggsave(plotnames[plotnumber3],last_plot())
-plotnumber2 <- plotnumber3 + 1
+plotnumber3 <- plotnumber3 + 1
 
 
 ```
