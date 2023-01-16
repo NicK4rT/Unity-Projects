@@ -2704,7 +2704,7 @@ ggplot(B5.B6.RB10, aes(x = yaw2, y = pitch2, color = "blue")) +
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
 ggsave(plotnames[plotnumber3],last_plot())
-plotnumber2 <- plotnumber3 + 1
+plotnumber3 <- plotnumber3 + 1
 
 # ggplot(US2RB.csv, aes(x = yaw2, y = pitch2)) +
 #   geom_line() 
@@ -2727,14 +2727,14 @@ dataplot3 <- dataplot3 %>%
   filter(Phase == 1)
 
 
-ggplot(dataplot3, aes(x = yaw2, y = pitch2))+#, color = "blue")) +
+ggplot(dataplot3, aes(x = yaw2, y = pitch2)+#, color = "blue")) +
   geom_path() +
-  #geom_path(data = dataplot2, aes(x = yaw2, y = pitch2, color = "green")) +
-  #geom_path(data = dataplot3, aes(x = -yaw2, y = -pitch2, color = "red")) +
+  geom_path(data = dataplot2, aes(x = yaw2, y = pitch2, color = "green")) +
+  geom_path(data = dataplot3, aes(x = -yaw2, y = -pitch2, color = "red")) +
   #geom_line(data = as.data.frame(matrix(c(0,30,0,-15.6),nrow=2,ncol=2)),aes(x = V1, y = V2), color = "black") +
     labs(x="Yaw [deg]",
        y="Pitch [deg]",
-     title="Movement B5 -> B6 -> B9 -> B8 -> B5",
+     title="VR",
      color = "Task Condition:") +
  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1)) +
   scale_x_continuous(limits = c(-45,45)) +
