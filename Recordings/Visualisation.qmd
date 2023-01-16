@@ -2772,7 +2772,7 @@ ggplot(dataplot2, aes(x = yaw2, y = pitch2))+#, color = "blue")) +
   #geom_line(data = as.data.frame(matrix(c(0,30,0,-15.6),nrow=2,ncol=2)),aes(x = V1, y = V2), color = "black") +
     labs(x="Yaw [deg]",
        y="Pitch [deg]",
-     title="RB",
+     title="LR",
      color = "Task Condition:") +
  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1)) +
   scale_x_continuous(limits = c(-45,45)) +
@@ -2791,7 +2791,7 @@ ggplot(dataplot3, aes(x = yaw2, y = pitch2))+#, color = "blue")) +
   #geom_line(data = as.data.frame(matrix(c(0,30,0,-15.6),nrow=2,ncol=2)),aes(x = V1, y = V2), color = "black") +
     labs(x="Yaw [deg]",
        y="Pitch [deg]",
-     title="RB",
+     title="VR",
      color = "Task Condition:") +
  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1)) +
   scale_x_continuous(limits = c(-45,45)) +
