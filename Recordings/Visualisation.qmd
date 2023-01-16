@@ -2170,6 +2170,31 @@ B5.A5C5.angle <- as.data.frame(rbind(B5.A5C5.RB.angle2,B5.A5C5.LR.angle2,B5.A5C5
 ```{r}
 plotnumber2 <- 100
 
+# B5.B6.time <- B5.B6.time %>%
+# B5.B79.time <- B5.B79.time %>%
+# B5.A5C5.time <- B5.A5C5.time %>%
+  
+
+B5.B6.V <- subset(B5.B6.V, V1<100)
+B5.B6.angle <- subset(B5.B6.angle, V1<30 & V1>-30)
+B5.B79.V <- subset(B5.B79.V, V1 <100)
+B5.B79.angle <- subset(B5.B6.angle, V1<30 & V1>-30)
+B5.A5C5.V <- subset(B5.A5C5.V, V1 <100)
+B5.A5C5.angle <- subset(B5.A5C5.angle, V1<30 & V1>-30)
+
+# B5.B6.V <- B5.B6.V %>%
+#   filter(V1 < 100)
+# B5.B79.V <- B5.B79.V %>%
+#   filter(V1 < 100)
+# B5.A5C5.V <- B5.A5C5.V %>%
+#   filter(V1 < 100)
+# 
+# B5.B6.angle <- B5.B6.angle %>%
+#   filter(V1 < 30 && V1 > -30)
+# B5.B79.angle <- B5.B79.angle %>%
+#   filter(V1 < 30 && V1 > -30)
+# B5.A5C5.angle <- B5.A5C5.angle %>%
+#   filter(V1 < 30 && V1 > -30)
 
 #B5.B6
 
