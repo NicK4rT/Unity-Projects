@@ -1280,7 +1280,7 @@ rm(RB.LR.VR,RB.VR.LR,data,data2,data3,data4,i,n,t1,t2)
 ```{r}
 
 
-plotnames <- expand.grid(0001:1000,'.png');
+plotnames <- expand.grid(001:999,'.png');
 plotnames <- apply(plotnames,1,paste0,collapse = "");
 plotnumber <- 1
 
@@ -1721,6 +1721,119 @@ ggsave(plotnames[plotnumber],last_plot())
 plotnumber <- plotnumber + 1
 
 
+
+
+
+
+
+
+
+data1 <- data %>%
+  select(19,Order,Phase)
+data1[,"rank"] <- "1"
+data2 <- data %>%
+  select(20,Order,Phase)
+data2[,"rank"] <- "2"
+data3 <- data %>%
+  select(21,Order,Phase)  
+data3[,"rank"] <- "3"
+data4 <- data %>%
+  select(22,Order,Phase)
+data4[,"rank"] <- "4"
+data5 <- data %>%
+  select(23,Order,Phase)
+data5[,"rank"] <- "5"
+data6 <- data %>%
+  select(24,Order,Phase)
+data6[,"rank"] <- "6"
+data7 <- data %>%
+  select(25,Order,Phase)
+data7[,"rank"] <- "7"
+data8 <- data %>%
+  select(26,Order,Phase)
+data8[,"rank"] <- "8"
+data9 <- data %>%
+  select(27,Order,Phase)
+data9[,"rank"] <- "9"
+
+names(data1) <- c("Numbers","Order","Phase","rank")
+names(data2) <- c("Numbers","Order","Phase","rank")
+names(data3) <- c("Numbers","Order","Phase","rank")
+names(data4) <- c("Numbers","Order","Phase","rank")
+names(data5) <- c("Numbers","Order","Phase","rank")
+names(data6) <- c("Numbers","Order","Phase","rank")
+names(data7) <- c("Numbers","Order","Phase","rank")
+names(data8) <- c("Numbers","Order","Phase","rank")
+names(data9) <- c("Numbers","Order","Phase","rank")
+
+cdata <- rbind(data1,data2,data3,data4,data5,data6,data7,data8,data9)
+
+ggplot(cdata, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,10),breaks = c(0,1,2,3,4,5,6,7,8,9,10), labels = c("Very low","","","","","","","","","","Very high")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6,7,8,9))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="Task Load Index") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+
+
+
+cdata1 <- cdata  %>%
+  filter(Order == "RB -> LR -> VR")
+
+ggplot(cdata1, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,10),breaks = c(0,1,2,3,4,5,6,7,8,9,10), labels = c("Very low","","","","","","","","","","Very high")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6,7,8,9))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="Task Load Index (RB -> LR -> VR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+
+
+
+cdata2 <- cdata  %>%
+  filter(Order == "RB -> LR -> VR")
+
+ggplot(cdata2, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,10),breaks = c(0,1,2,3,4,5,6,7,8,9,10), labels = c("Very low","","","","","","","","","","Very high")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6,7,8,9))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="Task Load Index (RB -> VR -> LR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+
+
+
 rm(namepre,nameLR,nameRB,nameVR,RB.LR.VR,RB.VR.LR,cdata,cdata1,cdata2,data,data1,data2,data3,data4,data5,data6,RB.LR.VR.LR,RB.LR.VR.pre,RB.LR.VR.RB,RB.LR.VR.VR,RB.VR.LR.LR,RB.VR.LR.pre,RB.VR.LR.RB,RB.VR.LR.VR,i)
 
 ```
@@ -1748,6 +1861,70 @@ nameLR <- c(nameLR1,nameLR2)
 nameVR <- c(nameVR1,nameVR2)
 
 name <- c(nameRB,nameLR,nameVR)
+
+
+
+nameRB12 <- expand.grid('B5.B6.RB',1:9);
+nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
+nameLR12 <- expand.grid('B5.B6.LR',1:9);
+nameLR12 <- apply(nameLR12,1,paste0,collapse = "");
+nameVR12 <- expand.grid('B5.B6.VR',1:9);
+nameVR12 <- apply(nameVR12,1,paste0,collapse = "");
+
+nameRB22 <- expand.grid('B5.B6.RB',10:31);
+nameRB22 <- apply(nameRB22,1,paste0,collapse = "");
+nameLR22 <- expand.grid('B5.B6.LR',10:31);
+nameLR22 <- apply(nameLR22,1,paste0,collapse = "");
+nameVR22 <- expand.grid('B5.B6.VR',10:31);
+nameVR22 <- apply(nameVR22,1,paste0,collapse = "");
+
+nameRB.2 <- c(nameRB12,nameRB22)
+nameLR.2 <- c(nameLR12,nameLR22)
+nameVR.2 <- c(nameVR12,nameVR22)
+
+nameB5.B6 <- c(nameRB.2,nameLR.2,nameVR.2)
+
+
+nameRB12 <- expand.grid('B5.B79.RB',1:9);
+nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
+nameLR12 <- expand.grid('B5.B79.LR',1:9);
+nameLR12 <- apply(nameLR12,1,paste0,collapse = "");
+nameVR12 <- expand.grid('B5.B79.VR',1:9);
+nameVR12 <- apply(nameVR12,1,paste0,collapse = "");
+
+nameRB22 <- expand.grid('B5.B79.RB',10:31);
+nameRB22 <- apply(nameRB22,1,paste0,collapse = "");
+nameLR22 <- expand.grid('B5.B79.LR',10:31);
+nameLR22 <- apply(nameLR22,1,paste0,collapse = "");
+nameVR22 <- expand.grid('B5.B79.VR',10:31);
+nameVR22 <- apply(nameVR22,1,paste0,collapse = "");
+
+nameRB.2 <- c(nameRB12,nameRB22)
+nameLR.2 <- c(nameLR12,nameLR22)
+nameVR.2 <- c(nameVR12,nameVR22)
+
+nameB5.B79 <- c(nameRB.2,nameLR.2,nameVR.2)
+
+
+nameRB12 <- expand.grid('B5.A5C5.RB',1:9);
+nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
+nameLR12 <- expand.grid('B5.A5C5.LR',1:9);
+nameLR12 <- apply(nameLR12,1,paste0,collapse = "");
+nameVR12 <- expand.grid('B5.A5C5.VR',1:9);
+nameVR12 <- apply(nameVR12,1,paste0,collapse = "");
+
+nameRB22 <- expand.grid('B5.A5C5.RB',10:31);
+nameRB22 <- apply(nameRB22,1,paste0,collapse = "");
+nameLR22 <- expand.grid('B5.A5C5.LR',10:31);
+nameLR22 <- apply(nameLR22,1,paste0,collapse = "");
+nameVR22 <- expand.grid('B5.A5C5.VR',10:31);
+nameVR22 <- apply(nameVR22,1,paste0,collapse = "");
+
+nameRB.2 <- c(nameRB12,nameRB22)
+nameLR.2 <- c(nameLR12,nameLR22)
+nameVR.2 <- c(nameVR12,nameVR22)
+
+nameB5.A5C5 <- c(nameRB.2,nameLR.2,nameVR.2)
 
 
 
@@ -1826,12 +2003,15 @@ if((i < 32))
 data.movement <- data %>%
   filter(Phase == 1, Movement == 1)
 B5.B6.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B6[i], data.movement)
 data.movement <- data %>%
   filter(Phase == 2, Movement == 8)
 B5.B79.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B79[i], data.movement)
 data.movement <- data %>%
   filter(Phase == 3, Movement == 1)
 B5.A5C5.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.A5C5[i], data.movement)
 
 }
 
@@ -1843,12 +2023,15 @@ if((i > 31 && i < 31*2+1))
 data.movement <- data %>%
   filter(Phase == 1, Movement == 5)
 B5.B6.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B6[i], data.movement)
 data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B79[i], data.movement)
 data.movement <- data %>%
   filter(Phase == 3, Movement == 1)
 B5.A5C5.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.A5C5[i], data.movement)
     
   }
   if(!(i %% 2 == 0)){  
@@ -1856,12 +2039,15 @@ B5.A5C5.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
 data.movement <- data %>%
   filter(Phase == 1, Movement == 1)
 B5.B6.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B6[i], data.movement)
 data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B79[i], data.movement)
 data.movement <- data %>%
   filter(Phase == 3, Movement == 8)
 B5.A5C5.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.A5C5[i], data.movement)
     
   }
 }
@@ -1874,12 +2060,15 @@ if((i > 31*2 && i < 31*3+1))
 data.movement <- data %>%
   filter(Phase == 1, Movement == 5)
 B5.B6.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B6[i], data.movement)
 data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B79[i], data.movement)
 data.movement <- data %>%
   filter(Phase == 3, Movement == 1)
 B5.A5C5.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.A5C5[i], data.movement)
     
   }
   if(!(i %% 2 == 0)){  
@@ -1887,12 +2076,15 @@ B5.A5C5.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
 data.movement <- data %>%
   filter(Phase == 1, Movement == 1)
 B5.B6.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B6[i], data.movement)
 data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B79[i], data.movement)
 data.movement <- data %>%
   filter(Phase == 3, Movement == 8)
 B5.A5C5.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.A5C5[i], data.movement)
     
   }
 }
@@ -2170,15 +2362,15 @@ B5.A5C5.angle <- as.data.frame(rbind(B5.A5C5.RB.angle2,B5.A5C5.LR.angle2,B5.A5C5
 ```{r}
 plotnumber2 <- 100
 
-# B5.B6.time <- B5.B6.time %>%
-# B5.B79.time <- B5.B79.time %>%
-# B5.A5C5.time <- B5.A5C5.time %>%
+B5.B6.time <- subset(B5.B6.time, V1<300000 & V1>-300000)
+B5.B79.time <- subset(B5.B79.time, V1<300000 & V1>-300000)
+B5.A5C5.time <- subset(B5.A5C5.time, V1<300000 & V1>-300000)
   
 
 B5.B6.V <- subset(B5.B6.V, V1<100)
 B5.B6.angle <- subset(B5.B6.angle, V1<30 & V1>-30)
 B5.B79.V <- subset(B5.B79.V, V1 <100)
-B5.B79.angle <- subset(B5.B6.angle, V1<30 & V1>-30)
+B5.B79.angle <- subset(B5.B79.angle, V1<30 & V1>-30)
 B5.A5C5.V <- subset(B5.A5C5.V, V1 <100)
 B5.A5C5.angle <- subset(B5.A5C5.angle, V1<30 & V1>-30)
 
@@ -2357,6 +2549,113 @@ ggplot(B5.B79.V, aes(x = V2, y = V1)) +
 setwd("/cloud/project/Recordings/Plots");
 ggsave(plotnames[plotnumber2],last_plot())
 plotnumber2 <- plotnumber2 + 1
+
+
+```
+
+```{r}
+
+
+B5.B6.time %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(name = mean))
+
+B5.B79.time %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(name = mean))
+
+B5.A5C5.time %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(name = mean))
+
+B5.B6.V %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(name = mean))
+
+B5.B79.V %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(name = mean))
+
+B5.A5C5.V %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(name = mean))
+
+B5.B6.angle %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(name = mean))
+
+B5.B79.angle %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(name = mean))
+
+B5.A5C5.angle %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(name = mean))
+
+
+
+```
+
+```{r}
+
+i <- 1
+plotnumber3 <- 300
+# 
+# while (i < 32) {
+#   
+# }
+
+ggplot(B5.B6.RB10, aes(x = yaw2, y = pitch2, color = "blue")) +
+  geom_line() +
+  geom_line(data = B5.B6.LR10, aes(x = yaw2, y = pitch2, color = "green")) +
+  geom_line(data = B5.B6.VR10, aes(x = -yaw2, y = pitch2, color = "red")) +
+    labs(x="Yaw [deg]",
+       y="Pitch [deg]",
+     title="Movement B5 -> B6",
+     color = "Task Condition") +
+ theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1)) +
+  scale_x_continuous(limits = c(-45,45)) +
+  scale_y_continuous(limits = c(-45,45)) +
+  scale_colour_manual(labels = c("RB", "LR", "VR"), values = c("blue", "green", "red"))
+
+# 
+# ggplot(B5.B79.RB1, aes(x = yaw2, y = pitch2)) +
+#   geom_line() +
+#   geom_line(data = B5.B79.LR1, aes(x = yaw2, y = pitch2)) +
+#   geom_line(data = B5.B79.VR1, aes(x = -yaw2, y = pitch2)) +
+#   scale_y_continuous(limits = c(-150,150)) +
+#   scale_y_continuous(limits = c(-90,90))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber3],last_plot())
+plotnumber2 <- plotnumber3 + 1
+
+# ggplot(US2RB.csv, aes(x = yaw2, y = pitch2)) +
+#   geom_line() 
+#   scale_y_continuous(limits = c(-90,90)) +
+#   scale_y_continuous(limits = c(-150,150))
+  
+
+
+ggplot(B5.B79.RB10, aes(x = -yaw2, y = pitch2, color = "blue")) +
+  geom_path() +
+  geom_path(data = B5.B79.LR10, aes(x = yaw2, y = pitch2, color = "green")) +
+  geom_path(data = B5.B79.VR10, aes(x = yaw2, y = -pitch2, color = "red")) +
+  geom_line(data = as.data.frame(matrix(c(0,30,0,-15.6),nrow=2,ncol=2)),aes(x = V1, y = V2), color = "black") +
+    labs(x="Yaw [deg]",
+       y="Pitch [deg]",
+     title="Movement B5 -> B6",
+     color = "Task Condition:") +
+ theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1)) +
+  scale_x_continuous(limits = c(-45,45)) +
+  scale_y_continuous(limits = c(-45,45)) +
+  scale_colour_manual(labels = c("RB", "LR", "VR","Direct Path"), values = c("blue", "green", "red","black"))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber3],last_plot())
+plotnumber2 <- plotnumber3 + 1
 
 
 ```
