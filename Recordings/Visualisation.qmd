@@ -1280,7 +1280,7 @@ rm(RB.LR.VR,RB.VR.LR,data,data2,data3,data4,i,n,t1,t2)
 ```{r}
 
 
-plotnames <- expand.grid(1:1000,'.png');
+plotnames <- expand.grid(0001:1000,'.png');
 plotnames <- apply(plotnames,1,paste0,collapse = "");
 plotnumber <- 1
 
@@ -1572,7 +1572,7 @@ ggplot(cdata, aes(x = rank, y = Numbers)) +
   scale_x_discrete(breaks = c(1,2,3,4,5))+#labels = Questions[28:32]) +
   labs(x="Questions",
        y="",
-     title="VR Cognition Absorption") +
+     title="VR Cognitive Absorption") +
   theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
 
 
@@ -1592,7 +1592,7 @@ ggplot(cdata1, aes(x = rank, y = Numbers)) +
   scale_x_discrete(breaks = c(1,2,3,4,5))+#labels = Questions[28:32]) +
   labs(x="Questions",
        y="",
-     title="VR Cognition Absorption (RB -> LR -> VR)") +
+     title="VR Cognitive Absorption (RB -> LR -> VR)") +
   theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
 
 
@@ -1613,7 +1613,7 @@ ggplot(cdata2, aes(x = rank, y = Numbers)) +
   scale_x_discrete(breaks = c(1,2,3,4,5))+#labels = Questions[28:32]) +
   labs(x="Questions",
        y="",
-     title="VR Cognition Absorption (RB -> VR -> LR)") +
+     title="VR Cognitive Absorption (RB -> VR -> LR)") +
   theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
 
 
