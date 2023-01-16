@@ -2737,8 +2737,8 @@ ggplot(dataplot1, aes(x = yaw2, y = pitch2, color = "blue")) +
      title="Movement B5 -> B6 -> B9 -> B8 -> B5 -> B4 -> B1 -> B2 -> B5",
      color = "Task Condition:") +
  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1)) +
-  scale_x_continuous(limits = c(-45,45)) +
-  scale_y_continuous(limits = c(-45,45)) +
+  scale_x_continuous(limits = c(-60,60)) +
+  scale_y_continuous(limits = c(-30,30)) +
   scale_colour_manual(labels = c("RB", "LR", "VR","Direct Path"), values = c("blue", "green", "red","black"))
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
@@ -2756,8 +2756,8 @@ ggplot(dataplot1, aes(x = yaw2, y = pitch2))+#, color = "blue")) +
      title="RB",
      color = "Task Condition:") +
  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1)) +
-  scale_x_continuous(limits = c(-45,45)) +
-  scale_y_continuous(limits = c(-45,45)) +
+  scale_x_continuous(limits = c(-60,60)) +
+  scale_y_continuous(limits = c(-30,30)) +
   scale_colour_manual(labels = c("RB", "LR", "VR","Direct Path"), values = c("blue", "green", "red","black"))
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
@@ -2775,8 +2775,8 @@ ggplot(dataplot2, aes(x = yaw2, y = pitch2))+#, color = "blue")) +
      title="LR",
      color = "Task Condition:") +
  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1)) +
-  scale_x_continuous(limits = c(-45,45)) +
-  scale_y_continuous(limits = c(-45,45)) +
+  scale_x_continuous(limits = c(-60,60)) +
+  scale_y_continuous(limits = c(-30,30)) +
   scale_colour_manual(labels = c("RB", "LR", "VR","Direct Path"), values = c("blue", "green", "red","black"))
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
@@ -2794,8 +2794,8 @@ ggplot(dataplot3, aes(x = yaw2, y = pitch2))+#, color = "blue")) +
      title="VR",
      color = "Task Condition:") +
  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1)) +
-  scale_x_continuous(limits = c(-45,45)) +
-  scale_y_continuous(limits = c(-45,45)) +
+  scale_x_continuous(limits = c(-60,60)) +
+  scale_y_continuous(limits = c(-30,30)) +
   scale_colour_manual(labels = c("RB", "LR", "VR","Direct Path"), values = c("blue", "green", "red","black"))
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
