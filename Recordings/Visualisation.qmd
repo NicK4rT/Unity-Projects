@@ -1701,7 +1701,7 @@ plotnumber <- plotnumber + 1
 
 
 cdata2 <- cdata  %>%
-  filter(Order == "RB -> LR -> VR")
+  filter(Order == "RB -> VR -> LR")
 
 ggplot(cdata2, aes(x = rank, y = Numbers)) +
   geom_boxplot() +
@@ -1812,7 +1812,7 @@ plotnumber <- plotnumber + 1
 
 
 cdata2 <- cdata  %>%
-  filter(Order == "RB -> LR -> VR")
+  filter(Order == "RB -> VR -> LR")
 
 ggplot(cdata2, aes(x = rank, y = Numbers)) +
   geom_boxplot() +
