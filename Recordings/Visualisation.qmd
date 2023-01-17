@@ -2802,7 +2802,7 @@ ggplot(dataplot1, aes(x = yaw2, y = pitch2, color = "blue")) +
        y="Pitch [deg]",
      title="Reality (RB)",
      color = "Task Condition:") +
- theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1),panel.grid.major.x = element_line( size=.5, color="white" ) ) +
+ theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1),panel.grid.major.x = element_line( size=.5, color="white" ), legend.position="none") +
   scale_x_continuous(limits = c(-40,40)) +
   scale_y_continuous(limits = c(-25,25)) +
   scale_colour_manual(labels = c("RB", "LR", "VR","Direct Path"), values = c("blue", "green", "red","black"))
@@ -2821,10 +2821,10 @@ ggplot(dataplot2, aes(x = yaw2, y = pitch2, color = "green")) +
        y="Pitch [deg]",
      title="Limited Reality (LR)",
      color = "Task Condition:") +
- theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1),panel.grid.major.x = element_line( size=.5, color="white" ) ) +
+ theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1),panel.grid.major.x = element_line( size=.5, color="white" ), legend.position="none") +
   scale_x_continuous(limits = c(-40,40)) +
   scale_y_continuous(limits = c(-25,25)) +
-  scale_colour_manual(labels = c("RB", "LR", "VR","Direct Path"), values = c("blue", "green", "red","black"))
+  scale_colour_manual(labels = c("RB", "LR", "VR","Direct Path"), values = c("green", "blue", "red","black"))
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
 ggsave(plotnames[plotnumber3],last_plot())
@@ -2840,10 +2840,10 @@ ggplot(dataplot3, aes(x = yaw2, y = pitch2, color = "red")) +
        y="Pitch [deg]",
      title="Virtual Reality (VR)",
      color = "Task Condition:") +
- theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1),panel.grid.major.x = element_line( size=.5, color="white" ) ) +
+ theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1),panel.grid.major.x = element_line( size=.5, color="white" ), legend.position="none") +
   scale_x_continuous(limits = c(-40,40)) +
   scale_y_continuous(limits = c(-25,25)) +
-  scale_colour_manual(labels = c("RB", "LR", "VR","Direct Path"), values = c("blue", "green", "red","black"))
+  scale_colour_manual(labels = c("RB", "LR", "VR","Direct Path"), values = c("red", "green", "blue","black"))
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
 ggsave(plotnames[plotnumber3],last_plot())
