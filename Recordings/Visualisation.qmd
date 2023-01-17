@@ -2777,7 +2777,7 @@ dataplot3 <- dataplot3 %>%
 ggplot(dataplot1, aes(x = yaw2, y = pitch2, color = "blue")) +
   geom_path() +
   geom_path(data = dataplot2, aes(x = yaw2, y = pitch2, color = "green")) +
-  geom_path(data = dataplot3, aes(x = -yaw2, y = -pitch2, color = "red")) +
+  geom_path(data = dataplot3, aes(x = yaw2, y = pitch2, color = "red")) +
   #geom_line(data = as.data.frame(matrix(c(0,30,0,-15.6),nrow=2,ncol=2)),aes(x = V1, y = V2), color = "black") +
     labs(x="Yaw [deg]",
        y="Pitch [deg]",
