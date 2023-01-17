@@ -2559,39 +2559,42 @@ plotnumber2 <- plotnumber2 + 1
 
 B5.B6.time %>%
   group_by(V2) %>%
-  summarise_at(vars(V1), list(name = mean))
+  summarise_at(vars(V1), list(B5.B6.time = mean,sd = sd))
 
 B5.B79.time %>%
   group_by(V2) %>%
-  summarise_at(vars(V1), list(name = mean))
+  summarise_at(vars(V1), list(B5.B79.time = mean,sd = sd))
 
 B5.A5C5.time %>%
   group_by(V2) %>%
-  summarise_at(vars(V1), list(name = mean))
+  summarise_at(vars(V1), list(B5.A5C5.time = mean,sd = sd))
 
 B5.B6.V %>%
   group_by(V2) %>%
-  summarise_at(vars(V1), list(name = mean))
+  summarise_at(vars(V1), list(B5.B6.V = mean,sd = sd))
 
 B5.B79.V %>%
   group_by(V2) %>%
-  summarise_at(vars(V1), list(name = mean))
+  summarise_at(vars(V1), list(B5.B79.V = mean,sd = sd))
 
 B5.A5C5.V %>%
   group_by(V2) %>%
-  summarise_at(vars(V1), list(name = mean))
+  summarise_at(vars(V1), list(B5.A5C5.V = mean,sd = sd))
 
 B5.B6.angle %>%
   group_by(V2) %>%
-  summarise_at(vars(V1), list(name = mean))
+  summarise_at(vars(V1), list(B5.B6.angle = mean,sd = sd))
 
 B5.B79.angle %>%
   group_by(V2) %>%
-  summarise_at(vars(V1), list(name = mean))
+  summarise_at(vars(V1), list(B5.B79.angle = mean,sd = sd))
 
 B5.A5C5.angle %>%
   group_by(V2) %>%
-  summarise_at(vars(V1), list(name = mean))
+  summarise_at(vars(V1), list(B5.A5C5.angle = mean,sd = sd))
+
+
+
 
 
 
@@ -2613,15 +2616,15 @@ V[,"dLR.VR"] <- B5.B6.V$V1[32:62] - B5.B6.V$V1[63:93]
 
 Angle  %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B6.angle = mean,sd = sd))
 
 Time  %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B6.time = mean,sd = sd))
 
 V  %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B6.V = mean,sd = sd))
 
 Angle[,"dRB.LR"] <- B5.B79.angle$V1[1:31] - B5.B79.angle$V1[32:62]
 Angle[,"dRB.VR"] <- B5.B79.angle$V1[1:31] - B5.B79.angle$V1[63:93]
@@ -2636,15 +2639,15 @@ V[,"dLR.VR"] <- B5.B79.V$V1[32:62] - B5.B79.V$V1[63:93]
 
 Angle  %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B79.angle = mean,sd = sd))
 
 Time  %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B79.time = mean,sd = sd))
 
 V  %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B79.V = mean,sd = sd))
 
 Angle[,"dRB.LR"] <- B5.A5C5.angle$V1[1:31] - B5.A5C5.angle$V1[32:62]
 Angle[,"dRB.VR"] <- B5.A5C5.angle$V1[1:31] - B5.A5C5.angle$V1[63:93]
@@ -2657,17 +2660,60 @@ V[,"dRB.VR"] <- B5.A5C5.V$V1[1:31] - B5.A5C5.V$V1[63:93]
 V[,"dLR.VR"] <- B5.A5C5.V$V1[32:62] - B5.A5C5.V$V1[63:93]
 
 
-Angle  %>%
+Angle %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.A5C5.angle = mean,sd = sd))
 
-Time  %>%
+Time %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.A5C5.time = mean,sd = sd))
 
 V  %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(name = mean))
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.A5C5.V = mean,sd = sd))
+
+
+
+B5.B6.time2 <- B5.B6.time %>%
+  drop_na(V1)
+
+B5.B6.time2[,"time"] <- abs(mean(B5.B6.time2$V1)-B5.B6.time2$V1)
+
+B5.A5C5.time2 <- B5.A5C5.time %>%
+  drop_na(V1)
+
+B5.A5C5.time2[,"time"] <- abs(mean(B5.A5C5.time2$V1)-B5.A5C5.time2$V1)
+
+print((mean(B5.B6.time2$time)+mean(B5.B6.time2$time))/2)
+
+
+
+B5.B6.angle2 <- B5.B6.angle %>%
+  drop_na(V1)
+
+B5.B6.angle2[,"angle"] <- abs(mean(B5.B6.angle2$V1)-B5.B6.angle2$V1)
+
+B5.A5C5.angle2 <- B5.A5C5.angle %>%
+  drop_na(V1)
+
+B5.A5C5.angle2[,"angle"] <- abs(mean(B5.A5C5.angle2$V1)-B5.A5C5.angle2$V1)
+
+print((mean(B5.B6.angle2$angle)+mean(B5.B6.angle2$angle))/2)
+
+
+
+B5.B6.V2 <- B5.B6.V %>%
+  drop_na(V1)
+
+B5.B6.V2[,"V"] <- abs(mean(B5.B6.V2$V1)-B5.B6.V2$V1)
+
+B5.A5C5.V2 <- B5.A5C5.V %>%
+  drop_na(V1)
+
+B5.A5C5.V2[,"V"] <- abs(mean(B5.A5C5.V2$V1)-B5.A5C5.V2$V1)
+
+print((mean(B5.B6.V2$V)+mean(B5.B6.V2$V))/2)
+
 
 
 ```
@@ -2747,14 +2793,14 @@ ggsave(plotnames[plotnumber3],last_plot())
 plotnumber3 <- plotnumber3 + 1
 
 
-ggplot(dataplot1, aes(x = yaw2, y = pitch2))+#, color = "blue")) +
+ggplot(dataplot1, aes(x = yaw2, y = pitch2, color = "blue")) +
   geom_path() +
   #geom_path(data = dataplot2, aes(x = yaw2, y = pitch2, color = "green")) +
   #geom_path(data = dataplot3, aes(x = -yaw2, y = -pitch2, color = "red")) +
   #geom_line(data = as.data.frame(matrix(c(0,30,0,-15.6),nrow=2,ncol=2)),aes(x = V1, y = V2), color = "black") +
     labs(x="Yaw [deg]",
        y="Pitch [deg]",
-     title="RB",
+     title="Reality (RB)",
      color = "Task Condition:") +
  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1),panel.grid.major.x = element_line( size=.5, color="white" ) ) +
   scale_x_continuous(limits = c(-40,40)) +
@@ -2766,14 +2812,14 @@ ggsave(plotnames[plotnumber3],last_plot())
 plotnumber3 <- plotnumber3 + 1
 
 
-ggplot(dataplot2, aes(x = yaw2, y = pitch2))+#, color = "blue")) +
+ggplot(dataplot2, aes(x = yaw2, y = pitch2, color = "green")) +
   geom_path() +
   #geom_path(data = dataplot2, aes(x = yaw2, y = pitch2, color = "green")) +
   #geom_path(data = dataplot3, aes(x = -yaw2, y = -pitch2, color = "red")) +
   #geom_line(data = as.data.frame(matrix(c(0,30,0,-15.6),nrow=2,ncol=2)),aes(x = V1, y = V2), color = "black") +
     labs(x="Yaw [deg]",
        y="Pitch [deg]",
-     title="LR",
+     title="Limited Reality (LR)",
      color = "Task Condition:") +
  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1),panel.grid.major.x = element_line( size=.5, color="white" ) ) +
   scale_x_continuous(limits = c(-40,40)) +
@@ -2785,14 +2831,14 @@ ggsave(plotnames[plotnumber3],last_plot())
 plotnumber3 <- plotnumber3 + 1
 
 
-ggplot(dataplot3, aes(x = yaw2, y = pitch2))+#, color = "blue")) +
+ggplot(dataplot3, aes(x = yaw2, y = pitch2, color = "red")) +
   geom_path() +
   #geom_path(data = dataplot2, aes(x = yaw2, y = pitch2, color = "green")) +
   #geom_path(data = dataplot3, aes(x = -yaw2, y = -pitch2, color = "red")) +
   #geom_line(data = as.data.frame(matrix(c(0,30,0,-15.6),nrow=2,ncol=2)),aes(x = V1, y = V2), color = "black") +
     labs(x="Yaw [deg]",
        y="Pitch [deg]",
-     title="VR",
+     title="Virtual Reality (VR)",
      color = "Task Condition:") +
  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1),panel.grid.major.x = element_line( size=.5, color="white" ) ) +
   scale_x_continuous(limits = c(-40,40)) +
