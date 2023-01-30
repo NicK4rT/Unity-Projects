@@ -3192,6 +3192,18 @@ B5.B6.RB.time2 <- as.data.frame(matrix(c(as.numeric(B5.B6.RB.time)), nrow = 31, 
 B5.B6.LR.time2 <- as.data.frame(matrix(c(as.numeric(B5.B6.LR.time)), nrow = 31, ncol = 2))
 B5.B6.VR.time2 <- as.data.frame(matrix(c(as.numeric(B5.B6.VR.time)), nrow = 31, ncol = 2))
 
+B5.B4.RB.time2 <- as.data.frame(matrix(c(as.numeric(B5.B4.RB.time)), nrow = 31, ncol = 2))
+B5.B4.LR.time2 <- as.data.frame(matrix(c(as.numeric(B5.B4.LR.time)), nrow = 31, ncol = 2))
+B5.B4.VR.time2 <- as.data.frame(matrix(c(as.numeric(B5.B4.VR.time)), nrow = 31, ncol = 2))
+
+B6.B9.RB.time2 <- as.data.frame(matrix(c(as.numeric(B6.B9.RB.time)), nrow = 31, ncol = 2))
+B6.B9.LR.time2 <- as.data.frame(matrix(c(as.numeric(B6.B9.LR.time)), nrow = 31, ncol = 2))
+B6.B9.VR.time2 <- as.data.frame(matrix(c(as.numeric(B6.B9.VR.time)), nrow = 31, ncol = 2))
+
+B4.B1.RB.time2 <- as.data.frame(matrix(c(as.numeric(B4.B1.RB.time)), nrow = 31, ncol = 2))
+B4.B1.LR.time2 <- as.data.frame(matrix(c(as.numeric(B4.B1.LR.time)), nrow = 31, ncol = 2))
+B4.B1.VR.time2 <- as.data.frame(matrix(c(as.numeric(B4.B1.VR.time)), nrow = 31, ncol = 2))
+
 B5.B79.RB.time2 <- as.data.frame(matrix(c(as.numeric(B5.B79.RB.time)), nrow = 31, ncol = 2))
 B5.B79.LR.time2 <- as.data.frame(matrix(c(as.numeric(B5.B79.LR.time)), nrow = 31, ncol = 2))
 B5.B79.VR.time2 <- as.data.frame(matrix(c(as.numeric(B5.B79.VR.time)), nrow = 31, ncol = 2))
@@ -3200,10 +3212,46 @@ B5.A5C5.RB.time2 <- as.data.frame(matrix(c(as.numeric(B5.A5C5.RB.time)), nrow = 
 B5.A5C5.LR.time2 <- as.data.frame(matrix(c(as.numeric(B5.A5C5.LR.time)), nrow = 31, ncol = 2))
 B5.A5C5.VR.time2 <- as.data.frame(matrix(c(as.numeric(B5.A5C5.VR.time)), nrow = 31, ncol = 2))
 
+B5.A5.RB.time2 <- as.data.frame(matrix(c(as.numeric(B5.A5.RB.time)), nrow = 31, ncol = 2))
+B5.A5.LR.time2 <- as.data.frame(matrix(c(as.numeric(B5.A5.LR.time)), nrow = 31, ncol = 2))
+B5.A5.VR.time2 <- as.data.frame(matrix(c(as.numeric(B5.A5.VR.time)), nrow = 31, ncol = 2))
+
+B5.C5.RB.time2 <- as.data.frame(matrix(c(as.numeric(B5.C5.RB.time)), nrow = 31, ncol = 2))
+B5.C5.LR.time2 <- as.data.frame(matrix(c(as.numeric(B5.C5.LR.time)), nrow = 31, ncol = 2))
+B5.C5.VR.time2 <- as.data.frame(matrix(c(as.numeric(B5.C5.VR.time)), nrow = 31, ncol = 2))
+
+A5.C5.RB.time2 <- as.data.frame(matrix(c(as.numeric(A5.C5.RB.time)), nrow = 31, ncol = 2))
+A5.C5.LR.time2 <- as.data.frame(matrix(c(as.numeric(A5.C5.LR.time)), nrow = 31, ncol = 2))
+A5.C5.VR.time2 <- as.data.frame(matrix(c(as.numeric(A5.C5.VR.time)), nrow = 31, ncol = 2))
+
+C5.B5.RB.time2 <- as.data.frame(matrix(c(as.numeric(C5.B5.RB.time)), nrow = 31, ncol = 2))
+C5.B5.LR.time2 <- as.data.frame(matrix(c(as.numeric(C5.B5.LR.time)), nrow = 31, ncol = 2))
+C5.B5.VR.time2 <- as.data.frame(matrix(c(as.numeric(C5.B5.VR.time)), nrow = 31, ncol = 2))
+
+A5.B5.RB.time2 <- as.data.frame(matrix(c(as.numeric(A5.B5.RB.time)), nrow = 31, ncol = 2))
+A5.B5.LR.time2 <- as.data.frame(matrix(c(as.numeric(A5.B5.LR.time)), nrow = 31, ncol = 2))
+A5.B5.VR.time2 <- as.data.frame(matrix(c(as.numeric(A5.B5.VR.time)), nrow = 31, ncol = 2))
+
+
+
+
+
 
 B5.B6.RB.angle2 <- as.data.frame(matrix(c(as.numeric(B5.B6.RB.angle)), nrow = 31, ncol = 2))
 B5.B6.LR.angle2 <- as.data.frame(matrix(c(as.numeric(B5.B6.LR.angle)), nrow = 31, ncol = 2))
 B5.B6.VR.angle2 <- as.data.frame(matrix(c(as.numeric(B5.B6.VR.angle)), nrow = 31, ncol = 2))
+
+B5.B4.RB.angle2 <- as.data.frame(matrix(c(as.numeric(B5.B4.RB.angle)), nrow = 31, ncol = 2))
+B5.B4.LR.angle2 <- as.data.frame(matrix(c(as.numeric(B5.B4.LR.angle)), nrow = 31, ncol = 2))
+B5.B4.VR.angle2 <- as.data.frame(matrix(c(as.numeric(B5.B4.VR.angle)), nrow = 31, ncol = 2))
+
+B6.B9.RB.angle2 <- as.data.frame(matrix(c(as.numeric(B6.B9.RB.angle)), nrow = 31, ncol = 2))
+B6.B9.LR.angle2 <- as.data.frame(matrix(c(as.numeric(B6.B9.LR.angle)), nrow = 31, ncol = 2))
+B6.B9.VR.angle2 <- as.data.frame(matrix(c(as.numeric(B6.B9.VR.angle)), nrow = 31, ncol = 2))
+
+B4.B1.RB.angle2 <- as.data.frame(matrix(c(as.numeric(B4.B1.RB.angle)), nrow = 31, ncol = 2))
+B4.B1.LR.angle2 <- as.data.frame(matrix(c(as.numeric(B4.B1.LR.angle)), nrow = 31, ncol = 2))
+B4.B1.VR.angle2 <- as.data.frame(matrix(c(as.numeric(B4.B1.VR.angle)), nrow = 31, ncol = 2))
 
 B5.B79.RB.angle2 <- as.data.frame(matrix(c(as.numeric(B5.B79.RB.angle)), nrow = 31, ncol = 2))
 B5.B79.LR.angle2 <- as.data.frame(matrix(c(as.numeric(B5.B79.LR.angle)), nrow = 31, ncol = 2))
@@ -3213,10 +3261,44 @@ B5.A5C5.RB.angle2 <- as.data.frame(matrix(c(as.numeric(B5.A5C5.RB.angle)), nrow 
 B5.A5C5.LR.angle2 <- as.data.frame(matrix(c(as.numeric(B5.A5C5.LR.angle)), nrow = 31, ncol = 2))
 B5.A5C5.VR.angle2 <- as.data.frame(matrix(c(as.numeric(B5.A5C5.VR.angle)), nrow = 31, ncol = 2))
 
+B5.A5.RB.angle2 <- as.data.frame(matrix(c(as.numeric(B5.A5.RB.angle)), nrow = 31, ncol = 2))
+B5.A5.LR.angle2 <- as.data.frame(matrix(c(as.numeric(B5.A5.LR.angle)), nrow = 31, ncol = 2))
+B5.A5.VR.angle2 <- as.data.frame(matrix(c(as.numeric(B5.A5.VR.angle)), nrow = 31, ncol = 2))
+
+B5.C5.RB.angle2 <- as.data.frame(matrix(c(as.numeric(B5.C5.RB.angle)), nrow = 31, ncol = 2))
+B5.C5.LR.angle2 <- as.data.frame(matrix(c(as.numeric(B5.C5.LR.angle)), nrow = 31, ncol = 2))
+B5.C5.VR.angle2 <- as.data.frame(matrix(c(as.numeric(B5.C5.VR.angle)), nrow = 31, ncol = 2))
+
+A5.B5.RB.angle2 <- as.data.frame(matrix(c(as.numeric(A5.B5.RB.angle)), nrow = 31, ncol = 2))
+A5.B5.LR.angle2 <- as.data.frame(matrix(c(as.numeric(A5.B5.LR.angle)), nrow = 31, ncol = 2))
+A5.B5.VR.angle2 <- as.data.frame(matrix(c(as.numeric(A5.B5.VR.angle)), nrow = 31, ncol = 2))
+
+C5.B5.RB.angle2 <- as.data.frame(matrix(c(as.numeric(C5.B5.RB.angle)), nrow = 31, ncol = 2))
+C5.B5.LR.angle2 <- as.data.frame(matrix(c(as.numeric(C5.B5.LR.angle)), nrow = 31, ncol = 2))
+C5.B5.VR.angle2 <- as.data.frame(matrix(c(as.numeric(C5.B5.VR.angle)), nrow = 31, ncol = 2))
+
+A5.C5.RB.angle2 <- as.data.frame(matrix(c(as.numeric(A5.C5.RB.angle)), nrow = 31, ncol = 2))
+A5.C5.LR.angle2 <- as.data.frame(matrix(c(as.numeric(A5.C5.LR.angle)), nrow = 31, ncol = 2))
+A5.C5.VR.angle2 <- as.data.frame(matrix(c(as.numeric(A5.C5.VR.angle)), nrow = 31, ncol = 2))
+
+
+
 
 B5.B6.RB.V2 <- as.data.frame(matrix(c(as.numeric(B5.B6.RB.V)), nrow = 31, ncol = 2))
 B5.B6.LR.V2 <- as.data.frame(matrix(c(as.numeric(B5.B6.LR.V)), nrow = 31, ncol = 2))
 B5.B6.VR.V2 <- as.data.frame(matrix(c(as.numeric(B5.B6.VR.V)), nrow = 31, ncol = 2))
+
+B5.B4.RB.V2 <- as.data.frame(matrix(c(as.numeric(B5.B4.RB.V)), nrow = 31, ncol = 2))
+B5.B4.LR.V2 <- as.data.frame(matrix(c(as.numeric(B5.B4.LR.V)), nrow = 31, ncol = 2))
+B5.B4.VR.V2 <- as.data.frame(matrix(c(as.numeric(B5.B4.VR.V)), nrow = 31, ncol = 2))
+
+B6.B9.RB.V2 <- as.data.frame(matrix(c(as.numeric(B6.B9.RB.V)), nrow = 31, ncol = 2))
+B6.B9.LR.V2 <- as.data.frame(matrix(c(as.numeric(B6.B9.LR.V)), nrow = 31, ncol = 2))
+B6.B9.VR.V2 <- as.data.frame(matrix(c(as.numeric(B6.B9.VR.V)), nrow = 31, ncol = 2))
+
+B4.B1.RB.V2 <- as.data.frame(matrix(c(as.numeric(B4.B1.RB.V)), nrow = 31, ncol = 2))
+B4.B1.LR.V2 <- as.data.frame(matrix(c(as.numeric(B4.B1.LR.V)), nrow = 31, ncol = 2))
+B4.B1.VR.V2 <- as.data.frame(matrix(c(as.numeric(B4.B1.VR.V)), nrow = 31, ncol = 2))
 
 B5.B79.RB.V2 <- as.data.frame(matrix(c(as.numeric(B5.B79.RB.V)), nrow = 31, ncol = 2))
 B5.B79.LR.V2 <- as.data.frame(matrix(c(as.numeric(B5.B79.LR.V)), nrow = 31, ncol = 2))
@@ -3226,12 +3308,44 @@ B5.A5C5.RB.V2 <- as.data.frame(matrix(c(as.numeric(B5.A5C5.RB.V)), nrow = 31, nc
 B5.A5C5.LR.V2 <- as.data.frame(matrix(c(as.numeric(B5.A5C5.LR.V)), nrow = 31, ncol = 2))
 B5.A5C5.VR.V2 <- as.data.frame(matrix(c(as.numeric(B5.A5C5.VR.V)), nrow = 31, ncol = 2))
 
+B5.A5.RB.V2 <- as.data.frame(matrix(c(as.numeric(B5.A5.RB.V)), nrow = 31, ncol = 2))
+B5.A5.LR.V2 <- as.data.frame(matrix(c(as.numeric(B5.A5.LR.V)), nrow = 31, ncol = 2))
+B5.A5.VR.V2 <- as.data.frame(matrix(c(as.numeric(B5.A5.VR.V)), nrow = 31, ncol = 2))
+
+B5.C5.RB.V2 <- as.data.frame(matrix(c(as.numeric(B5.C5.RB.V)), nrow = 31, ncol = 2))
+B5.C5.LR.V2 <- as.data.frame(matrix(c(as.numeric(B5.C5.LR.V)), nrow = 31, ncol = 2))
+B5.C5.VR.V2 <- as.data.frame(matrix(c(as.numeric(B5.C5.VR.V)), nrow = 31, ncol = 2))
+
+A5.C5.RB.V2 <- as.data.frame(matrix(c(as.numeric(A5.C5.RB.V)), nrow = 31, ncol = 2))
+A5.C5.LR.V2 <- as.data.frame(matrix(c(as.numeric(A5.C5.LR.V)), nrow = 31, ncol = 2))
+A5.C5.VR.V2 <- as.data.frame(matrix(c(as.numeric(A5.C5.VR.V)), nrow = 31, ncol = 2))
+
+A5.B5.RB.V2 <- as.data.frame(matrix(c(as.numeric(A5.B5.RB.V)), nrow = 31, ncol = 2))
+A5.B5.LR.V2 <- as.data.frame(matrix(c(as.numeric(A5.B5.LR.V)), nrow = 31, ncol = 2))
+A5.B5.VR.V2 <- as.data.frame(matrix(c(as.numeric(A5.B5.VR.V)), nrow = 31, ncol = 2))
+
+C5.B5.RB.V2 <- as.data.frame(matrix(c(as.numeric(C5.B5.RB.V)), nrow = 31, ncol = 2))
+C5.B5.LR.V2 <- as.data.frame(matrix(c(as.numeric(C5.B5.LR.V)), nrow = 31, ncol = 2))
+C5.B5.VR.V2 <- as.data.frame(matrix(c(as.numeric(C5.B5.VR.V)), nrow = 31, ncol = 2))
+
 
 
 
 B5.B6.RB.time2[,2] <- "a"
 B5.B6.LR.time2[,2] <- "b"
 B5.B6.VR.time2[,2] <- "c"
+
+B5.B4.RB.time2[,2] <- "a"
+B5.B4.LR.time2[,2] <- "b"
+B5.B4.VR.time2[,2] <- "c"
+
+B6.B9.RB.time2[,2] <- "a"
+B6.B9.LR.time2[,2] <- "b"
+B6.B9.VR.time2[,2] <- "c"
+
+B4.B1.RB.time2[,2] <- "a"
+B4.B1.LR.time2[,2] <- "b"
+B4.B1.VR.time2[,2] <- "c"
 
 B5.B79.RB.time2[,2] <- "a"
 B5.B79.LR.time2[,2] <- "b"
@@ -3241,10 +3355,45 @@ B5.A5C5.RB.time2[,2] <- "a"
 B5.A5C5.LR.time2[,2] <- "b"
 B5.A5C5.VR.time2[,2] <- "c"
 
+B5.A5.RB.time2[,2] <- "a"
+B5.A5.LR.time2[,2] <- "b"
+B5.A5.VR.time2[,2] <- "c"
+
+B5.C5.RB.time2[,2] <- "a"
+B5.C5.LR.time2[,2] <- "b"
+B5.C5.VR.time2[,2] <- "c"
+
+A5.C5.RB.time2[,2] <- "a"
+A5.C5.LR.time2[,2] <- "b"
+A5.C5.VR.time2[,2] <- "c"
+
+A5.B5.RB.time2[,2] <- "a"
+A5.B5.LR.time2[,2] <- "b"
+A5.B5.VR.time2[,2] <- "c"
+
+C5.B5.RB.time2[,2] <- "a"
+C5.B5.LR.time2[,2] <- "b"
+C5.B5.VR.time2[,2] <- "c"
+
 
 B5.B6.RB.V2[,2] <- "a"
 B5.B6.LR.V2[,2] <- "b"
 B5.B6.VR.V2[,2] <- "c"
+
+B5.B4.RB.V2[,2] <- "a"
+B5.B4.LR.V2[,2] <- "b"
+B5.B4.VR.V2[,2] <- "c"
+
+
+B6.B9.RB.V2[,2] <- "a"
+B6.B9.LR.V2[,2] <- "b"
+B6.B9.VR.V2[,2] <- "c"
+
+
+B4.B1.RB.V2[,2] <- "a"
+B4.B1.LR.V2[,2] <- "b"
+B4.B1.VR.V2[,2] <- "c"
+
 
 B5.B79.RB.V2[,2] <- "a"
 B5.B79.LR.V2[,2] <- "b"
@@ -3254,10 +3403,42 @@ B5.A5C5.RB.V2[,2] <- "a"
 B5.A5C5.LR.V2[,2] <- "b"
 B5.A5C5.VR.V2[,2] <- "c"
 
+B5.A5.RB.V2[,2] <- "a"
+B5.A5.LR.V2[,2] <- "b"
+B5.A5.VR.V2[,2] <- "c"
+
+B5.C5.RB.V2[,2] <- "a"
+B5.C5.LR.V2[,2] <- "b"
+B5.C5.VR.V2[,2] <- "c"
+
+A5.C5.RB.V2[,2] <- "a"
+A5.C5.LR.V2[,2] <- "b"
+A5.C5.VR.V2[,2] <- "c"
+
+A5.B5.RB.V2[,2] <- "a"
+A5.B5.LR.V2[,2] <- "b"
+A5.B5.VR.V2[,2] <- "c"
+
+C5.B5.RB.V2[,2] <- "a"
+C5.B5.LR.V2[,2] <- "b"
+C5.B5.VR.V2[,2] <- "c"
+
 
 B5.B6.RB.angle2[,2] <- "a"
 B5.B6.LR.angle2[,2] <- "b"
 B5.B6.VR.angle2[,2] <- "c"
+
+B5.B4.RB.angle2[,2] <- "a"
+B5.B4.LR.angle2[,2] <- "b"
+B5.B4.VR.angle2[,2] <- "c"
+
+B6.B9.RB.angle2[,2] <- "a"
+B6.B9.LR.angle2[,2] <- "b"
+B6.B9.VR.angle2[,2] <- "c"
+
+B4.B1.RB.angle2[,2] <- "a"
+B4.B1.LR.angle2[,2] <- "b"
+B4.B1.VR.angle2[,2] <- "c"
 
 B5.B79.RB.angle2[,2] <- "a"
 B5.B79.LR.angle2[,2] <- "b"
@@ -3267,20 +3448,62 @@ B5.A5C5.RB.angle2[,2] <- "a"
 B5.A5C5.LR.angle2[,2] <- "b"
 B5.A5C5.VR.angle2[,2] <- "c"
 
+B5.A5.RB.angle2[,2] <- "a"
+B5.A5.LR.angle2[,2] <- "b"
+B5.A5.VR.angle2[,2] <- "c"
+
+B5.C5.RB.angle2[,2] <- "a"
+B5.C5.LR.angle2[,2] <- "b"
+B5.C5.VR.angle2[,2] <- "c"
+
+A5.C5.RB.angle2[,2] <- "a"
+A5.C5.LR.angle2[,2] <- "b"
+A5.C5.VR.angle2[,2] <- "c"
+
+A5.B5.RB.angle2[,2] <- "a"
+A5.B5.LR.angle2[,2] <- "b"
+A5.B5.VR.angle2[,2] <- "c"
+
+C5.B5.RB.angle2[,2] <- "a"
+C5.B5.LR.angle2[,2] <- "b"
+C5.B5.VR.angle2[,2] <- "c"
+
 
 B5.B6.time <- as.data.frame(rbind(B5.B6.RB.time2,B5.B6.LR.time2,B5.B6.VR.time2))
+B5.B4.time <- as.data.frame(rbind(B5.B4.RB.time2,B5.B4.LR.time2,B5.B4.VR.time2))
+B6.B9.time <- as.data.frame(rbind(B6.B9.RB.time2,B6.B9.LR.time2,B6.B9.VR.time2))
+B4.B1.time <- as.data.frame(rbind(B4.B1.RB.time2,B4.B1.LR.time2,B4.B1.VR.time2))
 B5.B79.time <- as.data.frame(rbind(B5.B79.RB.time2,B5.B79.LR.time2,B5.B79.VR.time2))
 B5.A5C5.time <- as.data.frame(rbind(B5.A5C5.RB.time2,B5.A5C5.LR.time2,B5.A5C5.VR.time2))
+B5.A5.time <- as.data.frame(rbind(B5.A5.RB.time2,B5.A5.LR.time2,B5.A5.VR.time2))
+B5.C5.time <- as.data.frame(rbind(B5.C5.RB.time2,B5.C5.LR.time2,B5.C5.VR.time2))
+A5.C5.time <- as.data.frame(rbind(A5.C5.RB.time2,A5.C5.LR.time2,A5.C5.VR.time2))
+A5.B5.time <- as.data.frame(rbind(A5.B5.RB.time2,A5.B5.LR.time2,A5.B5.VR.time2))
+C5.B5.time <- as.data.frame(rbind(C5.B5.RB.time2,C5.B5.LR.time2,C5.B5.VR.time2))
 
 B5.B6.V <- as.data.frame(rbind(B5.B6.RB.V2,B5.B6.LR.V2,B5.B6.VR.V2))
+B5.B4.V <- as.data.frame(rbind(B5.B4.RB.V2,B5.B4.LR.V2,B5.B4.VR.V2))
+B6.B9.V <- as.data.frame(rbind(B6.B9.RB.V2,B6.B9.LR.V2,B6.B9.VR.V2))
+B4.B1.V <- as.data.frame(rbind(B4.B1.RB.V2,B4.B1.LR.V2,B4.B1.VR.V2))
 B5.B79.V <- as.data.frame(rbind(B5.B79.RB.V2,B5.B79.LR.V2,B5.B79.VR.V2))
 B5.A5C5.V <- as.data.frame(rbind(B5.A5C5.RB.V2,B5.A5C5.LR.V2,B5.A5C5.VR.V2))
+B5.A5.V <- as.data.frame(rbind(B5.A5.RB.V2,B5.A5.LR.V2,B5.A5.VR.V2))
+B5.C5.V <- as.data.frame(rbind(B5.C5.RB.V2,B5.C5.LR.V2,B5.C5.VR.V2))
+A5.C5.V <- as.data.frame(rbind(A5.C5.RB.V2,A5.C5.LR.V2,A5.C5.VR.V2))
+A5.B5.V <- as.data.frame(rbind(A5.B5.RB.V2,A5.B5.LR.V2,A5.B5.VR.V2))
+C5.B5.V <- as.data.frame(rbind(C5.B5.RB.V2,C5.B5.LR.V2,C5.B5.VR.V2))
 
 B5.B6.angle <- as.data.frame(rbind(B5.B6.RB.angle2,B5.B6.LR.angle2,B5.B6.VR.angle2))
+B5.B4.angle <- as.data.frame(rbind(B5.B4.RB.angle2,B5.B4.LR.angle2,B5.B4.VR.angle2))
+B6.B9.angle <- as.data.frame(rbind(B6.B9.RB.angle2,B6.B9.LR.angle2,B6.B9.VR.angle2))
+B4.B1.angle <- as.data.frame(rbind(B4.B1.RB.angle2,B4.B1.LR.angle2,B4.B1.VR.angle2))
 B5.B79.angle <- as.data.frame(rbind(B5.B79.RB.angle2,B5.B79.LR.angle2,B5.B79.VR.angle2))
 B5.A5C5.angle <- as.data.frame(rbind(B5.A5C5.RB.angle2,B5.A5C5.LR.angle2,B5.A5C5.VR.angle2))
-
-
+B5.A5.angle <- as.data.frame(rbind(B5.A5.RB.angle2,B5.A5.LR.angle2,B5.A5.VR.angle2))
+B5.C5.angle <- as.data.frame(rbind(B5.C5.RB.angle2,B5.C5.LR.angle2,B5.C5.VR.angle2))
+A5.C5.angle <- as.data.frame(rbind(A5.C5.RB.angle2,A5.C5.LR.angle2,A5.C5.VR.angle2))
+A5.B5.angle <- as.data.frame(rbind(A5.B5.RB.angle2,A5.B5.LR.angle2,A5.B5.VR.angle2))
+C5.B5.angle <- as.data.frame(rbind(C5.B5.RB.angle2,C5.B5.LR.angle2,C5.B5.VR.angle2))
 
 ```
 
@@ -3288,16 +3511,38 @@ B5.A5C5.angle <- as.data.frame(rbind(B5.A5C5.RB.angle2,B5.A5C5.LR.angle2,B5.A5C5
 plotnumber2 <- 100
 
 B5.B6.time <- subset(B5.B6.time, V1<300000 & V1>-300000)
+B5.B4.time <- subset(B5.B4.time, V1<300000 & V1>-300000)
+B6.B9.time <- subset(B6.B9.time, V1<300000 & V1>-300000)
+B4.B1.time <- subset(B4.B1.time, V1<300000 & V1>-300000)
 B5.B79.time <- subset(B5.B79.time, V1<300000 & V1>-300000)
-B5.A5C5.time <- subset(B5.A5C5.time, V1<300000 & V1>-300000)
+B5.A5.time <- subset(B5.A5.time, V1<300000 & V1>-300000)
+A5.C5.time <- subset(A5.C5.time, V1<300000 & V1>-300000)
+C5.B5.time <- subset(C5.B5.time, V1<300000 & V1>-300000)
+B5.C5.time <- subset(B5.C5.time, V1<300000 & V1>-300000)
+A5.B5.time <- subset(A5.B5.time, V1<300000 & V1>-300000)
   
 
 B5.B6.V <- subset(B5.B6.V, V1<100)
+B5.B4.V <- subset(B5.B4.V, V1<100)
+B4.B1.V <- subset(B4.B1.V, V1<100)
+B6.B9.V <- subset(B6.B9.V, V1<100)
 B5.B6.angle <- subset(B5.B6.angle, V1<30 & V1>-30)
+B5.B4.angle <- subset(B5.B4.angle, V1<30 & V1>-30)
+B6.B9.angle <- subset(B6.B9.angle, V1<30 & V1>-30)
+B4.B1.angle <- subset(B4.B1.angle, V1<30 & V1>-30)
 B5.B79.V <- subset(B5.B79.V, V1 <100)
 B5.B79.angle <- subset(B5.B79.angle, V1<30 & V1>-30)
 B5.A5C5.V <- subset(B5.A5C5.V, V1 <100)
-B5.A5C5.angle <- subset(B5.A5C5.angle, V1<30 & V1>-30)
+B5.A5.V <- subset(B5.A5.V, V1 <100)
+B5.C5.V <- subset(B5.C5.V, V1 <100)
+A5.C5.V <- subset(A5.C5.V, V1 <100)
+C5.B5.V <- subset(C5.B5.V, V1 <100)
+A5.B5.V <- subset(A5.B5.V, V1 <100)
+B5.A5.angle <- subset(B5.A5.angle, V1<30 & V1>-30)
+B5.C5.angle <- subset(B5.C5.angle, V1<30 & V1>-30)
+A5.C5.angle <- subset(A5.C5.angle, V1<30 & V1>-30)
+A5.B5.angle <- subset(A5.B5.angle, V1<30 & V1>-30)
+C5.B5.angle <- subset(C5.B5.angle, V1<30 & V1>-30)
 
 # B5.B6.V <- B5.B6.V %>%
 #   filter(V1 < 100)
@@ -3312,6 +3557,12 @@ B5.A5C5.angle <- subset(B5.A5C5.angle, V1<30 & V1>-30)
 #   filter(V1 < 30 && V1 > -30)
 # B5.A5C5.angle <- B5.A5C5.angle %>%
 #   filter(V1 < 30 && V1 > -30)
+
+
+```
+
+```{r}
+
 
 #B5.B6
 
@@ -3485,6 +3736,18 @@ B5.B6.time %>%
   group_by(V2) %>%
   summarise_at(vars(V1), list(B5.B6.time = mean,sd = sd))
 
+B5.B4.time %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B5.B4.time = mean,sd = sd))
+
+B6.B9.time %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B6.B9.time = mean,sd = sd))
+
+B4.B1.time %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B4.B1.time = mean,sd = sd))
+
 B5.B79.time %>%
   group_by(V2) %>%
   summarise_at(vars(V1), list(B5.B79.time = mean,sd = sd))
@@ -3493,9 +3756,43 @@ B5.A5C5.time %>%
   group_by(V2) %>%
   summarise_at(vars(V1), list(B5.A5C5.time = mean,sd = sd))
 
+B5.A5.time %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B5.A5.time = mean,sd = sd))
+
+B5.C5.time %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B5.C5.time = mean,sd = sd))
+
+A5.C5.time %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(A5.C5.time = mean,sd = sd))
+
+A5.B5.time %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(A5.B5.time = mean,sd = sd))
+
+C5.B5.time %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(C5.B5.time = mean,sd = sd))
+
+
+
 B5.B6.V %>%
   group_by(V2) %>%
   summarise_at(vars(V1), list(B5.B6.V = mean,sd = sd))
+
+B5.B4.V %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B5.B4.V = mean,sd = sd))
+
+B6.B9.V %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B6.B9.V = mean,sd = sd))
+
+B4.B1.V %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B4.B1.V = mean,sd = sd))
 
 B5.B79.V %>%
   group_by(V2) %>%
@@ -3505,9 +3802,43 @@ B5.A5C5.V %>%
   group_by(V2) %>%
   summarise_at(vars(V1), list(B5.A5C5.V = mean,sd = sd))
 
+B5.A5.V %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B5.A5.V = mean,sd = sd))
+
+B5.C5.V %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B5.C5.V = mean,sd = sd))
+
+A5.C5.V %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(A5.C5.V = mean,sd = sd))
+
+A5.B5.V %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(A5.B5.V = mean,sd = sd))
+
+C5.B5.V %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(C5.B5.V = mean,sd = sd))
+
+
+
 B5.B6.angle %>%
   group_by(V2) %>%
   summarise_at(vars(V1), list(B5.B6.angle = mean,sd = sd))
+
+B5.B4.angle %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B5.B4.angle = mean,sd = sd))
+
+B6.B9.angle %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B6.B9.angle = mean,sd = sd))
+
+B4.B1.angle %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B4.B1.angle = mean,sd = sd))
 
 B5.B79.angle %>%
   group_by(V2) %>%
@@ -3517,8 +3848,25 @@ B5.A5C5.angle %>%
   group_by(V2) %>%
   summarise_at(vars(V1), list(B5.A5C5.angle = mean,sd = sd))
 
+B5.A5.angle %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B5.A5.angle = mean,sd = sd))
 
+B5.C5.angle %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(B5.C5.angle = mean,sd = sd))
 
+A5.C5.angle %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(A5.C5.angle = mean,sd = sd))
+
+A5.B5.angle %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(A5.B5.angle = mean,sd = sd))
+
+C5.B5.angle %>%
+  group_by(V2) %>%
+  summarise_at(vars(V1), list(C5.B5.angle = mean,sd = sd))
 
 
 
@@ -3550,6 +3898,99 @@ V  %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
   summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B6.V = mean,sd = sd))
 
+
+Angle <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+Time <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+V <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+
+Angle[,"dRB.LR"] <- B5.B4.angle$V1[1:31] - B5.B4.angle$V1[32:62]
+Angle[,"dRB.VR"] <- B5.B4.angle$V1[1:31] - B5.B4.angle$V1[63:93]
+Angle[,"dLR.VR"] <- B5.B4.angle$V1[32:62] - B5.B4.angle$V1[63:93]
+Time[,"dRB.LR"] <- B5.B4.time$V1[1:31] - B5.B4.time$V1[32:62]
+Time[,"dRB.VR"] <- B5.B4.time$V1[1:31] - B5.B4.time$V1[63:93]
+Time[,"dLR.VR"] <- B5.B4.time$V1[32:62] - B5.B4.time$V1[63:93]
+V[,"dRB.LR"] <- B5.B4.V$V1[1:31] - B5.B4.V$V1[32:62]
+V[,"dRB.VR"] <- B5.B4.V$V1[1:31] - B5.B4.V$V1[63:93]
+V[,"dLR.VR"] <- B5.B4.V$V1[32:62] - B5.B4.V$V1[63:93]
+
+
+Angle  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B4.angle = mean,sd = sd))
+
+Time  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B4.time = mean,sd = sd))
+
+V  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B4.V = mean,sd = sd))
+
+
+
+
+Angle <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+Time <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+V <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+
+Angle[,"dRB.LR"] <- B6.B9.angle$V1[1:31] - B6.B9.angle$V1[32:62]
+Angle[,"dRB.VR"] <- B6.B9.angle$V1[1:31] - B6.B9.angle$V1[63:93]
+Angle[,"dLR.VR"] <- B6.B9.angle$V1[32:62] - B6.B9.angle$V1[63:93]
+Time[,"dRB.LR"] <- B6.B9.time$V1[1:31] - B6.B9.time$V1[32:62]
+Time[,"dRB.VR"] <- B6.B9.time$V1[1:31] - B6.B9.time$V1[63:93]
+Time[,"dLR.VR"] <- B6.B9.time$V1[32:62] - B6.B9.time$V1[63:93]
+V[,"dRB.LR"] <- B6.B9.V$V1[1:31] - B6.B9.V$V1[32:62]
+V[,"dRB.VR"] <- B6.B9.V$V1[1:31] - B6.B9.V$V1[63:93]
+V[,"dLR.VR"] <- B6.B9.V$V1[32:62] - B6.B9.V$V1[63:93]
+
+
+Angle  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B6.B9.angle = mean,sd = sd))
+
+Time  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B6.B9.time = mean,sd = sd))
+
+V  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B6.B9.V = mean,sd = sd))
+
+
+
+Angle <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+Time <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+V <- as.data.frame(matrix(NA, nrow = 31, ncol = 3))
+
+Angle[,"dRB.LR"] <- B4.B1.angle$V1[1:31] - B4.B1.angle$V1[32:62]
+Angle[,"dRB.VR"] <- B4.B1.angle$V1[1:31] - B4.B1.angle$V1[63:93]
+Angle[,"dLR.VR"] <- B4.B1.angle$V1[32:62] - B4.B1.angle$V1[63:93]
+Time[,"dRB.LR"] <- B4.B1.time$V1[1:31] - B4.B1.time$V1[32:62]
+Time[,"dRB.VR"] <- B4.B1.time$V1[1:31] - B4.B1.time$V1[63:93]
+Time[,"dLR.VR"] <- B4.B1.time$V1[32:62] - B4.B1.time$V1[63:93]
+V[,"dRB.LR"] <- B4.B1.V$V1[1:31] - B4.B1.V$V1[32:62]
+V[,"dRB.VR"] <- B4.B1.V$V1[1:31] - B4.B1.V$V1[63:93]
+V[,"dLR.VR"] <- B4.B1.V$V1[32:62] - B4.B1.V$V1[63:93]
+
+
+Angle  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B4.B1.angle = mean,sd = sd))
+
+Time  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B4.B1.time = mean,sd = sd))
+
+V  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B4.B1.V = mean,sd = sd))
+
+
+
+
+
+
+
 Angle[,"dRB.LR"] <- B5.B79.angle$V1[1:31] - B5.B79.angle$V1[32:62]
 Angle[,"dRB.VR"] <- B5.B79.angle$V1[1:31] - B5.B79.angle$V1[63:93]
 Angle[,"dLR.VR"] <- B5.B79.angle$V1[32:62] - B5.B79.angle$V1[63:93]
@@ -3573,6 +4014,9 @@ V  %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
   summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B79.V = mean,sd = sd))
 
+
+
+
 Angle[,"dRB.LR"] <- B5.A5C5.angle$V1[1:31] - B5.A5C5.angle$V1[32:62]
 Angle[,"dRB.VR"] <- B5.A5C5.angle$V1[1:31] - B5.A5C5.angle$V1[63:93]
 Angle[,"dLR.VR"] <- B5.A5C5.angle$V1[32:62] - B5.A5C5.angle$V1[63:93]
@@ -3595,6 +4039,10 @@ Time %>%
 V  %>%
   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
   summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.A5C5.V = mean,sd = sd))
+
+
+
+
 
 
 
