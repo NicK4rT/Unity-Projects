@@ -4419,31 +4419,28 @@ V  %>%
 
 
 
-
-
-
-Angle[,"dRB.LR"] <- B5.B79.angle$V1[1:31] - B5.B79.angle$V1[32:62]
-Angle[,"dRB.VR"] <- B5.B79.angle$V1[1:31] - B5.B79.angle$V1[63:93]
-Angle[,"dLR.VR"] <- B5.B79.angle$V1[32:62] - B5.B79.angle$V1[63:93]
-Time[,"dRB.LR"] <- B5.B79.time$V1[1:31] - B5.B79.time$V1[32:62]
-Time[,"dRB.VR"] <- B5.B79.time$V1[1:31] - B5.B79.time$V1[63:93]
-Time[,"dLR.VR"] <- B5.B79.time$V1[32:62] - B5.B79.time$V1[63:93]
-V[,"dRB.LR"] <- B5.B79.V$V1[1:31] - B5.B79.V$V1[32:62]
-V[,"dRB.VR"] <- B5.B79.V$V1[1:31] - B5.B79.V$V1[63:93]
-V[,"dLR.VR"] <- B5.B79.V$V1[32:62] - B5.B79.V$V1[63:93]
-
-
-Angle  %>%
-  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B79.angle = mean,sd = sd))
-
-Time  %>%
-  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B79.time = mean,sd = sd))
-
-V  %>%
-  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
-  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B79.V = mean,sd = sd))
+# Angle[,"dRB.LR"] <- B5.B79.angle$V1[1:31] - B5.B79.angle$V1[32:62]
+# Angle[,"dRB.VR"] <- B5.B79.angle$V1[1:31] - B5.B79.angle$V1[63:93]
+# Angle[,"dLR.VR"] <- B5.B79.angle$V1[32:62] - B5.B79.angle$V1[63:93]
+# Time[,"dRB.LR"] <- B5.B79.time$V1[1:31] - B5.B79.time$V1[32:62]
+# Time[,"dRB.VR"] <- B5.B79.time$V1[1:31] - B5.B79.time$V1[63:93]
+# Time[,"dLR.VR"] <- B5.B79.time$V1[32:62] - B5.B79.time$V1[63:93]
+# V[,"dRB.LR"] <- B5.B79.V$V1[1:31] - B5.B79.V$V1[32:62]
+# V[,"dRB.VR"] <- B5.B79.V$V1[1:31] - B5.B79.V$V1[63:93]
+# V[,"dLR.VR"] <- B5.B79.V$V1[32:62] - B5.B79.V$V1[63:93]
+# 
+# 
+# Angle  %>%
+#   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+#   summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B79.angle = mean,sd = sd))
+# 
+# Time  %>%
+#   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+#   summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B79.time = mean,sd = sd))
+# 
+# V  %>%
+#   drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+#   summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.B79.V = mean,sd = sd))
 
 
 
@@ -4473,6 +4470,130 @@ V  %>%
 
 
 
+Angle[,"dRB.LR"] <- B5.A5.angle$V1[1:31] - B5.A5.angle$V1[32:62]
+Angle[,"dRB.VR"] <- B5.A5.angle$V1[1:31] - B5.A5.angle$V1[63:93]
+Angle[,"dLR.VR"] <- B5.A5.angle$V1[32:62] - B5.A5.angle$V1[63:93]
+Time[,"dRB.LR"] <- B5.A5.time$V1[1:31] - B5.A5.time$V1[32:62]
+Time[,"dRB.VR"] <- B5.A5.time$V1[1:31] - B5.A5.time$V1[63:93]
+Time[,"dLR.VR"] <- B5.A5.time$V1[32:62] - B5.A5.time$V1[63:93]
+V[,"dRB.LR"] <- B5.A5.V$V1[1:31] - B5.A5.V$V1[32:62]
+V[,"dRB.VR"] <- B5.A5.V$V1[1:31] - B5.A5.V$V1[63:93]
+V[,"dLR.VR"] <- B5.A5.V$V1[32:62] - B5.A5.V$V1[63:93]
+
+
+Angle %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.A5.angle = mean,sd = sd))
+
+Time %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.A5.time = mean,sd = sd))
+
+V  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.A5.V = mean,sd = sd))
+
+
+
+Angle[,"dRB.LR"] <- B5.C5.angle$V1[1:31] - B5.C5.angle$V1[32:62]
+Angle[,"dRB.VR"] <- B5.C5.angle$V1[1:31] - B5.C5.angle$V1[63:93]
+Angle[,"dLR.VR"] <- B5.C5.angle$V1[32:62] - B5.C5.angle$V1[63:93]
+Time[,"dRB.LR"] <- B5.C5.time$V1[1:31] - B5.C5.time$V1[32:62]
+Time[,"dRB.VR"] <- B5.C5.time$V1[1:31] - B5.C5.time$V1[63:93]
+Time[,"dLR.VR"] <- B5.C5.time$V1[32:62] - B5.C5.time$V1[63:93]
+V[,"dRB.LR"] <- B5.C5.V$V1[1:31] - B5.C5.V$V1[32:62]
+V[,"dRB.VR"] <- B5.C5.V$V1[1:31] - B5.C5.V$V1[63:93]
+V[,"dLR.VR"] <- B5.C5.V$V1[32:62] - B5.C5.V$V1[63:93]
+
+
+Angle %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.C5.angle = mean,sd = sd))
+
+Time %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.C5.time = mean,sd = sd))
+
+V  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(B5.C5.V = mean,sd = sd))
+
+
+
+Angle[,"dRB.LR"] <- A5.C5.angle$V1[1:31] - A5.C5.angle$V1[32:62]
+Angle[,"dRB.VR"] <- A5.C5.angle$V1[1:31] - A5.C5.angle$V1[63:93]
+Angle[,"dLR.VR"] <- A5.C5.angle$V1[32:62] - A5.C5.angle$V1[63:93]
+Time[,"dRB.LR"] <- A5.C5.time$V1[1:31] - A5.C5.time$V1[32:62]
+Time[,"dRB.VR"] <- A5.C5.time$V1[1:31] - A5.C5.time$V1[63:93]
+Time[,"dLR.VR"] <- A5.C5.time$V1[32:62] - A5.C5.time$V1[63:93]
+V[,"dRB.LR"] <- A5.C5.V$V1[1:31] - A5.C5.V$V1[32:62]
+V[,"dRB.VR"] <- A5.C5.V$V1[1:31] - A5.C5.V$V1[63:93]
+V[,"dLR.VR"] <- A5.C5.V$V1[32:62] - A5.C5.V$V1[63:93]
+
+
+Angle %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(A5.C5.angle = mean,sd = sd))
+
+Time %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(A5.C5.time = mean,sd = sd))
+
+V  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(A5.C5.V = mean,sd = sd))
+
+
+
+Angle[,"dRB.LR"] <- A5.B5.angle$V1[1:31] - A5.B5.angle$V1[32:62]
+Angle[,"dRB.VR"] <- A5.B5.angle$V1[1:31] - A5.B5.angle$V1[63:93]
+Angle[,"dLR.VR"] <- A5.B5.angle$V1[32:62] - A5.B5.angle$V1[63:93]
+Time[,"dRB.LR"] <- A5.B5.time$V1[1:31] - A5.B5.time$V1[32:62]
+Time[,"dRB.VR"] <- A5.B5.time$V1[1:31] - A5.B5.time$V1[63:93]
+Time[,"dLR.VR"] <- A5.B5.time$V1[32:62] - A5.B5.time$V1[63:93]
+V[,"dRB.LR"] <- A5.B5.V$V1[1:31] - A5.B5.V$V1[32:62]
+V[,"dRB.VR"] <- A5.B5.V$V1[1:31] - A5.B5.V$V1[63:93]
+V[,"dLR.VR"] <- A5.B5.V$V1[32:62] - A5.B5.V$V1[63:93]
+
+
+Angle %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(A5.B5.angle = mean,sd = sd))
+
+Time %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(A5.B5.time = mean,sd = sd))
+
+V  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(A5.B5.V = mean,sd = sd))
+
+
+
+Angle[,"dRB.LR"] <- C5.B5.angle$V1[1:31] - C5.B5.angle$V1[32:62]
+Angle[,"dRB.VR"] <- C5.B5.angle$V1[1:31] - C5.B5.angle$V1[63:93]
+Angle[,"dLR.VR"] <- C5.B5.angle$V1[32:62] - C5.B5.angle$V1[63:93]
+Time[,"dRB.LR"] <- C5.B5.time$V1[1:31] - C5.B5.time$V1[32:62]
+Time[,"dRB.VR"] <- C5.B5.time$V1[1:31] - C5.B5.time$V1[63:93]
+Time[,"dLR.VR"] <- C5.B5.time$V1[32:62] - C5.B5.time$V1[63:93]
+V[,"dRB.LR"] <- C5.B5.V$V1[1:31] - C5.B5.V$V1[32:62]
+V[,"dRB.VR"] <- C5.B5.V$V1[1:31] - C5.B5.V$V1[63:93]
+V[,"dLR.VR"] <- C5.B5.V$V1[32:62] - C5.B5.V$V1[63:93]
+
+
+Angle %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(C5.B5.angle = mean,sd = sd))
+
+Time %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(C5.B5.time = mean,sd = sd))
+
+V  %>%
+  drop_na(dRB.LR,dRB.VR,dLR.VR)%>%
+  summarise_at(vars(dRB.LR,dRB.VR,dLR.VR), list(C5.B5.V = mean,sd = sd))
+
+
 
 
 
@@ -4482,12 +4603,55 @@ B5.B6.time2 <- B5.B6.time %>%
 
 B5.B6.time2[,"time"] <- abs(mean(B5.B6.time2$V1)-B5.B6.time2$V1)
 
+B5.B4.time2 <- B5.B4.time %>%
+  drop_na(V1)
+
+B5.B4.time2[,"time"] <- abs(mean(B5.B4.time2$V1)-B5.B4.time2$V1)
+
+B6.B9.time2 <- B6.B9.time %>%
+  drop_na(V1)
+
+B6.B9.time2[,"time"] <- abs(mean(B6.B9.time2$V1)-B6.B9.time2$V1)
+
+B4.B1.time2 <- B4.B1.time %>%
+  drop_na(V1)
+
+B4.B1.time2[,"time"] <- abs(mean(B4.B1.time2$V1)-B4.B1.time2$V1)
+
 B5.A5C5.time2 <- B5.A5C5.time %>%
   drop_na(V1)
 
 B5.A5C5.time2[,"time"] <- abs(mean(B5.A5C5.time2$V1)-B5.A5C5.time2$V1)
 
+B5.A5.time2 <- B5.A5.time %>%
+  drop_na(V1)
+
+B5.A5.time2[,"time"] <- abs(mean(B5.A5.time2$V1)-B5.A5.time2$V1)
+
+B5.C5.time2 <- B5.C5.time %>%
+  drop_na(V1)
+
+B5.C5.time2[,"time"] <- abs(mean(B5.C5.time2$V1)-B5.C5.time2$V1)
+
+A5.C5.time2 <- A5.C5.time %>%
+  drop_na(V1)
+
+A5.C5.time2[,"time"] <- abs(mean(A5.C5.time2$V1)-A5.C5.time2$V1)
+
+A5.B5.time2 <- A5.B5.time %>%
+  drop_na(V1)
+
+A5.B5.time2[,"time"] <- abs(mean(A5.B5.time2$V1)-A5.B5.time2$V1)
+
+C5.B5.time2 <- C5.B5.time %>%
+  drop_na(V1)
+
+C5.B5.time2[,"time"] <- abs(mean(C5.B5.time2$V1)-C5.B5.time2$V1)
+
 print((mean(B5.B6.time2$time)+mean(B5.B6.time2$time))/2)
+print((mean(B5.B4.time2$time)+mean(B5.B4.time2$time))/2)
+print((mean(B6.B9.time2$time)+mean(B6.B9.time2$time))/2)
+print((mean(B4.B1.time2$time)+mean(B4.B1.time2$time))/2)
 
 
 
@@ -4496,12 +4660,55 @@ B5.B6.angle2 <- B5.B6.angle %>%
 
 B5.B6.angle2[,"angle"] <- abs(mean(B5.B6.angle2$V1)-B5.B6.angle2$V1)
 
+B5.B4.angle2 <- B5.B4.angle %>%
+  drop_na(V1)
+
+B5.B4.angle2[,"angle"] <- abs(mean(B5.B4.angle2$V1)-B5.B4.angle2$V1)
+
+B6.B9.angle2 <- B6.B9.angle %>%
+  drop_na(V1)
+
+B6.B9.angle2[,"angle"] <- abs(mean(B6.B9.angle2$V1)-B6.B9.angle2$V1)
+
+B4.B1.angle2 <- B4.B1.angle %>%
+  drop_na(V1)
+
+B4.B1.angle2[,"angle"] <- abs(mean(B4.B1.angle2$V1)-B4.B1.angle2$V1)
+
 B5.A5C5.angle2 <- B5.A5C5.angle %>%
   drop_na(V1)
 
 B5.A5C5.angle2[,"angle"] <- abs(mean(B5.A5C5.angle2$V1)-B5.A5C5.angle2$V1)
 
+B5.A5.angle2 <- B5.A5.angle %>%
+  drop_na(V1)
+
+B5.A5.angle2[,"angle"] <- abs(mean(B5.A5.angle2$V1)-B5.A5.angle2$V1)
+
+B5.C5.angle2 <- B5.C5.angle %>%
+  drop_na(V1)
+
+B5.C5.angle2[,"angle"] <- abs(mean(B5.C5.angle2$V1)-B5.C5.angle2$V1)
+
+A5.C5.angle2 <- A5.C5.angle %>%
+  drop_na(V1)
+
+A5.C5.angle2[,"angle"] <- abs(mean(A5.C5.angle2$V1)-A5.C5.angle2$V1)
+
+A5.B5.angle2 <- A5.B5.angle %>%
+  drop_na(V1)
+
+A5.B5.angle2[,"angle"] <- abs(mean(A5.B5.angle2$V1)-A5.B5.angle2$V1)
+
+C5.B5.angle2 <- C5.B5.angle %>%
+  drop_na(V1)
+
+C5.B5.angle2[,"angle"] <- abs(mean(C5.B5.angle2$V1)-C5.B5.angle2$V1)
+
 print((mean(B5.B6.angle2$angle)+mean(B5.B6.angle2$angle))/2)
+print((mean(B5.B4.angle2$angle)+mean(B5.B4.angle2$angle))/2)
+print((mean(B6.B9.angle2$angle)+mean(B6.B9.angle2$angle))/2)
+print((mean(B4.B1.angle2$angle)+mean(B4.B1.angle2$angle))/2)
 
 
 
@@ -4510,12 +4717,55 @@ B5.B6.V2 <- B5.B6.V %>%
 
 B5.B6.V2[,"V"] <- abs(mean(B5.B6.V2$V1)-B5.B6.V2$V1)
 
+B5.B4.V2 <- B5.B4.V %>%
+  drop_na(V1)
+
+B5.B4.V2[,"V"] <- abs(mean(B5.B4.V2$V1)-B5.B4.V2$V1)
+
+B6.B9.V2 <- B6.B9.V %>%
+  drop_na(V1)
+
+B6.B9.V2[,"V"] <- abs(mean(B6.B9.V2$V1)-B6.B9.V2$V1)
+
+B4.B1.V2 <- B4.B1.V %>%
+  drop_na(V1)
+
+B4.B1.V2[,"V"] <- abs(mean(B4.B1.V2$V1)-B4.B1.V2$V1)
+
 B5.A5C5.V2 <- B5.A5C5.V %>%
   drop_na(V1)
 
 B5.A5C5.V2[,"V"] <- abs(mean(B5.A5C5.V2$V1)-B5.A5C5.V2$V1)
 
+B5.A5.V2 <- B5.A5.V %>%
+  drop_na(V1)
+
+B5.A5.V2[,"V"] <- abs(mean(B5.A5.V2$V1)-B5.A5.V2$V1)
+
+B5.C5.V2 <- B5.C5.V %>%
+  drop_na(V1)
+
+B5.C5.V2[,"V"] <- abs(mean(B5.C5.V2$V1)-B5.C5.V2$V1)
+
+A5.C5.V2 <- A5.C5.V %>%
+  drop_na(V1)
+
+A5.C5.V2[,"V"] <- abs(mean(A5.C5.V2$V1)-A5.C5.V2$V1)
+
+A5.B5.V2 <- A5.B5.V %>%
+  drop_na(V1)
+
+A5.B5.V2[,"V"] <- abs(mean(A5.B5.V2$V1)-A5.B5.V2$V1)
+
+C5.B5.V2 <- C5.B5.V %>%
+  drop_na(V1)
+
+C5.B5.V2[,"V"] <- abs(mean(C5.B5.V2$V1)-C5.B5.V2$V1)
+
 print((mean(B5.B6.V2$V)+mean(B5.B6.V2$V))/2)
+print((mean(B5.B4.V2$V)+mean(B5.B4.V2$V))/2)
+print((mean(B6.B9.V2$V)+mean(B6.B9.V2$V))/2)
+print((mean(B4.B1.V2$V)+mean(B4.B1.V2$V))/2)
 
 
 
