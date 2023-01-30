@@ -1,4 +1,3 @@
-
 ```{r}
 
 library(readr)
@@ -31,7 +30,6 @@ library("ggExtra")
 
 
 ```
-
 
 ```{r}
 i <- 1;
@@ -77,10 +75,10 @@ dataVR <- dataVR %>%
   dataRB1 <- dataRB %>%
     filter(Phase == 1,);
 
-  a <- min(which(dataRB1$GFO == "B5"))
-  b <- min(which(dataRB1$Movement == 4))-1
+#  a <- min(which(dataRB1$GFO == "B5"))
+#  b <- min(which(dataRB1$Movement == 4))-1
   
-  dataRB1 <- dataRB1[rownames(dataRB1) %in% a:b, ]
+#  dataRB1 <- dataRB1[rownames(dataRB1) %in% a:b, ]
   
   
   dataRB2 <- dataRB %>%
@@ -114,10 +112,10 @@ if(!(i %% 2 == 0)){
   dataLR1 <- dataLR %>%
     filter(Phase == 1,);
 
-  a <- max(which(dataLR1$Movement == 4))+1
-  b <- min(which(dataLR1$Movement == 8))-1
+#  a <- max(which(dataLR1$Movement == 4))+1
+#  b <- min(which(dataLR1$Movement == 8))-1
   
-  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
+#  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
   
   
   dataLR2 <- dataLR %>%
@@ -150,10 +148,10 @@ if(i %% 2 == 0){
   dataLR1 <- dataLR %>%
     filter(Phase == 1,);
 
-  a <- min(which(dataLR1$GFO == "B5"))
-  b <- min(which(dataLR1$Movement == 4))-1
+#  a <- min(which(dataLR1$GFO == "B5"))
+#  b <- min(which(dataLR1$Movement == 4))-1
   
-  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
+#  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
   
   
   dataLR2 <- dataLR %>%
@@ -188,10 +186,10 @@ if(i %% 2 == 0){
   dataVR1 <- dataVR %>%
     filter(Phase == 1,);
 
-  a <- max(which(dataVR1$Movement == 4))+1
-  b <- min(which(dataVR1$Movement == 8))-1
+#  a <- max(which(dataVR1$Movement == 4))+1
+#  b <- min(which(dataVR1$Movement == 8))-1
   
-  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
+#  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
   
   
   dataVR2 <- dataVR %>%
@@ -223,10 +221,10 @@ if(!(i %% 2 == 0)){
   dataVR1 <- dataVR %>%
     filter(Phase == 1,);
 
-  a <- min(which(dataVR1$GFO == "B5"))
-  b <- min(which(dataVR1$Movement == 4))-1
+#  a <- min(which(dataVR1$GFO == "B5"))
+#  b <- min(which(dataVR1$Movement == 4))-1
   
-  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
+#  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
   
   
   dataVR2 <- dataVR %>%
@@ -466,10 +464,10 @@ dataVR <- dataVR %>%
   dataRB1 <- dataRB %>%
     filter(Phase == 1,);
 
-  a <- min(which(dataRB1$GFO == "B5"))
-  b <- min(which(dataRB1$Movement == 4))-1
+#  a <- min(which(dataRB1$GFO == "B5"))
+#  b <- min(which(dataRB1$Movement == 7))-1
   
-  dataRB1 <- dataRB1[rownames(dataRB1) %in% a:b, ]
+#  dataRB1 <- dataRB1[rownames(dataRB1) %in% a:b, ]
   
   
   dataRB2 <- dataRB %>%
@@ -503,10 +501,10 @@ if(!(i %% 2 == 0)){
   dataLR1 <- dataLR %>%
     filter(Phase == 1,);
 
-  a <- max(which(dataLR1$Movement == 4))+1
-  b <- min(which(dataLR1$Movement == 8))-1
+#  a <- min(which(dataLR1$GFO == "B5"))
+#  b <- min(which(dataLR1$Movement == 7))-1
   
-  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
+#  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
   
   
   dataLR2 <- dataLR %>%
@@ -539,10 +537,10 @@ if(i %% 2 == 0){
   dataLR1 <- dataLR %>%
     filter(Phase == 1,);
 
-  a <- min(which(dataLR1$GFO == "B5"))
-  b <- min(which(dataLR1$Movement == 4))-1
+#  a <- min(which(dataLR1$GFO == "B5"))
+#  b <- min(which(dataLR1$Movement == 7))-1
   
-  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
+#  dataLR1 <- dataLR1[rownames(dataLR1) %in% a:b, ]
   
   
   dataLR2 <- dataLR %>%
@@ -577,10 +575,10 @@ if(i %% 2 == 0){
   dataVR1 <- dataVR %>%
     filter(Phase == 1,);
 
-  a <- max(which(dataVR1$Movement == 4))+1
-  b <- min(which(dataVR1$Movement == 8))-1
+#  a <- min(which(dataVR1$GFO == "B5"))
+#  b <- min(which(dataVR1$Movement == 7))-1
   
-  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
+#  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
   
   
   dataVR2 <- dataVR %>%
@@ -612,10 +610,10 @@ if(!(i %% 2 == 0)){
   dataVR1 <- dataVR %>%
     filter(Phase == 1,);
 
-  a <- min(which(dataVR1$GFO == "B5"))
-  b <- min(which(dataVR1$Movement == 4))-1
+#  a <- min(which(dataVR1$GFO == "B5"))
+#  b <- min(which(dataVR1$Movement == 7))-1
   
-  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
+#  dataVR1 <- dataVR1[rownames(dataVR1) %in% a:b, ]
   
   
   dataVR2 <- dataVR %>%
@@ -814,8 +812,6 @@ rm(nameRB2,nameLR2,nameVR2,i,dataRB,dataLR,dataVR)
 
 ```
 
-
-
 ```{r}
 #Time to Target
 
@@ -989,6 +985,7 @@ i <- i + 1
 rm(i,ia,ic,n,dataLR,dataRB,dataVR,dataLR_TTT,dataVR_TTT,dataRB_TTT,nameLR1_TTT,nameLR2_TTT,nameRB1_TTT,nameRB2_TTT,nameVR1_TTT,nameVR2_TTT)
 
 ```
+
 ```{r}
 
 # #Get Eye gaze pitch
@@ -1012,8 +1009,6 @@ rm(i,ia,ic,n,dataLR,dataRB,dataVR,dataLR_TTT,dataVR_TTT,dataRB_TTT,nameLR1_TTT,n
 # }
 
 ```
-
-
 
 ```{r}
 
@@ -1072,8 +1067,6 @@ i <- i + 1
 rm(data,i,name,nameRB,nameLR,nameVR,nameRB1,nameLR1,nameVR1,nameRB2,nameLR2,nameVR2)
 ```
 
-
-
 ```{r}
 
 i <- 1;
@@ -1121,8 +1114,6 @@ print(n*ncol(data))
 rm(i,n,data,name,nameRB,nameLR,nameVR,nameRB1,nameLR1,nameVR1,nameRB2,nameLR2,nameVR2)
 
 ```
-
-
 
 ```{r}
 setwd("/cloud/project/Recordings/Sorting");
@@ -1276,7 +1267,6 @@ ggplot(data, aes(x = Order, y = Age, color = What.degree.are.you.pursuing., shap
 rm(RB.LR.VR,RB.VR.LR,data,data2,data3,data4,i,n,t1,t2)
 
 ```
-
 
 ```{r}
 
@@ -1809,6 +1799,71 @@ setwd("/cloud/project/Recordings/Plots");
 ggsave(plotnames[plotnumber],last_plot())
 plotnumber <- plotnumber + 1
 
+cdata11 <- cdata1  %>%
+  filter(Phase == "bRB")
+
+ggplot(cdata11, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,10),breaks = c(0,1,2,3,4,5,6,7,8,9,10), labels = c("Very low","","","","","","","","","","Very high")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6,7,8,9))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="Task Load Index RB (RB -> LR -> VR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata12 <- cdata1  %>%
+  filter(Phase == "cLR")
+
+ggplot(cdata12, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,10),breaks = c(0,1,2,3,4,5,6,7,8,9,10), labels = c("Very low","","","","","","","","","","Very high")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6,7,8,9))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="Task Load Index LR (RB -> LR -> VR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata13 <- cdata1  %>%
+  filter(Phase == "dVR")
+
+ggplot(cdata13, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,10),breaks = c(0,1,2,3,4,5,6,7,8,9,10), labels = c("Very low","","","","","","","","","","Very high")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6,7,8,9))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="Task Load Index VR (RB -> LR -> VR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+
+
+
+
+
 
 
 
@@ -1832,10 +1887,322 @@ setwd("/cloud/project/Recordings/Plots");
 ggsave(plotnames[plotnumber],last_plot())
 plotnumber <- plotnumber + 1
 
+cdata21 <- cdata2  %>%
+  filter(Phase == "bRB")
+
+ggplot(cdata21, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,10),breaks = c(0,1,2,3,4,5,6,7,8,9,10), labels = c("Very low","","","","","","","","","","Very high")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6,7,8,9))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="Task Load Index RB (RB -> VR -> LR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata22 <- cdata2  %>%
+  filter(Phase == "cLR")
+
+ggplot(cdata22, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,10),breaks = c(0,1,2,3,4,5,6,7,8,9,10), labels = c("Very low","","","","","","","","","","Very high")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6,7,8,9))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="Task Load Index LR (RB -> VR -> LR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata23 <- cdata2  %>%
+  filter(Phase == "dVR")
+
+ggplot(cdata23, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,10),breaks = c(0,1,2,3,4,5,6,7,8,9,10), labels = c("Very low","","","","","","","","","","Very high")) +
+  scale_x_discrete(breaks = c(1,2,3,4,5,6,7,8,9))+#labels = Questions[28:32]) +
+  labs(x="Questions",
+       y="",
+     title="Task Load Index VR (RB -> VR -> LR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
 
 
 
-rm(namepre,nameLR,nameRB,nameVR,RB.LR.VR,RB.VR.LR,cdata,cdata1,cdata2,data,data1,data2,data3,data4,data5,data6,RB.LR.VR.LR,RB.LR.VR.pre,RB.LR.VR.RB,RB.LR.VR.VR,RB.VR.LR.LR,RB.VR.LR.pre,RB.VR.LR.RB,RB.VR.LR.VR,i)
+
+data1 <- data %>%
+  select(1,Order,Phase)
+data1[,"rank"] <- "01"
+data2 <- data %>%
+  select(2,Order,Phase)
+data2[,"rank"] <- "02"
+data3 <- data %>%
+  select(3,Order,Phase)  
+data3[,"rank"] <- "03"
+data4 <- data %>%
+  select(4,Order,Phase)
+data4[,"rank"] <- "04"
+data5 <- data %>%
+  select(5,Order,Phase)
+data5[,"rank"] <- "05"
+data6 <- data %>%
+  select(6,Order,Phase)
+data6[,"rank"] <- "06"
+data7 <- data %>%
+  select(7,Order,Phase)
+data7[,"rank"] <- "07"
+data8 <- data %>%
+  select(8,Order,Phase)
+data8[,"rank"] <- "08"
+data9 <- data %>%
+  select(9,Order,Phase)
+data9[,"rank"] <- "09"
+data10 <- data %>%
+  select(10,Order,Phase)
+data10[,"rank"] <- "10"
+data11 <- data %>%
+  select(11,Order,Phase)
+data11[,"rank"] <- "11"
+data12 <- data %>%
+  select(12,Order,Phase)
+data12[,"rank"] <- "12"
+data13 <- data %>%
+  select(13,Order,Phase)  
+data13[,"rank"] <- "13"
+data14 <- data %>%
+  select(14,Order,Phase)
+data14[,"rank"] <- "14"
+data15 <- data %>%
+  select(15,Order,Phase)
+data15[,"rank"] <- "15"
+data16 <- data %>%
+  select(16,Order,Phase)
+data16[,"rank"] <- "16"
+
+names(data1) <- c("Numbers","Order","Phase","rank")
+names(data2) <- c("Numbers","Order","Phase","rank")
+names(data3) <- c("Numbers","Order","Phase","rank")
+names(data4) <- c("Numbers","Order","Phase","rank")
+names(data5) <- c("Numbers","Order","Phase","rank")
+names(data6) <- c("Numbers","Order","Phase","rank")
+names(data7) <- c("Numbers","Order","Phase","rank")
+names(data8) <- c("Numbers","Order","Phase","rank")
+names(data9) <- c("Numbers","Order","Phase","rank")
+names(data10) <- c("Numbers","Order","Phase","rank")
+names(data11) <- c("Numbers","Order","Phase","rank")
+names(data12) <- c("Numbers","Order","Phase","rank")
+names(data13) <- c("Numbers","Order","Phase","rank")
+names(data14) <- c("Numbers","Order","Phase","rank")
+names(data15) <- c("Numbers","Order","Phase","rank")
+names(data16) <- c("Numbers","Order","Phase","rank")
+
+cdata <- rbind(data1,data2,data3,data4,data5,data6,data7,data8,data9,data10,data11,data12,data13,data14,data15,data16)
+
+cdata1 <- cdata  %>%
+  filter(Order == "RB -> LR -> VR")
+
+ggplot(cdata1, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,3),breaks = c(0,1,2,3), labels = c("None","","","Severe")) +
+  scale_x_discrete(breaks = (c("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16")), labels = as.character(c(1:16))) +
+  labs(x="Questions",
+       y="",
+     title="SSQ (RB -> LR -> VR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata10 <- cdata1  %>%
+  filter(Phase == "aPre")
+
+ggplot(cdata10, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,3),breaks = c(0,1,2,3), labels = c("None","","","Severe")) +
+  scale_x_discrete(breaks = (c("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16")), labels = as.character(c(1:16))) +
+  labs(x="Questions",
+       y="",
+     title="SSQ Pre (RB -> LR -> VR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata11 <- cdata1  %>%
+  filter(Phase == "bRB")
+
+ggplot(cdata11, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,3),breaks = c(0,1,2,3), labels = c("None","","","Severe")) +
+  scale_x_discrete(breaks = (c("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16")), labels = as.character(c(1:16))) +
+  labs(x="Questions",
+       y="",
+     title="SSQ RB (RB -> LR -> VR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata12 <- cdata1  %>%
+  filter(Phase == "cLR")
+
+ggplot(cdata12, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,3),breaks = c(0,1,2,3), labels = c("None","","","Severe")) +
+  scale_x_discrete(breaks = (c("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16")), labels = as.character(c(1:16))) +
+  labs(x="Questions",
+       y="",
+     title="SSQ LR (RB -> LR -> VR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata13 <- cdata1  %>%
+  filter(Phase == "dVR")
+
+ggplot(cdata13, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,3),breaks = c(0,1,2,3), labels = c("None","","","Severe")) +
+  scale_x_discrete(breaks = (c("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16")), labels = as.character(c(1:16))) +
+  labs(x="Questions",
+       y="",
+     title="SSQ VR (RB -> LR -> VR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+
+cdata2 <- cdata  %>%
+  filter(Order == "RB -> VR -> LR")
+
+ggplot(cdata2, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,3),breaks = c(0,1,2,3), labels = c("None","","","Severe")) +
+  scale_x_discrete(breaks = (c("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16")), labels = as.character(c(1:16))) +
+  labs(x="Questions",
+       y="",
+     title="SSQ (RB -> VR -> LR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata20 <- cdata2  %>%
+  filter(Phase == "aPre")
+
+ggplot(cdata20, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,3),breaks = c(0,1,2,3), labels = c("None","","","Severe")) +
+  scale_x_discrete(breaks = (c("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16")), labels = as.character(c(1:16))) +
+  labs(x="Questions",
+       y="",
+     title="SSQ Pre (RB -> VR -> LR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata21 <- cdata2  %>%
+  filter(Phase == "bRB")
+
+ggplot(cdata21, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,3),breaks = c(0,1,2,3), labels = c("None","","","Severe")) +
+  scale_x_discrete(breaks = (c("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16")), labels = as.character(c(1:16))) +
+  labs(x="Questions",
+       y="",
+     title="SSQ RB (RB -> VR -> LR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata22 <- cdata2  %>%
+  filter(Phase == "cLR")
+
+ggplot(cdata22, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,3),breaks = c(0,1,2,3), labels = c("None","","","Severe")) +
+  scale_x_discrete(breaks = (c("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16")), labels = as.character(c(1:16))) +
+  labs(x="Questions",
+       y="",
+     title="SSQ LR (RB -> VR -> LR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+cdata23 <- cdata2  %>%
+  filter(Phase == "dVR")
+
+ggplot(cdata23, aes(x = rank, y = Numbers)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  scale_y_continuous(limits = c(0,3),breaks = c(0,1,2,3), labels = c("None","","","Severe")) +
+  scale_x_discrete(breaks = (c("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16")), labels = as.character(c(1:16))) +
+  labs(x="Questions",
+       y="",
+     title="SSQ VR (RB -> VR -> LR)") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2))
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber],last_plot())
+plotnumber <- plotnumber + 1
+
+
+
+
+#rm(namepre,nameLR,nameRB,nameVR,RB.LR.VR,RB.VR.LR,cdata,cdata1,cdata2,data,data1,data2,data3,data4,data5,data6,RB.LR.VR.LR,RB.LR.VR.pre,RB.LR.VR.RB,RB.LR.VR.VR,RB.VR.LR.LR,RB.VR.LR.pre,RB.VR.LR.RB,RB.VR.LR.VR,i)
 
 ```
 
@@ -1886,6 +2253,67 @@ nameVR.2 <- c(nameVR12,nameVR22)
 nameB5.B6 <- c(nameRB.2,nameLR.2,nameVR.2)
 
 
+nameRB12 <- expand.grid('B5.B4.RB',1:9);
+nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
+nameLR12 <- expand.grid('B5.B4.LR',1:9);
+nameLR12 <- apply(nameLR12,1,paste0,collapse = "");
+nameVR12 <- expand.grid('B5.B4.VR',1:9);
+nameVR12 <- apply(nameVR12,1,paste0,collapse = "");
+
+nameRB22 <- expand.grid('B5.B4.RB',10:31);
+nameRB22 <- apply(nameRB22,1,paste0,collapse = "");
+nameLR22 <- expand.grid('B5.B4.LR',10:31);
+nameLR22 <- apply(nameLR22,1,paste0,collapse = "");
+nameVR22 <- expand.grid('B5.B4.VR',10:31);
+nameVR22 <- apply(nameVR22,1,paste0,collapse = "");
+
+nameRB.2 <- c(nameRB12,nameRB22)
+nameLR.2 <- c(nameLR12,nameLR22)
+nameVR.2 <- c(nameVR12,nameVR22)
+
+nameB5.B4 <- c(nameRB.2,nameLR.2,nameVR.2)
+
+nameRB12 <- expand.grid('B6.B9.RB',1:9);
+nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
+nameLR12 <- expand.grid('B6.B9.LR',1:9);
+nameLR12 <- apply(nameLR12,1,paste0,collapse = "");
+nameVR12 <- expand.grid('B5.B4.VR',1:9);
+nameVR12 <- apply(nameVR12,1,paste0,collapse = "");
+
+nameRB22 <- expand.grid('B6.B9.RB',10:31);
+nameRB22 <- apply(nameRB22,1,paste0,collapse = "");
+nameLR22 <- expand.grid('B6.B9.LR',10:31);
+nameLR22 <- apply(nameLR22,1,paste0,collapse = "");
+nameVR22 <- expand.grid('B6.B9.VR',10:31);
+nameVR22 <- apply(nameVR22,1,paste0,collapse = "");
+
+nameRB.2 <- c(nameRB12,nameRB22)
+nameLR.2 <- c(nameLR12,nameLR22)
+nameVR.2 <- c(nameVR12,nameVR22)
+
+nameB6.B9 <- c(nameRB.2,nameLR.2,nameVR.2)
+
+nameRB12 <- expand.grid('B4.B1.RB',1:9);
+nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
+nameLR12 <- expand.grid('B4.B1.LR',1:9);
+nameLR12 <- apply(nameLR12,1,paste0,collapse = "");
+nameVR12 <- expand.grid('B4.B1.VR',1:9);
+nameVR12 <- apply(nameVR12,1,paste0,collapse = "");
+
+nameRB22 <- expand.grid('B4.B1.RB',10:31);
+nameRB22 <- apply(nameRB22,1,paste0,collapse = "");
+nameLR22 <- expand.grid('B4.B1.LR',10:31);
+nameLR22 <- apply(nameLR22,1,paste0,collapse = "");
+nameVR22 <- expand.grid('B4.B1.VR',10:31);
+nameVR22 <- apply(nameVR22,1,paste0,collapse = "");
+
+nameRB.2 <- c(nameRB12,nameRB22)
+nameLR.2 <- c(nameLR12,nameLR22)
+nameVR.2 <- c(nameVR12,nameVR22)
+
+nameB4.B1 <- c(nameRB.2,nameLR.2,nameVR.2)
+
+
 nameRB12 <- expand.grid('B5.B79.RB',1:9);
 nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
 nameLR12 <- expand.grid('B5.B79.LR',1:9);
@@ -1927,6 +2355,105 @@ nameVR.2 <- c(nameVR12,nameVR22)
 
 nameB5.A5C5 <- c(nameRB.2,nameLR.2,nameVR.2)
 
+nameRB12 <- expand.grid('B5.A5.RB',1:9);
+nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
+nameLR12 <- expand.grid('B5.A5.LR',1:9);
+nameLR12 <- apply(nameLR12,1,paste0,collapse = "");
+nameVR12 <- expand.grid('B5.A5.VR',1:9);
+nameVR12 <- apply(nameVR12,1,paste0,collapse = "");
+
+nameRB22 <- expand.grid('B5.A5.RB',10:31);
+nameRB22 <- apply(nameRB22,1,paste0,collapse = "");
+nameLR22 <- expand.grid('B5.A5.LR',10:31);
+nameLR22 <- apply(nameLR22,1,paste0,collapse = "");
+nameVR22 <- expand.grid('B5.A5.VR',10:31);
+nameVR22 <- apply(nameVR22,1,paste0,collapse = "");
+
+nameRB.2 <- c(nameRB12,nameRB22)
+nameLR.2 <- c(nameLR12,nameLR22)
+nameVR.2 <- c(nameVR12,nameVR22)
+
+nameB5.A5 <- c(nameRB.2,nameLR.2,nameVR.2)
+
+nameRB12 <- expand.grid('B5.C5.RB',1:9);
+nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
+nameLR12 <- expand.grid('B5.C5.LR',1:9);
+nameLR12 <- apply(nameLR12,1,paste0,collapse = "");
+nameVR12 <- expand.grid('B5.C5.VR',1:9);
+nameVR12 <- apply(nameVR12,1,paste0,collapse = "");
+
+nameRB22 <- expand.grid('B5.C5.RB',10:31);
+nameRB22 <- apply(nameRB22,1,paste0,collapse = "");
+nameLR22 <- expand.grid('B5.C5.LR',10:31);
+nameLR22 <- apply(nameLR22,1,paste0,collapse = "");
+nameVR22 <- expand.grid('B5.C5.VR',10:31);
+nameVR22 <- apply(nameVR22,1,paste0,collapse = "");
+
+nameRB.2 <- c(nameRB12,nameRB22)
+nameLR.2 <- c(nameLR12,nameLR22)
+nameVR.2 <- c(nameVR12,nameVR22)
+
+nameB5.C5 <- c(nameRB.2,nameLR.2,nameVR.2)
+
+nameRB12 <- expand.grid('A5.B5.RB',1:9);
+nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
+nameLR12 <- expand.grid('A5.B5.LR',1:9);
+nameLR12 <- apply(nameLR12,1,paste0,collapse = "");
+nameVR12 <- expand.grid('A5.B5.VR',1:9);
+nameVR12 <- apply(nameVR12,1,paste0,collapse = "");
+
+nameRB22 <- expand.grid('A5.B5.RB',10:31);
+nameRB22 <- apply(nameRB22,1,paste0,collapse = "");
+nameLR22 <- expand.grid('A5.B5.LR',10:31);
+nameLR22 <- apply(nameLR22,1,paste0,collapse = "");
+nameVR22 <- expand.grid('A5.B5.VR',10:31);
+nameVR22 <- apply(nameVR22,1,paste0,collapse = "");
+
+nameRB.2 <- c(nameRB12,nameRB22)
+nameLR.2 <- c(nameLR12,nameLR22)
+nameVR.2 <- c(nameVR12,nameVR22)
+
+nameA5.B5 <- c(nameRB.2,nameLR.2,nameVR.2)
+
+nameRB12 <- expand.grid('C5.B5.RB',1:9);
+nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
+nameLR12 <- expand.grid('C5.B5.LR',1:9);
+nameLR12 <- apply(nameLR12,1,paste0,collapse = "");
+nameVR12 <- expand.grid('C5.B5.VR',1:9);
+nameVR12 <- apply(nameVR12,1,paste0,collapse = "");
+
+nameRB22 <- expand.grid('C5.B5.RB',10:31);
+nameRB22 <- apply(nameRB22,1,paste0,collapse = "");
+nameLR22 <- expand.grid('C5.B5.LR',10:31);
+nameLR22 <- apply(nameLR22,1,paste0,collapse = "");
+nameVR22 <- expand.grid('C5.B5.VR',10:31);
+nameVR22 <- apply(nameVR22,1,paste0,collapse = "");
+
+nameRB.2 <- c(nameRB12,nameRB22)
+nameLR.2 <- c(nameLR12,nameLR22)
+nameVR.2 <- c(nameVR12,nameVR22)
+
+nameC5.B5 <- c(nameRB.2,nameLR.2,nameVR.2)
+
+nameRB12 <- expand.grid('A5.C5.RB',1:9);
+nameRB12 <- apply(nameRB12,1,paste0,collapse = "");
+nameLR12 <- expand.grid('A5.C5.LR',1:9);
+nameLR12 <- apply(nameLR12,1,paste0,collapse = "");
+nameVR12 <- expand.grid('A5.C5.VR',1:9);
+nameVR12 <- apply(nameVR12,1,paste0,collapse = "");
+
+nameRB22 <- expand.grid('A5.C5.RB',10:31);
+nameRB22 <- apply(nameRB22,1,paste0,collapse = "");
+nameLR22 <- expand.grid('A5.C5.LR',10:31);
+nameLR22 <- apply(nameLR22,1,paste0,collapse = "");
+nameVR22 <- expand.grid('A5.C5.VR',10:31);
+nameVR22 <- apply(nameVR22,1,paste0,collapse = "");
+
+nameRB.2 <- c(nameRB12,nameRB22)
+nameLR.2 <- c(nameLR12,nameLR22)
+nameVR.2 <- c(nameVR12,nameVR22)
+
+nameA5.C5 <- c(nameRB.2,nameLR.2,nameVR.2)
 
 
 #should be angle df
@@ -1947,6 +2474,18 @@ B5.B6.RB.time <- c(1:31)
 B5.B6.LR.time <- c(1:31)
 B5.B6.VR.time <- c(1:31)
 
+B5.B4.RB.time <- c(1:31)
+B5.B4.LR.time <- c(1:31)
+B5.B4.VR.time <- c(1:31)
+
+B6.B9.RB.time <- c(1:31)
+B6.B9.LR.time <- c(1:31)
+B6.B9.VR.time <- c(1:31)
+
+B4.B1.RB.time <- c(1:31)
+B4.B1.LR.time <- c(1:31)
+B4.B1.VR.time <- c(1:31)
+
 B5.B79.RB.time <- c(1:31)
 B5.B79.LR.time <- c(1:31)
 B5.B79.VR.time <- c(1:31)
@@ -1955,10 +2494,43 @@ B5.A5C5.RB.time <- c(1:31)
 B5.A5C5.LR.time <- c(1:31)
 B5.A5C5.VR.time <- c(1:31)
 
+B5.C5.RB.time <- c(1:31)
+B5.C5.LR.time <- c(1:31)
+B5.C5.VR.time <- c(1:31)
+
+B5.A5.RB.time <- c(1:31)
+B5.A5.LR.time <- c(1:31)
+B5.A5.VR.time <- c(1:31)
+
+A5.B5.RB.time <- c(1:31)
+A5.B5.LR.time <- c(1:31)
+A5.B5.VR.time <- c(1:31)
+
+C5.B5.RB.time <- c(1:31)
+C5.B5.LR.time <- c(1:31)
+C5.B5.VR.time <- c(1:31)
+
+A5.C5.RB.time <- c(1:31)
+A5.C5.LR.time <- c(1:31)
+A5.C5.VR.time <- c(1:31)
+
+
 
 B5.B6.RB.V <- c(1:31)
 B5.B6.LR.V <- c(1:31)
 B5.B6.VR.V <- c(1:31)
+
+B5.B4.RB.V <- c(1:31)
+B5.B4.LR.V <- c(1:31)
+B5.B4.VR.V <- c(1:31)
+
+B6.B9.RB.V <- c(1:31)
+B6.B9.LR.V <- c(1:31)
+B6.B9.VR.V <- c(1:31)
+
+B4.B1.RB.V <- c(1:31)
+B4.B1.LR.V <- c(1:31)
+B4.B1.VR.V <- c(1:31)
 
 B5.B79.RB.V <- c(1:31)
 B5.B79.LR.V <- c(1:31)
@@ -1968,10 +2540,43 @@ B5.A5C5.RB.V <- c(1:31)
 B5.A5C5.LR.V <- c(1:31)
 B5.A5C5.VR.V <- c(1:31)
 
+B5.C5.RB.V <- c(1:31)
+B5.C5.LR.V <- c(1:31)
+B5.C5.VR.V <- c(1:31)
+
+B5.A5.RB.V <- c(1:31)
+B5.A5.LR.V <- c(1:31)
+B5.A5.VR.V <- c(1:31)
+
+A5.B5.RB.V <- c(1:31)
+A5.B5.LR.V <- c(1:31)
+A5.B5.VR.V <- c(1:31)
+
+C5.B5.RB.V <- c(1:31)
+C5.B5.LR.V <- c(1:31)
+C5.B5.VR.V <- c(1:31)
+
+A5.C5.RB.V <- c(1:31)
+A5.C5.LR.V <- c(1:31)
+A5.C5.VR.V <- c(1:31)
+
+
 
 B5.B6.RB.angle <- c(1:31)
 B5.B6.LR.angle <- c(1:31)
 B5.B6.VR.angle <- c(1:31)
+
+B5.B4.RB.angle <- c(1:31)
+B5.B4.LR.angle <- c(1:31)
+B5.B4.VR.angle <- c(1:31)
+
+B6.B9.RB.angle <- c(1:31)
+B6.B9.LR.angle <- c(1:31)
+B6.B9.VR.angle <- c(1:31)
+
+B4.B1.RB.angle <- c(1:31)
+B4.B1.LR.angle <- c(1:31)
+B4.B1.VR.angle <- c(1:31)
 
 B5.B79.RB.angle <- c(1:31)
 B5.B79.LR.angle <- c(1:31)
@@ -1980,6 +2585,27 @@ B5.B79.VR.angle <- c(1:31)
 B5.A5C5.RB.angle <- c(1:31)
 B5.A5C5.LR.angle <- c(1:31)
 B5.A5C5.VR.angle <- c(1:31)
+
+
+B5.C5.RB.angle <- c(1:31)
+B5.C5.LR.angle <- c(1:31)
+B5.C5.VR.angle <- c(1:31)
+
+B5.A5.RB.angle <- c(1:31)
+B5.A5.LR.angle <- c(1:31)
+B5.A5.VR.angle <- c(1:31)
+
+A5.B5.RB.angle <- c(1:31)
+A5.B5.LR.angle <- c(1:31)
+A5.B5.VR.angle <- c(1:31)
+
+C5.B5.RB.angle <- c(1:31)
+C5.B5.LR.angle <- c(1:31)
+C5.B5.VR.angle <- c(1:31)
+
+A5.C5.RB.angle <- c(1:31)
+A5.C5.LR.angle <- c(1:31)
+A5.C5.VR.angle <- c(1:31)
 
 i <- 1
 
@@ -2006,6 +2632,18 @@ data.movement <- data %>%
 B5.B6.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.B6[i], data.movement)
 data.movement <- data %>%
+  filter(Phase == 1, Movement == 5)
+B5.B4.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B4[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 2)
+B6.B9.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB6.B9[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 6)
+B4.B1.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB4.B1[i], data.movement)
+data.movement <- data %>%
   filter(Phase == 2, Movement == 8)
 B5.B79.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.B79[i], data.movement)
@@ -2013,7 +2651,18 @@ data.movement <- data %>%
   filter(Phase == 3, Movement == 1)
 B5.A5C5.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.A5C5[i], data.movement)
-
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 1)
+B5.A5.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.A5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 2)
+A5.C5.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameA5.C5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 3)
+C5.B5.RB.time[i] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameC5.B5[i], data.movement)
 }
 
 
@@ -2024,7 +2673,19 @@ if((i > 31 && i < 31*2+1))
 data.movement <- data %>%
   filter(Phase == 1, Movement == 5)
 B5.B6.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
-assign(nameB5.B6[i], data.movement)
+assign(nameB5.B6[i-31], data.movement)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 1)
+B5.B4.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B4[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 6)
+B6.B9.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB6.B9[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 2)
+B4.B1.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB4.B1[i], data.movement)
 data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
@@ -2033,6 +2694,18 @@ data.movement <- data %>%
   filter(Phase == 3, Movement == 1)
 B5.A5C5.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.A5C5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 1)
+B5.C5.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.C5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 2)
+A5.C5.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameA5.C5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 3)
+A5.B5.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameA5.B5[i], data.movement)
     
   }
   if(!(i %% 2 == 0)){  
@@ -2042,6 +2715,18 @@ data.movement <- data %>%
 B5.B6.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.B6[i], data.movement)
 data.movement <- data %>%
+  filter(Phase == 1, Movement == 5)
+B5.B4.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B4[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 2)
+B6.B9.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB6.B9[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 6)
+B4.B1.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB4.B1[i], data.movement)
+data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.B79[i], data.movement)
@@ -2049,7 +2734,19 @@ data.movement <- data %>%
   filter(Phase == 3, Movement == 8)
 B5.A5C5.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.A5C5[i], data.movement)
-    
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 8)
+B5.A5.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.A5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 9)
+A5.C5.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameA5.C5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 10)
+C5.B5.LR.time[i-31] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameC5.B5[i], data.movement)    
+
   }
 }
 
@@ -2063,6 +2760,18 @@ data.movement <- data %>%
 B5.B6.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.B6[i], data.movement)
 data.movement <- data %>%
+  filter(Phase == 1, Movement == 1)
+B5.B4.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B4[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 6)
+B6.B9.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB6.B9[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 2)
+B4.B1.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB4.B1[i], data.movement)
+data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.B79[i], data.movement)
@@ -2070,6 +2779,18 @@ data.movement <- data %>%
   filter(Phase == 3, Movement == 1)
 B5.A5C5.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.A5C5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 1)
+B5.C5.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.C5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 2)
+A5.C5.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameA5.C5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 3)
+A5.B5.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameA5.B5[i], data.movement)
     
   }
   if(!(i %% 2 == 0)){  
@@ -2079,6 +2800,18 @@ data.movement <- data %>%
 B5.B6.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.B6[i], data.movement)
 data.movement <- data %>%
+  filter(Phase == 1, Movement == 5)
+B5.B4.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.B4[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 2)
+B6.B9.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB6.B9[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 6)
+B4.B1.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB4.B1[i], data.movement)
+data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.B79[i], data.movement)
@@ -2086,6 +2819,18 @@ data.movement <- data %>%
   filter(Phase == 3, Movement == 8)
 B5.A5C5.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
 assign(nameB5.A5C5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 8)
+B5.A5.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameB5.A5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 9)
+A5.C5.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameA5.C5[i], data.movement)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 10)
+C5.B5.VR.time[i-62] <- max(data.movement$Time) - min(data.movement$Time)
+assign(nameC5.B5[i], data.movement)  
     
   }
 }
@@ -2099,11 +2844,29 @@ data.movement <- data %>%
   filter(Phase == 1, Movement == 1)
 B5.B6.RB.V[i] <- mean(data.movement$V2)
 data.movement <- data %>%
+  filter(Phase == 1, Movement == 5)
+B5.B4.RB.V[i] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 2)
+B6.B9.RB.V[i] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 6)
+B4.B1.RB.V[i] <- mean(data.movement$V2)
+data.movement <- data %>%
   filter(Phase == 2, Movement == 8)
 B5.B79.RB.V[i] <- mean(data.movement$V2)
 data.movement <- data %>%
   filter(Phase == 3, Movement == 1)
 B5.A5C5.RB.V[i] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 1)
+B5.A5.RB.V[i] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 2)
+A5.C5.RB.V[i] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 3)
+C5.B5.RB.V[i] <- mean(data.movement$V2)
 
 }
 
@@ -2116,11 +2879,29 @@ data.movement <- data %>%
   filter(Phase == 1, Movement == 5)
 B5.B6.LR.V[i-31] <- mean(data.movement$V2)
 data.movement <- data %>%
+  filter(Phase == 1, Movement == 1)
+B5.B4.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 6)
+B6.B9.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 2)
+B4.B1.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.LR.V[i-31] <- mean(data.movement$V2)
 data.movement <- data %>%
   filter(Phase == 3, Movement == 1)
 B5.A5C5.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 1)
+B5.C5.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 2)
+A5.C5.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 3)
+A5.B5.LR.V[i-31] <- mean(data.movement$V2)
     
   }
   if(!(i %% 2 == 0)){  
@@ -2129,11 +2910,29 @@ data.movement <- data %>%
   filter(Phase == 1, Movement == 1)
 B5.B6.LR.V[i-31] <- mean(data.movement$V2)
 data.movement <- data %>%
+  filter(Phase == 1, Movement == 5)
+B5.B4.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 2)
+B6.B9.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 6)
+B4.B1.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.LR.V[i-31] <- mean(data.movement$V2)
 data.movement <- data %>%
   filter(Phase == 3, Movement == 8)
 B5.A5C5.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 8)
+B5.A5.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 9)
+A5.C5.LR.V[i-31] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 10)
+C5.B5.LR.V[i-31] <- mean(data.movement$V2)
     
   }
 }
@@ -2147,11 +2946,29 @@ data.movement <- data %>%
   filter(Phase == 1, Movement == 5)
 B5.B6.VR.V[i-62] <- mean(data.movement$V2)
 data.movement <- data %>%
+  filter(Phase == 1, Movement == 1)
+B5.B4.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 6)
+B6.B9.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 2)
+B4.B1.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.VR.V[i-62] <- mean(data.movement$V2)
 data.movement <- data %>%
   filter(Phase == 3, Movement == 1)
 B5.A5C5.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 1)
+B5.C5.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 2)
+A5.C5.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 3)
+A5.B5.VR.V[i-62] <- mean(data.movement$V2)
     
   }
   if(!(i %% 2 == 0)){  
@@ -2160,11 +2977,29 @@ data.movement <- data %>%
   filter(Phase == 1, Movement == 1)
 B5.B6.VR.V[i-62] <- mean(data.movement$V2)
 data.movement <- data %>%
+  filter(Phase == 1, Movement == 5)
+B5.B4.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 2)
+B6.B9.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 1, Movement == 6)
+B4.B1.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
   filter(Phase == 2, Movement == 1)
 B5.B79.VR.V[i-62] <- mean(data.movement$V2)
 data.movement <- data %>%
   filter(Phase == 3, Movement == 8)
 B5.A5C5.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 8)
+B5.A5.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 9)
+A5.C5.VR.V[i-62] <- mean(data.movement$V2)
+data.movement <- data %>%
+  filter(Phase == 3, Movement == 10)
+C5.B5.VR.V[i-62] <- mean(data.movement$V2)
     
   }
 }
@@ -2180,11 +3015,29 @@ data.movement <- data %>%
   filter(Phase == 1, GFO == "B6")
 B5.B6.RB.angle[i] <- 30 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
+  filter(Phase == 1, GFO == "B4")
+B5.B4.RB.angle[i] <- 30 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 1, GFO == "B9")
+B6.B9.RB.angle[i] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 1, GFO == "B1")
+B4.B1.RB.angle[i] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
   filter(Phase == 2, GFO == "B7")
 B5.B79.RB.angle[i] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
   filter(Phase == 3, GFO == "A5")
 B5.A5C5.RB.angle[i] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "A5")
+B5.A5.RB.angle[i] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "C5")
+A5.C5.RB.angle[i] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "B5")
+C5.B5.RB.angle[i] <- sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 
 }
 
@@ -2197,11 +3050,29 @@ data.movement <- data %>%
   filter(Phase == 1, GFO == "B6")
 B5.B6.LR.angle[i-31] <- 30 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
+  filter(Phase == 1, GFO == "B4")
+B5.B4.LR.angle[i-31] <- 30 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 1, GFO == "B9")
+B6.B9.LR.angle[i-31] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 1, GFO == "B1")
+B4.B1.LR.angle[i-31] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
   filter(Phase == 2, GFO == "B7")
 B5.B79.LR.angle[i-31] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
   filter(Phase == 3, GFO == "C5")
 B5.A5C5.LR.angle[i-31] <- 90 - sqrt(mean(data.movement$pitch)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "C5")
+B5.C5.LR.angle[i-31] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "A5")
+A5.C5.LR.angle[i-31] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "B5")
+A5.B5.LR.angle[i-31] <- sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
     
   }
   if(!(i %% 2 == 0)){  
@@ -2210,11 +3081,29 @@ data.movement <- data %>%
   filter(Phase == 1, GFO == "B6")
 B5.B6.LR.angle[i-31] <- 30 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
+  filter(Phase == 1, GFO == "B4")
+B5.B4.LR.angle[i-31] <- 30 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 1, GFO == "B9")
+B6.B9.LR.angle[i-31] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 1, GFO == "B1")
+B4.B1.LR.angle[i-31] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
   filter(Phase == 2, GFO == "B9")
 B5.B79.LR.angle[i-31] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
   filter(Phase == 3, GFO == "A5")
 B5.A5C5.LR.angle[i-31] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "A5")
+B5.A5.LR.angle[i-31] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "C5")
+A5.C5.LR.angle[i-31] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "B5")
+C5.B5.LR.angle[i-31] <- 0 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
     
   }
 }
@@ -2228,11 +3117,29 @@ data.movement <- data %>%
   filter(Phase == 1, GFO == "B6")
 B5.B6.VR.angle[i-62] <- 30 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
+  filter(Phase == 1, GFO == "B4")
+B5.B4.VR.angle[i-61] <- 30 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 1, GFO == "B9")
+B6.B9.VR.angle[i-62] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 1, GFO == "B1")
+B4.B1.VR.angle[i-62] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
   filter(Phase == 2, GFO == "B7")
 B5.B79.VR.angle[i-62] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
   filter(Phase == 3, GFO == "C5")
 B5.A5C5.VR.angle[i-62] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "C5")
+B5.C5.VR.angle[i-62] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "A5")
+A5.C5.VR.angle[i-62] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "B5")
+A5.B5.VR.angle[i-62] <- sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
     
   }
   if(!(i %% 2 == 0)){  
@@ -2241,11 +3148,29 @@ data.movement <- data %>%
   filter(Phase == 1, GFO == "B6")
 B5.B6.VR.angle[i-62] <- 30 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
+  filter(Phase == 1, GFO == "B4")
+B5.B4.VR.angle[i-62] <- 30 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 1, GFO == "B9")
+B6.B9.VR.angle[i-62] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 1, GFO == "B1")
+B4.B1.VR.angle[i-62] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
   filter(Phase == 2, GFO == "B9")
 B5.B79.VR.angle[i-62] <- 33.8 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
   filter(Phase == 3, GFO == "A5")
 B5.A5C5.VR.angle[i-62] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "A5")
+B5.A5.VR.angle[i-62] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "C5")
+A5.C5.VR.angle[i-62] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "B5")
+C5.B5.VR.angle[i-62] <- 0 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
     
   }
 }
@@ -2358,7 +3283,6 @@ B5.A5C5.angle <- as.data.frame(rbind(B5.A5C5.RB.angle2,B5.A5C5.LR.angle2,B5.A5C5
 
 
 ```
-
 
 ```{r}
 plotnumber2 <- 100
@@ -2916,4 +3840,3 @@ h <- h + 1
 }
 
 ```
-
