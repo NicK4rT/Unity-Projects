@@ -3563,6 +3563,8 @@ C5.B5.angle <- subset(C5.B5.angle, V1<30 & V1>-30)
 
 ```{r}
 
+plotnumber5 <- 700
+
 
 #B5.B6
 
@@ -3579,8 +3581,8 @@ ggplot(B5.B6.angle, aes(x = V2, y = V1)) +
 
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
-ggsave(plotnames[plotnumber2],last_plot())
-plotnumber2 <- plotnumber2 + 1
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
 
 
 ggplot(B5.B6.time, aes(x = V2, y = V1)) +
@@ -3596,8 +3598,8 @@ ggplot(B5.B6.time, aes(x = V2, y = V1)) +
 
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
-ggsave(plotnames[plotnumber2],last_plot())
-plotnumber2 <- plotnumber2 + 1
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
 
 
 ggplot(B5.B6.V, aes(x = V2, y = V1)) +
@@ -3613,8 +3615,169 @@ ggplot(B5.B6.V, aes(x = V2, y = V1)) +
 
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
-ggsave(plotnames[plotnumber2],last_plot())
-plotnumber2 <- plotnumber2 + 1
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+
+#B5.B4
+
+ggplot(B5.B4.angle, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Offset [deg]",
+     title="Movement B5 -> B4: Angular Offset") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(B5.B4.time, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Time [sec]",
+     title="Movement B5 -> B4: Time to Target") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(B5.B4.V, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Rotation [deg/sec]",
+     title="Movement B5 -> B4: Angular Rotation Speed") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+
+#B6.B9
+
+ggplot(B6.B9.angle, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Offset [deg]",
+     title="Movement B6 -> B9: Angular Offset") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(B6.B9.time, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Time [sec]",
+     title="Movement B6 -> B9: Time to Target") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(B6.B9.V, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Rotation [deg/sec]",
+     title="Movement B6 -> B9: Angular Rotation Speed") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+#B4.B1
+
+ggplot(B4.B1.angle, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Offset [deg]",
+     title="Movement B4 -> B1: Angular Offset") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(B4.B1.time, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Time [sec]",
+     title="Movement B4 -> B1: Time to Target") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(B4.B1.V, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Rotation [deg/sec]",
+     title="Movement B4 -> B1: Angular Rotation Speed") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
 
 
 
@@ -3633,8 +3796,8 @@ ggplot(B5.A5C5.angle, aes(x = V2, y = V1)) +
 
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
-ggsave(plotnames[plotnumber2],last_plot())
-plotnumber2 <- plotnumber2 + 1
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
 
 
 ggplot(B5.A5C5.time, aes(x = V2, y = V1)) +
@@ -3650,8 +3813,8 @@ ggplot(B5.A5C5.time, aes(x = V2, y = V1)) +
 
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
-ggsave(plotnames[plotnumber2],last_plot())
-plotnumber2 <- plotnumber2 + 1
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
 
 
 ggplot(B5.A5C5.V, aes(x = V2, y = V1)) +
@@ -3667,16 +3830,14 @@ ggplot(B5.A5C5.V, aes(x = V2, y = V1)) +
 
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
-ggsave(plotnames[plotnumber2],last_plot())
-plotnumber2 <- plotnumber2 + 1
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
 
 
 
+#B5.A5
 
-
-#B5.B79
-
-ggplot(B5.B79.angle, aes(x = V2, y = V1)) +
+ggplot(B5.A5.angle, aes(x = V2, y = V1)) +
   geom_boxplot() +
   #geom_jitter(width = 0.25,height = 0.25) +  
   scale_color_discrete_sequential(palette = "Viridis") +
@@ -3684,16 +3845,16 @@ ggplot(B5.B79.angle, aes(x = V2, y = V1)) +
   scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
   labs(x="Test Condition",
        y="Angular Offset [deg]",
-     title="Movement B5 -> B7/B9: Angular Offset") +
+     title="Movement B5 -> A5: Angular Offset") +
   theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
 
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
-ggsave(plotnames[plotnumber2],last_plot())
-plotnumber2 <- plotnumber2 + 1
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
 
 
-ggplot(B5.B79.time, aes(x = V2, y = V1)) +
+ggplot(B5.A5.time, aes(x = V2, y = V1)) +
   geom_boxplot() +
   #geom_jitter(width = 0.25,height = 0.25) +  
   scale_color_discrete_sequential(palette = "Viridis") +
@@ -3701,16 +3862,16 @@ ggplot(B5.B79.time, aes(x = V2, y = V1)) +
   scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
   labs(x="Test Condition",
        y="Time [sec]",
-     title="Movement B5 -> B7/B9: Time to Target") +
+     title="Movement B5 -> A5: Time to Target") +
   theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
 
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
-ggsave(plotnames[plotnumber2],last_plot())
-plotnumber2 <- plotnumber2 + 1
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
 
 
-ggplot(B5.B79.V, aes(x = V2, y = V1)) +
+ggplot(B5.A5.V, aes(x = V2, y = V1)) +
   geom_boxplot() +
   #geom_jitter(width = 0.25,height = 0.25) +  
   scale_color_discrete_sequential(palette = "Viridis") +
@@ -3718,13 +3879,283 @@ ggplot(B5.B79.V, aes(x = V2, y = V1)) +
   scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
   labs(x="Test Condition",
        y="Angular Rotation [deg/sec]",
-     title="Movement B5 -> B7/B9: Angular Rotation Speed") +
+     title="Movement B5 -> A5: Angular Rotation Speed") +
   theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
 
   #savingplotcode
 setwd("/cloud/project/Recordings/Plots");
-ggsave(plotnames[plotnumber2],last_plot())
-plotnumber2 <- plotnumber2 + 1
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+
+#B5.C5
+
+ggplot(B5.C5.angle, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Offset [deg]",
+     title="Movement B5 -> C5: Angular Offset") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(B5.C5.time, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Time [sec]",
+     title="Movement B5 -> C5: Time to Target") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(B5.C5.V, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Rotation [deg/sec]",
+     title="Movement B5 -> C5: Angular Rotation Speed") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+
+#A5.C5
+
+ggplot(A5.C5.angle, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Offset [deg]",
+     title="Movement A5 -> C5: Angular Offset") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(A5.C5.time, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Time [sec]",
+     title="Movement A5 -> C5: Time to Target") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(A5.C5.V, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Rotation [deg/sec]",
+     title="Movement A5 -> C5: Angular Rotation Speed") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+
+#A5.B5
+
+ggplot(A5.B5.angle, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Offset [deg]",
+     title="Movement A5 -> B5: Angular Offset") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(A5.B5.time, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Time [sec]",
+     title="Movement A5 -> B5: Time to Target") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(A5.B5.V, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Rotation [deg/sec]",
+     title="Movement A5 -> B5: Angular Rotation Speed") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+
+#C5.B5
+
+ggplot(C5.B5.angle, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Offset [deg]",
+     title="Movement C5 -> B5: Angular Offset") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(C5.B5.time, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Time [sec]",
+     title="Movement C5 -> B5: Time to Target") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+ggplot(C5.B5.V, aes(x = V2, y = V1)) +
+  geom_boxplot() +
+  #geom_jitter(width = 0.25,height = 0.25) +  
+  scale_color_discrete_sequential(palette = "Viridis") +
+  #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+  scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+  labs(x="Test Condition",
+       y="Angular Rotation [deg/sec]",
+     title="Movement C5 -> B5: Angular Rotation Speed") +
+  theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+
+  #savingplotcode
+setwd("/cloud/project/Recordings/Plots");
+ggsave(plotnames[plotnumber5],last_plot())
+plotnumber5 <- plotnumber5 + 1
+
+
+
+#B5.B79
+# 
+# ggplot(B5.B79.angle, aes(x = V2, y = V1)) +
+#   geom_boxplot() +
+#   #geom_jitter(width = 0.25,height = 0.25) +  
+#   scale_color_discrete_sequential(palette = "Viridis") +
+#   #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+#   scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+#   labs(x="Test Condition",
+#        y="Angular Offset [deg]",
+#      title="Movement B5 -> B7/B9: Angular Offset") +
+#   theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+# 
+#   #savingplotcode
+# setwd("/cloud/project/Recordings/Plots");
+# ggsave(plotnames[plotnumber5],last_plot())
+# plotnumber5 <- plotnumber5 + 1
+# 
+# 
+# ggplot(B5.B79.time, aes(x = V2, y = V1)) +
+#   geom_boxplot() +
+#   #geom_jitter(width = 0.25,height = 0.25) +  
+#   scale_color_discrete_sequential(palette = "Viridis") +
+#   #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+#   scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+#   labs(x="Test Condition",
+#        y="Time [sec]",
+#      title="Movement B5 -> B7/B9: Time to Target") +
+#   theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+# 
+#   #savingplotcode
+# setwd("/cloud/project/Recordings/Plots");
+# ggsave(plotnames[plotnumber5],last_plot())
+# plotnumber5 <- plotnumber5 + 1
+# 
+# 
+# ggplot(B5.B79.V, aes(x = V2, y = V1)) +
+#   geom_boxplot() +
+#   #geom_jitter(width = 0.25,height = 0.25) +  
+#   scale_color_discrete_sequential(palette = "Viridis") +
+#   #scale_y_continuous(limits = c(1,7),breaks = c(1,2,3,4,5,6,7), labels = c("I do not agree","","","","","","I strongly agree")) +
+#   scale_x_discrete(breaks = c("a","b","c"), labels = c("RB","LR","VR")) +
+#   labs(x="Test Condition",
+#        y="Angular Rotation [deg/sec]",
+#      title="Movement B5 -> B7/B9: Angular Rotation Speed") +
+#   theme_economist() + theme(plot.title = element_text(vjust=1.5),axis.title.y = element_text(vjust = 2),axis.title.x = element_text(vjust = -1))
+# 
+#   #savingplotcode
+# setwd("/cloud/project/Recordings/Plots");
+# ggsave(plotnames[plotnumber5],last_plot())
+# plotnumber5 <- plotnumber5 + 1
 
 
 ```
