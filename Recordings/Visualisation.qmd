@@ -3167,11 +3167,17 @@ data.movement <- data %>%
 B5.A5.VR.angle[i-62] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
   filter(Phase == 3, GFO == "C5")
+B5.C5.VR.angle[i-62] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "C5")
 A5.C5.VR.angle[i-62] <- 90 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
 data.movement <- data %>%
   filter(Phase == 3, GFO == "B5")
 C5.B5.VR.angle[i-62] <- 0 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
-    
+data.movement <- data %>%
+  filter(Phase == 3, GFO == "B5")
+A5.B5.VR.angle[i-62] <- 0 - sqrt(mean(data.movement$pitch2)^2+mean(data.movement$yaw2)^2)
+
   }
 }
 
