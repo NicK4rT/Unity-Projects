@@ -1,0 +1,47 @@
+Literature Index:
+
+1. Analysing the effects of a wide field of view augmented reality display on search performance in divided attention tasks
+2. From using virtual reality in the training process to virtual engineering
+3. Evaluation instruments for physical therapy using virtual reality in stroke patients: a systematic review
+4. Occupational Therapy: Occupation Focused Holistic Practice in Rehabilitation.
+5. From visual simulation to virtual reality to games
+6. Using virtual reality for prototyping interactive architecture
+7. Haptic display for virtual reality: Progress and challenges
+8. Quality of virtual reality and its impacts on behavioral intention
+9. The effect of a virtual reality environment on gaze behaviour and motor skill learning
+10. Virtual reality explored
+11. Factors Affecting Sense of Presence in a Virtual Reality Social Environment: A Qualitative Study
+12. Virtual Reality: How Much Immersion Is Enough?
+13. Immersion of virtual reality for rehabilitation - Review
+14. What We Don’t Know. The Effect of Realism in Virtual Reality on Experience and Behaviour
+15. How do we make the virtual world a better place? Social discrimination in online gaming, sense of community, and well-being
+16. An Introduction to Clinical Perimetry
+17. https://vr-compare.com/compare?h1=mLbW9G7f4&h2=gc__iL-JZfK
+18. Effects of field-of-view restrictions on speed and accuracy of manoeuvring
+19. Human locomotion through a multiple obstacle environment: strategy changes as a result of visual field limitation
+20. Locomotion through a complex environment with limited field-of-view
+21. Effects of field-of-view restriction on manoeuvring in a 3-D environment
+22. Obstacle crossing with lower visual field restriction: shifts in strategy
+23. Effects of Field of View and Visual Complexity on Virtual Reality Training Effectiveness for a Visual Scanning Task
+24. Effects of Field of View on Dynamic Out-of-View Target Search in Virtual Reality
+25. Effects of information layout, screen size, and field of view on user performance in information-rich virtual environments
+26. Comparing Visual Search between Physical Environments and VR
+27. The Effect of a Foveated Field-of-view Restrictor on VR Sickness
+28. Reaching in reality and virtual reality: a comparison of movement kinematics in healthy subjects and in adults with hemiparesis
+29. Kinematic evaluation of virtual walking trajectories
+30. Kinematics of aimed movements in ecological immersive virtual reality: a comparative study with real world
+31. https://www.valvesoftware.com/en/index/base-stations
+32. https://www.vive.com/us/support/vive-pro/category_howto/about-the-base-stations.html
+33. https://www.steamvr.com/en/
+34. https://www.tobii.com/products/integration/xr-headsets/device-integrations/htc-vive-pro-eye
+35. https://www.vive.com/us/product/vive-pro-eye/specs/
+36. https://www.vive.com/us/support/wireless-tracker/category_howto/tracker.html
+37. https://store.unity.com/products/unity-pro
+38. https://www.blender.org/about/
+39. https://www.posit.co/
+40. https://github.com/
+41. https://www.plm.automation.siemens.com/global/en/products/nx/nx-for-manufacturing.html
+42. Simulator Sickness Questionnaire: An Enhanced Method for Quantifying Simulator Sickness
+43. Development and validation of a simulation workload measure: the simulation task load index (SIM‑TLX)
+44. https://forum.htc.com/topic/7785-htc-vive-tracker-switches-orientation/
+45. Human eye-head co-ordination innatural exploration
